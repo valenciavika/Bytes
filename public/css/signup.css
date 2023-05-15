@@ -1,0 +1,168 @@
+body{
+    margin: 0;
+}
+
+#divbackground{
+    height: 100vh;
+    width: 100vw;
+    background-color: #FCEDCA;
+}
+
+#welcometxt{
+    text-align: center;
+    font-family: 'Inter';
+    font-size: 35px;
+    font-weight: bold;
+    color: #F26122;
+    margin: 0;
+    padding:1.5vw;
+}
+
+#divcontentbackground{
+    background-color: #F9C140;
+    width: 100vw;
+    height: 80vh;
+}
+
+
+#divlogotxt{
+    text-align: center;
+}
+
+#logo{
+    margin-bottom: 10px;
+}
+
+#divcontainer{
+    width:100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#binuseatstxt{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family:'Inter';
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+}
+
+#divsignuptxt{
+    text-align: center;
+    font-family:'Inter';
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background-color: white;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 15px;
+}
+
+#signuptxt{
+    margin: 0;
+    padding-bottom: 25px;
+}
+
+input {
+    margin-bottom: 1vw;
+    background-color: #D9D9D9;
+    border:none;
+    border-radius: 10px;
+    padding: 18px;
+    padding-right: 150px;
+}
+
+.upper_part {
+    display: flex;
+    flex-direction: column;
+}
+
+.agreement {
+    display: flex;
+}
+
+.lower_part {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 13rem;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 40px;
+    border-width: 1px;
+    background-color: white;
+}
+
+#tnc{
+    font-size: 15px;
+    font-family: 'Inter';
+}
+
+
+button:hover {
+    width: 13rem;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 40px;
+    border-width: 1px;
+    background-color: #F26122;
+}
+
+
+button:hover p{
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Inter';
+    color: white;
+    font-size: 20px;
+}
+
+#signup{
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Inter';
+    color: #F26122;
+    font-size: 20px;
+}
+
+#signup:hover{
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Inter';
+    color: white;
+    font-size: 20px;
+}
+
+#checkbox{
+    accent-color:#F26122;
+}
+
+#alrd{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Inter';
+}
+
+#login{
+    text-decoration: none;
+}
