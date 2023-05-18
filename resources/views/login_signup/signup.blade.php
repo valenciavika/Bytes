@@ -11,7 +11,7 @@
         <form action="/signup" id="suform" method="post">
             @csrf
             <div class="upper_part">                          
-                <input type="text" id="fullname" class="textbox" placeholder="Full name" name="name" required value="{{ old('name') }}">
+                <input type="text" id="fullname" class="textbox" placeholder="Full name" name="name" required value="{{ old('name') }}" autofocus>
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}

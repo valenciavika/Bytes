@@ -8,10 +8,16 @@
             </p>
             <br>
         </div>
+        @if(session()->has('LoginError'))
+            <div class="alert_login_failed" role="alert">
+            {{ session('LoginError') }}
+            </div>
+        @endif    
+
         <form action="/login" id="suform" method="post">
             @csrf
             <div class="upper_part">                                
-                <input type="email" id="emailphone" name="email" class="textbox" placeholder="Email/Phone number" required value={{ old('email')}}>
+                <input type="email" id="emailphone" name="email" class="textbox" placeholder="Email/Phone number" required autofocus value="{{ old('email')}}"">
                 @error('email')
                 {{ $message}}
                 <div class="invalid">

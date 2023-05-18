@@ -22,6 +22,8 @@ class SignUpController extends Controller
             'checkbox' => 'required'
         ]);
 
+        $validation['password'] = Hash::make($validation['password']);
+
         User::create($validation);
         return redirect('/login')->with('success', 'Registration successfull! Please login');
     }
