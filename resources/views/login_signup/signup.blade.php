@@ -8,19 +8,44 @@
             </p>
             <br>
         </div>
-        <form action="/signup" id="suform" method="">
+        <form action="/signup" id="suform" method="post">
+            @csrf
             <div class="upper_part">                          
-                <input type="text" id="fullname" class="textbox" placeholder="Full name" required>
-                <input type="email" id="emailphone" class="textbox" placeholder="Email/Phone number" required>
-                <input type="password" id="password" class="passbox" placeholder="Password" required>
-                <input type="password" id="confirmpassword" class="passbox" placeholder="Confirm Password" required>
+                <input type="text" id="fullname" class="textbox" placeholder="Full name" name="name" required value="{{ old('name') }}">
+                @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+
+                <input type="email" id="emailphone" class="textbox" placeholder="Email/Phone number" name="email" required value="{{ old('email') }}">
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+
+                <input type="password" id="password" class="passbox" placeholder="Password" name="password" required>
+                @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+                
+                <input type="password" id="confirmpassword" class="passbox" placeholder="Confirm Password" name="confirm_password" required>
+                @error('confirm_password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+
                 <div class="agreement">
-                    <input type="checkbox" id="checkbox" required>
+                    <input type="checkbox" id="checkbox" name="checkbox" required>
                     <label for="checkbox" id="tnc">I agree to the terms and conditions</label>
                 </div>
             </div>
             <div class="lower_part">
-                <button formaction="Login.html" type="submit" id="button" value="SIGN UP">
+                <button type="submit" id="button" value="SIGN UP">
                     <p id="signup">
                         <strong>SIGN UP</strong>
                     </p>
