@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('stock');
+            $table->string('jenis')->nullable();
             // $table->string('jenis');
+            $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('tenant_id');
             $table->timestamps();
             $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');

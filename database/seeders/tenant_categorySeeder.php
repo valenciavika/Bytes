@@ -19,7 +19,10 @@ class tenant_categorySeeder extends Seeder
                 'name' => 'Foods',
             ],
             [
-                'name' =>'Snacks and Beverages' ,
+                'name' => 'Snacks' ,
+            ],
+            [
+                'name' => 'Beverages',
             ],
         ]);
     }
