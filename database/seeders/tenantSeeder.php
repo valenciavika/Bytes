@@ -13,7 +13,7 @@ class tenantSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        //1 food, 2 snack, 3 beverage
         DB::table('tenants')->insert([
             [
                 'name' => 'Bakmi Efatta',
@@ -35,22 +35,26 @@ class tenantSeeder extends Seeder
                 'category_id'=> 1,
                 'description' => 'Sticky Finger adalah gerai yang menyediakan berbagai macam rice bowl dengan aneka topping olahan daging ayam',
             ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
+            [
+                'name' => 'Rasa Sayange',
+                'category_id'=> 1,
+                'description' => 'Rasa sayange adalah sebuah gerai menyajikan berbagai hidangan khas Manado yang kaya akan rasa, rempah-rempah, dan keunikan budaya Manado',
+            ],
+            [
+                'name' => 'Oriental Chicken Rice',
+                'category_id'=> 1,
+                'description' => 'Oriental Chicken Rice adalah sebuah gerai makanan yang menonjolkan hidangan utamanya, yaitu nasi hainan. Gerai ini dikenal karena menyajikan hidangan-hidangan seperti nasi hainan, chicken fillet, katsudon, dan menu ayam lainnya yang menggugah selera',
+            ],
+            [
+                'name' => 'Rasela Catering',
+                'category_id'=> 1,
+                'description' => 'Rasela catering adalah sebuah gerai yang menyediakan menu yang beragam dari Masakan Nusantara, Masakan Asia, Masakan Barat, dan lainnya',
+            ],
+            [
+                'name' => 'Bakso Akiaw 88',
+                'category_id'=> 1,
+                'description' => 'Bakso Akiaw 88 adalah sebuah gerai makanan yang terkenal dengan menu baksonya yang lezat dan memiliki harga yang ekonomis. Bakso Akiaw 88 menyajikan berbagai jenis bakso, seperti bakso sapi, bakso ayam, dan bakso ikan',
+            ],
             // [
             //     'name' => '',
             //     'description' => '',
