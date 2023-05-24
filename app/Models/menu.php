@@ -14,4 +14,5 @@ class menu extends Model
     {
         return $this->belongsTo(tenant::class);
     }
+
 }

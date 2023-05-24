@@ -1,3 +1,227 @@
 form {
     background-color: blanchedalmond;
 }
+
+/*
+kuning banner: F9C140
+oranye: FD6727
+bg: FCEDCA
+*/
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: Arial, Helvetica, sans-serif;
+ /* display: ; */
+}
+
+body p{
+    margin: 0;
+}
+
+.banner{
+    /* color: #F9C140; */
+    background-color: #F9C140;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation-bar{
+    display: flex;
+    padding-right: 2vw;
+}
+
+.banner form{
+    display: flex;
+    align-items: center;
+    background-color: #F9C140;
+}
+
+.banner form input{
+    width: 30vw;
+}
+
+#bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 6vw;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#bar:hover{
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color:#ffb300;
+}
+
+#bar i{
+    padding-top: 1.5vw;
+    font-size: 2vw;
+}
+
+#bar p{
+    color: white;
+    padding-top: 0.5vw;
+    padding-bottom: 1.5vw;
+}
+
+.home-button{
+    width: 3vw;
+    height: fit-content;
+    display: flex;
+    align-self: center;
+    padding-left: 2vw;
+    cursor: pointer;
+}
+
+.content{
+    background-color: #FCEDCA;
+}
+
+.topup-history{
+    display: flex;
+    justify-content: space-around;
+}
+
+.topup{
+    border-radius: 0.7vw;
+    width: 40%;
+    background-color: #F9C140;
+    display: flex;
+    margin-left: 3vw;
+    margin-top: 1.5vw;
+    justify-content: space-evenly;
+}
+
+.method{
+    display: flex;
+    margin-left: 1vw;
+    align-items: center;
+}
+
+.emoney{
+    display: flex;
+    border-radius: 0.7vw;
+    justify-content: space-between;
+    background-color: white;
+    opacity: 88%;
+    margin-top: 1.5vw;
+    margin-bottom: 1.75vw;
+    align-items: center;
+    width: 50%;
+}
+
+.topup-button{
+    border-radius: 0.7vw;
+    background-color: #FD6727;
+    display: flex;
+    color: white;
+    font-size: 1.25vw;
+    font-weight: bold;
+    width: 23%;
+    justify-content: space-between;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+}
+
+.topup-button p{
+    margin-right: 1vw;
+    display: flex;
+    align-items: center;
+}
+
+.topup-button i{
+    display: flex;
+    align-items: center;
+    font-size: 1.75vw;
+    font-weight:5000;
+    margin-left: 1vw;
+}
+
+.history{
+    border-radius: 0.7vw;
+    width: 45%;
+    background-color: white;
+    margin-top: 1.5vw;
+    margin-right: 3vw;
+}
+
+.history-container{
+    border-radius: 0.7vw;
+    margin: 1vw;
+    border: solid;
+    border-width: 1px;
+    border-color: #FD6727;
+}
+
+.history-box{
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.tenant-time{
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hist{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vw;
+}
+
+.status{
+    background-color: #08A618;
+    display:flex;
+    align-items:center;
+    padding: 0.25vw 0.75vw;
+    color: white;
+    font-weight: bold;
+}
+
+.food{
+    margin-top: 2vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+.Category{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Category i{
+    font-size: 1.5vw;
+    cursor: pointer;
+}
+
+.Category p{
+    margin-bottom: 1vw;
+    display: flex;
+    align-items: center;
+    font-size: 1.5vw;
+    margin-top: 2vw;
+}
+.tenant{
+    display: flex;
+    justify-content: space-between;
+}
+
+.img{
+    height: 20vw;
+    width: 20vw;
+    background-color: white;
+}
+
+.box p{
+    background-color:#F9C140;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vw 0;
+}

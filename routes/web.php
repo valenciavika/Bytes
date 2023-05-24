@@ -16,7 +16,8 @@ use App\Http\Controllers\SignUpController;
 |
 */
 
-Route::get('/', [Controller::class, 'index']);
+use App\Http\Controllers\HomeMenuController;
+Route::get('/', [HomeMenuController::class, 'home']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
