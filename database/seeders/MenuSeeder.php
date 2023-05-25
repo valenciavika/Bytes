@@ -470,6 +470,42 @@ class MenuSeeder extends Seeder
                 'price' => 30000,
                 'tenant_id'=> 8,
             ],
+            //Hakuya
+            [
+                'name' =>'Beef Rice Bowl Mayo',
+                'stock' => 30,
+                'jenis' => null,
+                'price' => 35000,
+                'tenant_id'=> 9,
+            ],
+            [
+                'name' =>'Beef Hamburg Mayo',
+                'stock' => 30,
+                'jenis' => null,
+                'price' => 40000,
+                'tenant_id'=> 9,
+            ],
+            [
+                'name' =>'Beef Rice Bowl Sukiyaki',
+                'stock' => 30,
+                'jenis' => null,
+                'price' => 32000,
+                'tenant_id'=> 9,
+            ],
+            [
+                'name' =>'Beef Rice Bowl Yakiniku',
+                'stock' => 30,
+                'jenis' => null,
+                'price' => 34000,
+                'tenant_id'=> 9,
+            ],
+            [
+                'name' =>'Chicken  Karage Rice Bowl',
+                'stock' => 30,
+                'jenis' => null,
+                'price' => 32000,
+                'tenant_id'=> 9,
+            ],
             [
                 'name' =>'Waffle Vanilla',
                 'stock' => 20,

@@ -56,6 +56,26 @@ class tenantSeeder extends Seeder
                 'description' => 'Bakso Akiaw 88 adalah sebuah gerai makanan yang terkenal dengan menu baksonya yang lezat dan memiliki harga yang ekonomis. Bakso Akiaw 88 menyajikan berbagai jenis bakso, seperti bakso sapi, bakso ayam, dan bakso ikan',
             ],
             [
+                'name' => 'Hakuya Beef Bowl',
+                'category_id'=> 1,
+                'description' => 'Hakuya Bowl Beef adalah gerai yang menawarkan hidangan ikonik berupa mangkuk daging sapi lembut dan lezat yang disajikan dengan berbagai bumbu dan saus.',
+            ],
+            [
+                'name' => 'Marlene Kitchen',
+                'category_id'=> 1,
+                'description' => 'Marlene Kitchen adalah gerai yang memberikan hidangan khas dengan sentuhan internasional dan menggabungkan cita rasa autentik dengan kreasi kreatif.',
+            ],
+            [
+                'name' => '',
+                'category_id'=> 1,
+                'description' => 'Hakuya Bowl Beef adalah gerai yang menawarkan hidangan ikonik berupa mangkuk daging sapi lembut dan lezat yang disajikan dengan berbagai bumbu dan saus.',
+            ],
+            [
+                'name' => 'Tea Well',
+                'category_id'=> 2,
+                'description' => 'Tea Well adalah tempat yang menyajikan beragam minuman segar dan inovatif dengan berbagai pilihan rasa yang memanjakan lidah pengunjung.',
+            ],
+            [
                 'name' => 'Good Waffle',
                 'category_id'=> 2,    
                 'description' => 'Good Waffle adalah surganya para pecinta waffle, kami menyajikan waffle berkualitas tinggi dengan berbagai varian rasa dan pilihan topping yang menggoda selera.',
@@ -70,42 +90,6 @@ class tenantSeeder extends Seeder
                 'category_id'=> 3,
                 'description' => "Omon's Corner adalah toko jus yang menyajikan berbagai jenis jus berkualitas tinggi dengan menggunakan bahan -  bahan segar dan alami.",
             ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
-            // [
-            //     'name' => '',
-            //     'description' => '',
-            // ],
         ]);
     }
 }
