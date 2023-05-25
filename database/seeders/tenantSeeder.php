@@ -55,6 +55,21 @@ class tenantSeeder extends Seeder
                 'category_id'=> 1,
                 'description' => 'Bakso Akiaw 88 adalah sebuah gerai makanan yang terkenal dengan menu baksonya yang lezat dan memiliki harga yang ekonomis. Bakso Akiaw 88 menyajikan berbagai jenis bakso, seperti bakso sapi, bakso ayam, dan bakso ikan',
             ],
+            [
+                'name' => 'Good Waffle',
+                'category_id'=> 2,    
+                'description' => 'Good Waffle adalah surganya para pecinta waffle, kami menyajikan waffle berkualitas tinggi dengan berbagai varian rasa dan pilihan topping yang menggoda selera.',
+            ],
+            [
+                'name' => 'My Crepes',
+                'category_id'=> 2, 
+                'description' => 'My Crepes adalah gerai crepes terbaik yang menyediakan berbagai pilihan jenis crepes mulai dari klasik seperti crepes cokelat, stroberi, dan pisang hingga varian yang lebih eksotis seperti crepes green tea atau blueberry. Setiap crepes disajikan dengan keahlian, menjadikan setiap gigitan sebagai pengalaman yang tak terlupakan.',
+            ],
+            [
+                'name' => "Omon's Corner",
+                'category_id'=> 3,
+                'description' => "Omon's Corner adalah toko jus yang menyajikan berbagai jenis jus berkualitas tinggi dengan menggunakan bahan -  bahan segar dan alami.",
+            ],
             // [
             //     'name' => '',
             //     'description' => '',
