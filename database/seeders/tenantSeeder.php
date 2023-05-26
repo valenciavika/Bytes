@@ -66,9 +66,9 @@ class tenantSeeder extends Seeder
                 'description' => 'Marlene Kitchen adalah gerai yang memberikan hidangan khas dengan sentuhan internasional dan menggabungkan cita rasa autentik dengan kreasi kreatif.',
             ],
             [
-                'name' => '',
+                'name' => 'S&S Kitchen',
                 'category_id'=> 1,
-                'description' => 'Hakuya Bowl Beef adalah gerai yang menawarkan hidangan ikonik berupa mangkuk daging sapi lembut dan lezat yang disajikan dengan berbagai bumbu dan saus.',
+                'description' => 'S&S Kitchen adalah Gerai S&S Kitchen adalah tempat makan yang menghadirkan hidangan lezat dengan cita rasa khas Jepang, seperti ramen dan curry',
             ],
             [
                 'name' => 'Tea Well',
