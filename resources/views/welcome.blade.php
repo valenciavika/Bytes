@@ -14,10 +14,12 @@
 
         <div class="banner">
             <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location='{{ url("") }}'">
-            <form action="/welcome">
+            
+            <form action="/">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit">Search</button>
             </form>
+
             <div class="navigation-bar">
                 <div class="Bell" id="bar" onclick="window.location='{{ url("login") }}'">
                     <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
@@ -76,47 +78,54 @@
                     </div>
                 </div>
             </div>
-
             <div class="food">
-                @foreach ($tenant_category as $tc)
-                    <div class="Category">
-                        <p>{{$tc['name']}}</p>
-                        <i class='fas fa-angle-right'></i>
-                    </div>
-                    <div class="tenant">
+                @if (request('search') or request('category'))
+                    @foreach ($tenant as $t)
+                        <div>
+                            <p>{{$t->name}}</p>
+                        </div>
+                    @endforeach
+                @else
+                    @foreach ($tenant_category as $tc)
+                        <div class="Category">
+                            <p>{{$tc['name']}}</p>
+                            <a href="/?category={{ $tc->id }}"><i class='fas fa-angle-right'></i></a>
+                        </div>
+                        <div class="tenant">
 
-                        @php
-                            $count = 0; // Initialize a counter variable
-                        @endphp
-                        @foreach ($tenant as $t)
-                            @if ($t['category_id'] == $tc['id'])
-                                @if ($count < 4) <!-- Display only four tenants per category -->
+                            @php
+                                $count = 0; // Initialize a counter variable
+                            @endphp
+                            @foreach ($tenant as $t)
+                                @if ($t['tenant_category_id'] == $tc['id'])
+                                    @if ($count < 4) <!-- Display only four tenants per category -->
 
-                                    <div class="box">
-                                        <div class="img">
+                                        <div class="box">
+                                            <div class="img">
+                                            </div>
+                                            <p>{{$t['name']}}</p>
                                         </div>
-                                        <p>{{$t['name']}}</p>
-                                    </div>
 
 
 
-                                    @php
-                                        $count++; // Increment the counter
-                                    @endphp
-                                @else
-                                    @break
+                                        @php
+                                            $count++; // Increment the counter
+                                        @endphp
+                                    @else
+                                        @break
+                                    @endif
+
                                 @endif
+                            @endforeach
+                        </div>
 
-                            @endif
-                        @endforeach
-                    </div>
-
-                @endforeach
+                    @endforeach
+                @endif
+                
             </div>
 
             <p>ikan</p>
         </div>
-
 
     </body>
 </html>

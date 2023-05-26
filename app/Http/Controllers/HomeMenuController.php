@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
-use App\Models\menu;
-use App\Models\tenant_category;
-use App\Models\tenant;
+use App\Models\Tenant_category;
+use App\Http\Controllers\Controller;
 
 class HomeMenuController extends Controller
 {
-    //
     public function home()
     {
-        $tenant_cat = tenant_category::all();
-        $tenant = tenant::all();
-        return view('welcome', ['tenant_category'=>$tenant_cat, 'tenant'=>$tenant]);
+
+        return view('welcome', [
+            'tenant_category' => Tenant_category::all(), 
+            'tenant' => Tenant::latest()->filter(request(['search', 'category']))->get(),
+            'menu' => Menu::all()
+        ]);
     }
+
+    
 }

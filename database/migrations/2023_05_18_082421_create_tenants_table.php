@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('tenant_category_id');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('tenant_categories')->onDelete('cascade');
+            $table->foreign('tenant_category_id')->references('id')->on('tenant_categories')->onDelete('cascade');
         });
     }
 

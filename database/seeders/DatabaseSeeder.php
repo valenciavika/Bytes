@@ -6,8 +6,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-// use Database\seeders\tenant_categorySeeder;
-// use Database\seeders\tenantSeeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
