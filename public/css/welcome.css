@@ -220,23 +220,35 @@ body p{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
 }
 
-.Category i{
+.category-1{
+    display: flex;
+    align-items: center;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+}
+
+.Category i, .category-1 i{
     font-size: 1.5vw;
     cursor: pointer;
 }
 
-.Category p{
-    margin-bottom: 1vw;
+.Category p, .category-1 p{
     display: flex;
     align-items: center;
     font-size: 1.5vw;
-    margin-top: 2vw;
 }
 .tenant{
     display: flex;
     /* justify-content: space-between; */
+}
+
+.tenant-1{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .img{

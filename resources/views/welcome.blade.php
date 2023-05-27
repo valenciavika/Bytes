@@ -80,11 +80,27 @@
             </div>
             <div class="food">
                 @if (request('search') or request('category'))
-                    @foreach ($tenant as $t)
-                        <div>
-                            <p>{{$t->name}}</p>
+
+                @foreach ($tenant_category as $tc)
+                    @if ($tenant[0]->tenant_category_id == $tc['id'])
+                        <div class="category-1">
+                            <i onclick="window.location='{{ url("") }}'" class='fas fa-angle-left'></i>
+                            <p style="margin-left: 1vw" >{{$tc['name']}}</p>
                         </div>
-                    @endforeach
+                        @break
+                    @endif
+
+                @endforeach
+
+                    <div class="tenant-1">
+                        @foreach ($tenant as $t)
+                            <div style="margin-bottom: 1.5vw"class="box">
+                                <div class="img">
+                                </div>
+                                <p style="font-size: 1.5vw;">{{$t['name']}}</p>
+                            </div>
+                        @endforeach
+                    </div>
                 @else
                     @foreach ($tenant_category as $tc)
                         <div class="Category">
@@ -99,7 +115,6 @@
                             @foreach ($tenant as $t)
                                 @if ($t['tenant_category_id'] == $tc['id'])
                                     @if ($count < 4) <!-- Display only four tenants per category -->
-
                                         <div class="box">
                                             <div class="img">
                                             </div>
