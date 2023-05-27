@@ -99,6 +99,13 @@ body p{
 
 .content{
     background-color: #FCEDCA;
+    min-height: 87vh;
+}
+
+.no_result {
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 5vw;
 }
 
 .topup-history{
@@ -138,7 +145,7 @@ body p{
     font-size: 1.25vw;
 }
 
-.topup-button{
+.topup_button{
     border-radius: 0.7vw;
     background-color: #FD6727;
     display: flex;
@@ -146,9 +153,11 @@ body p{
     font-size: 1.25vw;
     font-weight: bold;
     width: 23%;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
     margin-top: 1.5vw;
     margin-bottom: 1.5vw;
+    text-decoration: none;
 }
 
 .topup-button p{
@@ -218,7 +227,7 @@ body p{
 
 .Category{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin-top: 2vw;
     margin-bottom: 1vw;
@@ -234,6 +243,8 @@ body p{
 .Category i, .category-1 i{
     font-size: 1.5vw;
     cursor: pointer;
+    margin-left: 0.7vw;
+    color: black;
 }
 
 .Category p, .category-1 p{
@@ -255,6 +266,8 @@ body p{
     height: 20vw;
     width: 20vw;
     background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .box{
@@ -267,4 +280,6 @@ body p{
     align-items: center;
     justify-content: center;
     padding: 1vw 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

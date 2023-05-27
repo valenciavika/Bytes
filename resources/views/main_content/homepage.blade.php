@@ -4,16 +4,19 @@
     <div class="topup-history">
         <div class="topup">
             <div class="emoney">
-                <div class="method">
-                    <img style="width: 1.5vw; height:max-content; display:flex; align-self: center;" src="{{asset('/images/Logo_Binuseats.png')}}" alt="bipay">
-                    <p style="padding-left: 0.75vw;">Bipay</p>
-                </div>
-                <p style="margin-right: 1vw">Rp12.000</p>
+                {{-- @foreach ($emoneys as $emoney) --}}
+                    <div class="method">
+                        <img style="width: 1.5vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[0]->img }}" alt="bipay">
+                        <p style="padding-left: 0.75vw;"> {{ $emoneys[0]->name }}</p>
+                    </div>  
+                    <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[0]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
+                    
+                {{-- @endforeach --}}
             </div>
-            <div class="topup-button">
+            <a href="/topup" class="topup_button">
                 <i class="fa-solid fa-plus"aria-hidden="true" style="color: #ffffff;"></i>
                 <p>TOP UP</p>
-            </div>
+            </a>
         </div>
         <div class="history">
             <div class="history-container">
@@ -36,16 +39,20 @@
     </div>
     <div class="food">
         @if (request('search') or request('category'))
-            @if (request('category'))
-                @foreach ($tenant_category as $tc)
-                    @if ($tenant[0]->tenant_category_id == $tc['id'])
-                        <div class="category-1">
-                            <i onclick="window.location='{{ url("") }}'" class='fas fa-angle-left'></i>
-                            <p style="margin-left: 1vw" >{{$tc['name']}}</p>
-                        </div>
-                        @break
-                    @endif
-                @endforeach
+            @if ($tenant->count()) 
+                @if (request('category'))
+                    @foreach ($tenant_category as $tc)
+                        @if ($tenant[0]->tenant_category_id == $tc['id'])
+                            <div class="category-1">
+                                <i onclick="window.location='{{ url("") }}'" class='fas fa-angle-left'></i>
+                                <p style="margin-left: 1vw" >{{$tc['name']}}</p>
+                            </div>
+                            @break
+                        @endif
+                    @endforeach
+                @endif
+            @else
+                <p class="no_result">No post found.</p>
             @endif
 
             <div class="tenant-1">

@@ -6,7 +6,7 @@
 
         <title>Homepage</title>
         <script src="https://kit.fontawesome.com/db7406598f.js" crossorigin="anonymous"></script>
-        <link href="{{asset('css/welcome.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/homepage.css')}}" rel="stylesheet" />
 
 
     </head>
@@ -21,7 +21,7 @@
             </form>
 
             <div class="navigation-bar">
-                <div class="Bell" id="bar" onclick="window.location='{{ url("login") }}'">
+                <div class="Bell" id="bar" onclick="window.location='{{ url("") }}'">
                     <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
                     <p>Notification</p>
                 </div>
