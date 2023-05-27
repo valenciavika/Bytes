@@ -24,3 +24,12 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/signup', [SignUpController::class, 'index']);
 Route::post('/signup', [SignUpController::class, 'store']);
+
+
+Route::get('/forgotpass', function () {return view('forgotpass_verif.forgot');});
+Route::post('/forgotpass', function () {return redirect('/verification');});
+
+Route::get('/verification', function () {return view('forgotpass_verif.verification');});
+Route::post('/verification', function () {return redirect('/inputnp');});
+
+Route::get('/inputnp', function () {return view('forgotpass_verif.inputnp');});
