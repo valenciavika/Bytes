@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin123'),
         ]);
 
-        $this->call([tenant_categorySeeder::class, tenantSeeder::class, MenuSeeder::class]);
+        $this->call([tenant_categorySeeder::class, tenantSeeder::class, MenuSeeder::class, TopUpSeeder::class, TopUpPaymentMethodSeeder::class, TopUpTransaction::class, MoneySeeder::class]);
     }
 }

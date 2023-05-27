@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('top_up_transactions', function (Blueprint $table) {
+        Schema::create('top_up_payment_methods', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('top_up_transactions');
+        Schema::dropIfExists('top_up_payment_methods');
     }
 };

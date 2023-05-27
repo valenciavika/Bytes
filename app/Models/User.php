@@ -37,4 +37,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function TopUpTransaction()
+    {
+        return $this->hasMany(TopUpTransaction::class);
+    }
+    public function money()
+    {
+        return $this->hasMany(money::class);
+    }
 }

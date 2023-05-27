@@ -5,21 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class TopUpTransaction extends Model
+class Money extends Model
 {
     use HasFactory;
     public function TopUp()
     {
         return $this->belongsTo(TopUp::class);
     }
-    public function TopUpPaymentMethod()
+    public function user()
     {
-        return $this->belongsTo(TopUpPaymentMethod::class);
-    }
-    public function User()
-    {
-        return $this->belongsTo(User::class);
-    }
-
+        return $this->belongsTo(user::class);
+    } 
 }
