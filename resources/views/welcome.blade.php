@@ -14,10 +14,10 @@
 
         <div class="banner">
             <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location='{{ url("") }}'">
-            
+
             <form action="/">
                 <input type="text" placeholder="Search.." name="search">
-                <button type="submit">Search</button>
+                <button type="submit">| <i class="fas fa-search" style="color: #000000;"></i></button>
             </form>
 
             <div class="navigation-bar">
@@ -64,7 +64,7 @@
                         <div class="history-box">
                             <div class="tenant-time">
                                 <p style="font-weight: bold; font-size: 1.5vw;">Bakmie Effata</p>
-                                <p>09.00</p>
+                                <p style="font-size: 1.5vw;">09.00</p>
                             </div>
                             <div class="hist">
                                 <div class="food-order" style="display: flex;">
@@ -103,7 +103,7 @@
                                         <div class="box">
                                             <div class="img">
                                             </div>
-                                            <p>{{$t['name']}}</p>
+                                            <p style="font-size: 1.5vw;">{{$t['name']}}</p>
                                         </div>
 
 
@@ -121,7 +121,7 @@
 
                     @endforeach
                 @endif
-                
+
             </div>
 
             <p>ikan</p>

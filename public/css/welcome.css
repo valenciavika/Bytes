@@ -1,5 +1,5 @@
 form {
-    background-color: blanchedalmond;
+    background-color: #F9F4EA;
 }
 
 /*
@@ -39,7 +39,28 @@ body p{
 
 .banner form input{
     width: 30vw;
+    font-size: 1.5vw;
+    border: none;
+    background-color: #F9F4EA;
+    padding: 1vw 1.5vw 1vw 1.5vw;
+    border-radius: 2.5vw 0vw 0vw 2.5vw;
+    outline: none;
 }
+
+
+.banner form button{
+    background-color: #F9F4EA;
+    border:none;
+    font-size: 1.5vw;
+    padding: 1vw 1.5vw 1vw 1.5vw;
+    border-radius: 0vw 2.5vw 2.5vw 0vw;
+}
+
+.banner form i{
+    font-size: 1.25vw;
+    cursor: pointer;
+}
+
 
 #bar{
     display: flex;
@@ -64,6 +85,7 @@ body p{
     color: white;
     padding-top: 0.5vw;
     padding-bottom: 1.5vw;
+    font-size: 1.25vw;
 }
 
 .home-button{
@@ -110,6 +132,10 @@ body p{
     margin-bottom: 1.75vw;
     align-items: center;
     width: 50%;
+}
+
+.emoney p, .hist p, .status p{
+    font-size: 1.25vw;
 }
 
 .topup-button{
@@ -174,6 +200,7 @@ body p{
     margin-bottom: 1vw;
 }
 
+
 .status{
     background-color: #08A618;
     display:flex;
@@ -209,13 +236,17 @@ body p{
 }
 .tenant{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .img{
     height: 20vw;
     width: 20vw;
     background-color: white;
+}
+
+.box{
+    margin-right: 3vw;
 }
 
 .box p{
