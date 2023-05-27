@@ -12,11 +12,11 @@
             <div class="alert_login_failed" role="alert">
             {{ session('LoginError') }}
             </div>
-        @endif    
+        @endif
 
         <form action="/login" id="suform" method="post">
             @csrf
-            <div class="upper_part">                                
+            <div class="upper_part">
                 <input type="email" id="emailphone" name="email" class="textbox" placeholder="Email/Phone number" required autofocus value="{{ old('email')}}"">
                 @error('email')
                 {{ $message}}
@@ -31,7 +31,7 @@
                     </div>
                 @enderror
                 <div class="forgotpassword">
-                    <p id="fp"> <a class="login" href="/Signup.html">Forgot password?</a></p>
+                    <p id="fp"> <a class="login" href="/forgotpass">Forgot password?</a></p>
                 </div>
             </div>
             <div class="lower_part">
@@ -40,7 +40,7 @@
                         <strong>LOG IN</strong>
                     </p>
                 </button>
-                <p id="alrd">Don't have an account? 
+                <p id="alrd">Don't have an account?
                     <a id="login" href="/signup"><span id="login" style="color: #F26122">Sign up</span></a>
                 </p>
             </div>
