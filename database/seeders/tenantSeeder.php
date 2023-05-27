@@ -89,7 +89,7 @@ class tenantSeeder extends Seeder
                 'name' => "Omon's Corner",
                 'tenant_category_id'=> 3,
                 'description' => "Omon's Corner adalah toko jus yang menyajikan berbagai jenis jus berkualitas tinggi dengan menggunakan bahan -  bahan segar dan alami.",
-            ],
+            ]
         ]);
     }
 }

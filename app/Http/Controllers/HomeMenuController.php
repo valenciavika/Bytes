@@ -13,7 +13,7 @@ class HomeMenuController extends Controller
     public function home()
     {
 
-        return view('welcome', [
+        return view('/main_content.homepage', [
             'tenant_category' => Tenant_category::all(), 
             'tenant' => Tenant::latest()->filter(request(['search', 'category']))->get(),
             'menu' => Menu::all()
