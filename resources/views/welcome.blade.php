@@ -80,17 +80,18 @@
             </div>
             <div class="food">
                 @if (request('search') or request('category'))
+                @if (request('category'))
+                    @foreach ($tenant_category as $tc)
+                        @if ($tenant[0]->tenant_category_id == $tc['id'])
+                            <div class="category-1">
+                                <i onclick="window.location='{{ url("") }}'" class='fas fa-angle-left'></i>
+                                <p style="margin-left: 1vw" >{{$tc['name']}}</p>
+                            </div>
+                            @break
+                        @endif
+                    @endforeach
+                @endif
 
-                @foreach ($tenant_category as $tc)
-                    @if ($tenant[0]->tenant_category_id == $tc['id'])
-                        <div class="category-1">
-                            <i onclick="window.location='{{ url("") }}'" class='fas fa-angle-left'></i>
-                            <p style="margin-left: 1vw" >{{$tc['name']}}</p>
-                        </div>
-                        @break
-                    @endif
-
-                @endforeach
 
                     <div class="tenant-1">
                         @foreach ($tenant as $t)
