@@ -23,6 +23,4 @@ class HomeMenuController extends Controller
             'moneys' => Money::all()
         ]);
     }
-
-    
 }

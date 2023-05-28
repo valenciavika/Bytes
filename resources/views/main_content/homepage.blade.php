@@ -6,10 +6,6 @@
             <div class="emoney">
                 {{-- @foreach ($emoneys as $emoney) --}}
                     <div class="method">
-                        @foreach ($emoneys as $emoney)
-                        @dd($tenant)
-                        @endforeach
-
                         <img style="width: 1.5vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[0]->img }}" alt="bipay">
                         <p style="padding-left: 0.75vw;"> {{ $emoneys[0]->name }}</p>
                     </div>
