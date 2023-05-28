@@ -1,0 +1,391 @@
+body{
+    margin: 0;
+    background-color: #FCEDCA;
+}
+
+.allprofile{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.partTopUp{
+    background-color:  #F9C140;
+    padding-top: 1.5vw;
+    border-radius: 15px;
+    width: 21vw;
+    height: 45vh;
+    margin-top: 2.5vw;
+    margin-left:2.7vw;
+}
+
+.Ballance{
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1vw;
+}
+
+.Bipay, .Ovo, .Gopay {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1.2vw;
+    margin-left: 1.5vw;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.7vw;
+}
+
+.bipayamount{
+    margin-left: 6.5vw;
+}
+
+.ovoamount{
+    margin-left: 4.2vw;
+}
+
+.gopayamount{
+    margin-left: 3.6vw;
+}
+
+.point{
+    font-size: 13px;
+}
+
+#logo{
+    max-width: 2vw;
+}
+
+.Topupbutton{
+    margin-left: 6vw;
+    margin-top: 2vw;
+}
+
+.TopUpButton{
+    width: 8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 40px;
+    border-width: 1px;
+    background-color: #F26122;
+}
+
+.TopUpButton:hover {
+    width: 8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 40px;
+    border-width: 1px;
+    background-color: white;
+}
+
+.TopUpButton:hover p{
+    margin: 0;
+    color: #F26122;
+    font-size: 15px;
+}
+
+#Topup{
+    margin: 0;
+    color: white;
+    font-size: 15px;
+}
+
+#Topup:hover{
+    margin: 0;
+    color:#F26122;
+    font-size: 15px;
+}
+
+
+
+
+/* PROFILE */
+.partPofile{
+    background-color:  white;
+    width: 70vw;
+    margin: 2.5vw 0vw 2.5vw 2.7vw;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
+    border-radius: 15px;
+}
+
+.bagianatas{
+    display: flex;
+    justify-content:left;
+}
+
+.profile-image {
+    position: relative;
+    width: 7vw;
+    height: 7vw;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 4vw;
+    margin-right: 2vw;
+}
+
+.profile-image img {
+    width: 7vw;
+    height: 7vw;
+    object-fit: cover;
+}
+
+.edit-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.edit-overlay:hover {
+    opacity: 100;
+}
+
+.edit-text {
+    color: #fff;
+    font-size: 14px;
+}
+
+
+.welcome{
+    margin-top: 2vw;
+}
+
+.editbutton {
+    margin-top: 3vw;
+    margin-left: 25vw;
+}
+
+.editbutton .editButton {
+    width: 4.5vw;
+    border: 1px solid #F26122;
+    border-radius: 20px;
+    height: 30px;
+    background-color: white;
+    display: inline-block;
+    text-decoration: none;
+    color: #F26122;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+.editbutton .editButton:hover {
+    background-color: #F26122;
+    color: white;
+}
+
+
+.datadiri{
+    border: none;
+    border-top: 1px solid black;
+    margin: 1vw 4vw;
+    padding-top: 2vw;
+}
+
+.isidata{
+    margin-top: 0.5vw;
+    margin-bottom: 3vw;
+    color: dimgrey;
+}
+
+
+.signoutbutton{
+    margin-top: 5vw;
+    margin-left: 58vw;
+
+}
+
+.signoutButton{
+    width:8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 32px;
+    border-width: 1px;
+    background-color: #F26122;
+}
+
+.signoutButton:hover {
+    width: 8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 32px;
+    border-width: 1px;
+    background-color: white;
+}
+
+.signoutButton:hover p{
+    margin: 0;
+    color: #F26122;
+    font-size: 15px;
+}
+
+#signout{
+    margin: 0;
+    color: white;
+    font-size: 15px;
+}
+
+#signout:hover{
+    margin: 0;
+    color: #F26122;
+    font-size: 15px;
+}
+
+
+
+/* part edit */
+.popupedit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popupContent {
+    background-color: #F9C140;
+    border-radius: 15px;
+    width: 35vw;
+    height: 21vw;
+    padding: 2vw;
+    box-shadow:  2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+}
+
+
+.popupedit:target{
+    opacity: 1;
+    visibility: visible;
+}
+
+.popupedit:target .popupContent{
+    opacity: 1;
+}
+
+.editprofiletext {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.name, .email, .phonenumber{
+    margin-top: 1.5vw;
+    margin-left: 3vw;
+}
+
+.inputtext{
+    background-color: white;
+    border: none;
+    width: 28vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 0.5vw;
+}
+
+/* discard */
+.Allbutton{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vw;
+    margin-right: 3.3vw;
+    margin-left: 14.5vw;
+}
+
+.discardButton{
+    width:8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 30px;
+    border-width: 1px;
+    background-color: white;
+}
+
+.discardButton:hover {
+    width: 8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 30px;
+    border-width: 1px;
+    background-color: #f26122;
+}
+
+.discardButton:hover p{
+    margin: 0;
+    color: white;
+    font-size: 15px;
+}
+
+#discard{
+    margin: 0;
+    color: #F26122;
+    font-size: 15px;
+}
+
+#discard:hover{
+    margin: 0;
+    color: white;
+    font-size: 15px;
+}
+
+
+/* save */
+.saveButton{
+    width:8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 30px;
+    border-width: 1px;
+    background-color: #F26122;
+}
+
+.saveButton:hover {
+    width: 8vw;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 30px;
+    border-width: 1px;
+    background-color: white;
+}
+
+.saveButton:hover p{
+    margin: 0;
+    color: #F26122;
+    font-size: 15px;
+}
+
+#save{
+    margin: 0;
+    color: white;
+    font-size: 15px;
+}
+
+#save:hover{
+    margin: 0;
+    color: #F26122;
+    font-size: 15px;
+}

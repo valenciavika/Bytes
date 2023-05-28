@@ -6,7 +6,10 @@
 
         <title>Homepage</title>
         <script src="https://kit.fontawesome.com/db7406598f.js" crossorigin="anonymous"></script>
+        <script src="editprofile.js"></script>
+        
         <link href="{{asset('css/homepage.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/profile.css')}}" rel="stylesheet" />
 
 
     </head>

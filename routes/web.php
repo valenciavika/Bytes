@@ -25,3 +25,6 @@ Route::post('/verification', function () {return redirect('/inputnp');});
 Route::get('/inputnp', function () {return view('forgotpass_verif.inputnp');});
 
 Route::get('/topup', [TopUpController::class, 'show']);
+
+
+Route::get('/profile', function () {return view('main_content.profile');});
