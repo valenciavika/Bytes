@@ -29,7 +29,7 @@ body{
     margin-bottom: 1vw;
 }
 
-.Bipay, .Ovo, .Gopay {
+.emoney_content{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,17 +44,6 @@ body{
     margin-right: 0.3yvw;
 }
 
-.bipayamount{
-    margin-left: 6.5vw;
-}
-
-.ovoamount{
-    margin-left: 4.2vw;
-}
-
-.gopayamount{
-    margin-left: 3.6vw;
-}
 
 .point{
     font-size: 13px;
