@@ -4,8 +4,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeMenuController;
 
 Route::get('/', [HomeMenuController::class, 'home']);
@@ -27,8 +29,6 @@ Route::get('/inputnp', function () {return view('forgotpass_verif.inputnp');});
 
 Route::get('/topup', [TopUpController::class, 'show']);
 
-
-Route::get('/profile', function () {return view('main_content.profile');});
-Route::get('/order', function () {return view('main_content.order');});
-
+Route::get('/profile', [ProfileController::class, 'show']);
+Route::get('/order', [OrderController::class, 'show']);
 Route::get('/cart', [CartController::class, 'show']);

@@ -5,12 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ $page_title }}</title>
+        <link rel = "icon" href = "{{ asset('images/Logo_Binuseats.png') }}" type = "image/x-icon">
+
         <script src="https://kit.fontawesome.com/db7406598f.js" crossorigin="anonymous"></script>
         <script src="editprofile.js"></script>
 
         <link href="{{asset('css/homepage.css')}}" rel="stylesheet" />
         <link href="{{asset('css/profile.css')}}" rel="stylesheet" />
         <link href="{{asset('css/order.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/cartpage.css')}}" rel="stylesheet" />
 
 
     </head>
@@ -26,11 +29,11 @@
 
             <div class="navigation-bar">
                 <div class="Bell" id="bar" onclick="window.location='{{ url("") }}'">
-                    <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-bell" style="color: #{{ active_number == 1 ? 'FD6727', 'ffffff'}} "></i>
                     <p>Notification</p>
                 </div>
 
-                <div class="cart" id="bar">
+                <div class="cart" id="bar" onclick="window.location.href='/cart'"">
                     <i class="fas fa-shopping-cart" style="color: #ffffff"></i>
                     <p>Cart</p>
                 </div>

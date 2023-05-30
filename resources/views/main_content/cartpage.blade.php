@@ -8,11 +8,13 @@
 
         <div class="mycart_item_lists">
             <input type="checkbox">
-            <img src="" alt="">
-            <div class="item_desc">
-                <p class="item_tenant">tenant</p>
-                <p class="item_menu">menu</p>
-                <p class="item_price">Rp price</p>
+            <div class="item_section">
+                <img src="" alt="">
+                <div class="item_desc">
+                    <p class="item_tenant">tenant</p>
+                    <p class="item_menu">menu</p>
+                    <p class="item_price">Rp price</p>
+                </div>
             </div>
             <div class="item_quantity_section">
                 <div class="item_quantity_value_section">
@@ -24,8 +26,6 @@
             </div>
         </div>
 
-        <div class="mycart_checkout">
-
-        </div>
+        <div class="mycart_checkout">CHECK OUT</div>
     </div>
 @endsection

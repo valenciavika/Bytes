@@ -8,7 +8,8 @@ class CartController extends Controller
 {
     public function show() {
         return view('main_content.cartpage', [
-            'page_title' => 'Cart | BinusEats'
+            'page_title' => 'Cart | BinusEats',
+            'active_number' => 2
         ]);
     }
 }
