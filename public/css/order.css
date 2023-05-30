@@ -107,3 +107,13 @@ a{
 
 
 /* iijo #08A618 */
+.statusfinish{
+    font-size: 14px;
+    color: white;
+    background-color: #08A618;
+    float: right;
+    padding-left: 7px;
+    padding-right: 3px;
+    margin-top: 1.6vw;
+    margin-right: 3.8vw;
+}

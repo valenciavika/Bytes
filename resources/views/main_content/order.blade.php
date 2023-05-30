@@ -57,7 +57,16 @@
 
             </div>
             <div class="finishedcontent">
-
+                <div class="statusfinish">
+                    <p><strong>Finish</strong></p>
+                </div>
+                <div class="buttonpickup">
+                    <button type="submit" id="button" value="topup" class="TopUpButton" onclick="window.location.href='/1/topup/BiPay'">
+                        <p id="Topup">
+                            <strong>TOP UP</strong>
+                        </p>
+                    </button>
+                </div>
             </div>
 
         </div>

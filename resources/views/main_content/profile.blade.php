@@ -47,7 +47,7 @@
             </div>
 
             <div class="Topupbutton">
-                <button type="submit" id="button" value="topup" class="TopUpButton" onclick="window.location.href='/topup'">
+                <button type="submit" id="button" value="topup" class="TopUpButton" onclick="window.location.href='/1/topup/BiPay'">
                     <p id="Topup">
                         <strong>TOP UP</strong>
                     </p>

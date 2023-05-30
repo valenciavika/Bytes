@@ -12,10 +12,11 @@ body{
     background-color:  #F9C140;
     padding-top: 1.5vw;
     border-radius: 15px;
-    width: 21vw;
+    width: 20vw;
     height: 45vh;
     margin-top: 2.5vw;
     margin-left:2.7vw;
+    padding-right: 1vw;
 }
 
 .Ballance{
@@ -31,16 +32,16 @@ body{
 .Bipay, .Ovo, .Gopay {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-bottom: 1.2vw;
-    margin-left: 1.5vw;
+    margin-left: 1vw;
 }
 
 .text{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 0.7vw;
+    margin-right: 0.3yvw;
 }
 
 .bipayamount{
