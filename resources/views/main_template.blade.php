@@ -35,18 +35,18 @@
                 </div>
 
                 <div class="cart" id="bar" onclick="window.location.href='/cart'"">
-                    <i class="fas fa-shopping-cart" style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}}></i>
+                    <i class="fas fa-shopping-cart" style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} "></i>
                     <p>Cart</p>
                 </div>
 
                 <div class="order" id="bar" onclick="window.location.href='/order'">
-                    <i class='fas fa-file-alt' style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}}></i>
+                    <i class='fas fa-file-alt' style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}} "></i>
                     <p>Order</p>
                 </div>
 
 
                 <div class="profile" id="bar" onclick="window.location.href='/profile'">
-                    <i class="fa-solid fa-user" style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}}></i>
+                    <i class="fa-solid fa-user" style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}} "></i>
                     <p>Profile</p>
                 </div>
             </div>
