@@ -23,6 +23,7 @@ class TopUpController extends Controller
         $money = Money::where("emoney_id", 1)->get();
         $method = TopUpPaymentMethod::all();
         $transaction = TopUpTransaction::where("user_id", $id)->get();
+        $transaction_emoney = TopUp::all();
 
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
@@ -41,6 +42,7 @@ class TopUpController extends Controller
             'money' => $money,
             'method' => $method,
             'transaction' => $transaction,
+            'tr_emone' => $transaction_emoney,
         ]);
     }
 
@@ -50,6 +52,7 @@ class TopUpController extends Controller
         $money = Money::where("emoney_id", 2)->get();
         $method = TopUpPaymentMethod::all();
         $transaction = TopUpTransaction::where("user_id", $id)->get();
+        $transaction_emoney = TopUp::all();
 
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
@@ -68,6 +71,7 @@ class TopUpController extends Controller
             'money' => $money,
             'method' => $method,
             'transaction' => $transaction,
+            'tr_emone' => $transaction_emoney,
         ]);
     }
 
@@ -77,6 +81,7 @@ class TopUpController extends Controller
         $money = Money::where("emoney_id", 3)->get();
         $method = TopUpPaymentMethod::all();
         $transaction = TopUpTransaction::where("user_id", $id)->get();
+        $transaction_emoney = TopUp::all();
 
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
@@ -95,6 +100,7 @@ class TopUpController extends Controller
             'money' => $money,
             'method' => $method,
             'transaction' => $transaction,
+            'tr_emone' => $transaction_emoney,
         ]);
     }
 }

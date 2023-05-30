@@ -62,7 +62,7 @@
 
                         <div class="time-hist">
                             <p>{{$t['transaction_time']}}</p>
-                            @foreach ($emoney as $em)
+                            @foreach ($tr_emone as $em)
                                 @if ($em['id']==$t['emoney_id'])
                                     <div class="emoney-hist">
                                         <img src="{{$em['img']}}" alt="">
