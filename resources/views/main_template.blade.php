@@ -14,6 +14,7 @@
         <link href="{{asset('css/profile.css')}}" rel="stylesheet" />
         <link href="{{asset('css/order.css')}}" rel="stylesheet" />
         <link href="{{asset('css/cartpage.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/topup.css')}}" rel="stylesheet" />
 
 
     </head>
@@ -29,7 +30,7 @@
 
             <div class="navigation-bar">
                 <div class="Bell" id="bar" onclick="window.location='{{ url("") }}'">
-                    <i class="fa-solid fa-bell" style="color: #{{ active_number == 1 ? 'FD6727', 'ffffff'}} "></i>
+                    {{-- <i class="fa-solid fa-bell" style="color: #{{ active_number == 1 ? 'FD6727': 'ffffff'}} "></i> --}}
                     <p>Notification</p>
                 </div>
 

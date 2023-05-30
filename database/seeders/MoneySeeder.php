@@ -16,7 +16,7 @@ class MoneySeeder extends Seeder
         //
         DB::table('money')->insert([
             [
-                'totalAmount' => '0',
+                'totalAmount' => '50000',
                 'emoney_id' => 1,
                 'user_id' => 1,
             ],

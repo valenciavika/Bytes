@@ -13,7 +13,7 @@
 
                 {{-- @endforeach --}}
             </div>
-            <a href="/topup" class="topup_button">
+            <a href="/1/topup/BiPay" class="topup_button">
                 <i class="fa-solid fa-plus"aria-hidden="true" style="color: #ffffff;"></i>
                 <p>TOP UP</p>
             </a>

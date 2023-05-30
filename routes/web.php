@@ -27,8 +27,13 @@ Route::post('/verification', function () {return redirect('/inputnp');});
 
 Route::get('/inputnp', function () {return view('forgotpass_verif.inputnp');});
 
-Route::get('/topup', [TopUpController::class, 'show']);
+// Route::get('/topup', [TopUpController::class, 'show']);
+Route::get('/{id}/topup/BiPay', [TopUpController::class, 'activeBiPay']);
+Route::get('/{id}/topup/Ovo', [TopUpController::class, 'activeOvo']);
+Route::get('/{id}/topup/GoPay', [TopUpController::class, 'activeGoPay']);
 
 Route::get('/profile', [ProfileController::class, 'show']);
 Route::get('/order', [OrderController::class, 'show']);
 Route::get('/cart', [CartController::class, 'show']);
+
+

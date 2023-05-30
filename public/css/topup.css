@@ -1,0 +1,202 @@
+.body-section{
+    display: flex;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+.topup-container{
+    width: 30%;
+    align-self: center;
+}
+.emoneyButton{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.button{
+    font-size: 1.5vw;
+}
+
+.emoneyButton .button{
+    background-color: #fad685;
+    border-top: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-left: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-right: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-radius: 0.5vw 0.5vw 0vw 0vw ;
+    padding: 0.5vw 3% 0.5vw 3%;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.topup2 {
+    background-color: #F9C140;
+    /* width: 21vw; */
+    border-bottom: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-left: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-right: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-radius: 0vw 0vw 0.5vw 0.5vw ;
+
+}
+
+.emone{
+    display: flex;
+    align-items: center;
+    font-size: 1.5vw;
+}
+
+.saldo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5vw;
+    font-size: 1.5vw;
+}
+
+.saldo img{
+    width: 2vw;
+}
+
+.amount{
+    border-radius: 0.5vw;
+    text-align: center;
+    height: 7vw;
+    width: 80%;
+    border: none;
+    outline: none;
+    margin-left: 10%;
+    font-size: 2vw;
+    box-shadow: inset 0 0 0.5vw 0.25vw rgba(0, 0, 0, 0.2);
+}
+
+.method-payment{
+    border: solid;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    padding-top: 1vw;
+    font-size: 1.5vw;
+    padding-bottom: 1vw;
+}
+
+.methods{
+    /* border: solid; */
+    width: 40%;
+    margin-left: 30%;
+}
+
+.method-text{
+    font-size: 2vw;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 1vw;
+    padding-bottom: 0.75vw;
+}
+
+label input{
+    margin-right: 1vw;
+    width: 2vw;
+}
+
+.history-topup{
+    background-color: #F9C140;
+    border-radius: 0.5vw;
+    border: solid 0.2vw rgba(0, 0, 0, 0.2);
+    width: 60%;
+    height: 80%;
+    align-self: center;
+}
+
+.emoney-hist{
+    display:flex;
+    align-items: center;
+}
+
+.judul{
+    font-size: 2.5vw;
+    font-weight: bolder;
+    padding: 1.5vw 1.5vw;
+    border-bottom: solid 0.2vw;
+}
+
+.history-box{
+    padding: 0.5vw 1vw;
+}
+
+.date{
+    padding:0.5vw 1.25vw;
+}
+
+.date p{
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.emoney-hist img{
+    width: 2vw;
+    margin-right: 1vw;
+}
+
+.topupp, .time-hist{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0.5vw 2vw;
+}
+
+.topupp p{
+    font-size: 1.25vw;
+    font-weight: bold;
+}
+
+.time-hist p{
+    font-size: 1.25vw;
+}
+
+.time-hist{
+    border-bottom: solid 0.1vw;
+}
+
+.topup_but{
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    text-decoration: none;
+}
+
+.topup_but p{
+    border-radius: 2vw;
+    background-color: #FD6727;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    font-weight: bold;
+    width: 27%;
+    padding: 1vw 1vw;
+}
+
+/* .topup-but i{
+    display: flex;
+    align-items: center;
+    font-size: 1.75vw;
+    font-weight:5000;
+    margin-left: 1vw;
+} */
+
+
+
+
+
+

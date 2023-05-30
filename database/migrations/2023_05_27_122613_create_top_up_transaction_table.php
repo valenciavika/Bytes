@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('emoney_id');
             $table->unsignedBigInteger('payment_id');
             $table->unsignedBigInteger('amount');
-            $table->date('time');
+            $table->dateTime('time');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
