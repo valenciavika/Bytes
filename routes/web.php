@@ -18,7 +18,6 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/signup', [SignUpController::class, 'index']);
 Route::post('/signup', [SignUpController::class, 'store']);
 
-
 Route::get('/forgotpass', function () {return view('forgotpass_verif.forgot');});
 Route::post('/forgotpass', function () {return redirect('/verification');});
 

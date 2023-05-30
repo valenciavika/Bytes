@@ -18,7 +18,7 @@ class HomeMenuController extends Controller
         return view('/main_content.homepage', [
             'page_title' => 'BinusEats',
             'active_number' => 1,
-            'tenant_category' => Tenant_category::all(), 
+            'tenant_category' => Tenant_category::all(),
             'tenant' => Tenant::latest()->filter(request(['search', 'category']))->get(),
             'menu' => Menu::all(),
             'emoneys' => TopUp::all(),
