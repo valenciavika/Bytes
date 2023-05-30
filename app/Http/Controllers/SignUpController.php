@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class SignUpController extends Controller
 {
     public function index() {
         return view('login_signup.signup',[
-            'title' => 'Sign Up'
+            'page_title' => 'Signup | BinusEats',
         ]);
     }
     

@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
     public function index() {
         return view('login_signup.login',[
-            'title' => 'Login'
+            'page_title' => 'Login | BinusEats',
         ]);
     }
 

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Homepage</title>
+        <title>{{ $page_title }}</title>
         <script src="https://kit.fontawesome.com/db7406598f.js" crossorigin="anonymous"></script>
         <script src="editprofile.js"></script>
         

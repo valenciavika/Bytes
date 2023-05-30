@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\SignUpController;
@@ -28,3 +29,5 @@ Route::get('/topup', [TopUpController::class, 'show']);
 
 
 Route::get('/profile', function () {return view('main_content.profile');});
+
+Route::get('/cart', [CartController::class, 'show']);

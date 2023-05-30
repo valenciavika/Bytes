@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class TopUpController extends Controller
 {
     public function show() {
-        return view('main_content.topup');
+        return view('main_content.topup', [
+            'page_title' => 'Topup | BinusEats',
+        ]);
     }
 }

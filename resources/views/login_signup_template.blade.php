@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('/css/login.css')}}">
     <link rel="stylesheet" href="{{asset('/css/signup.css')}}">
 
-    <title> {{$title}} </title>
+    <title> {{$page_title}} </title>
 </head>
 <body>
     <div id="divbackground">
