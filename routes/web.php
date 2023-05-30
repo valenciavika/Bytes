@@ -29,5 +29,6 @@ Route::get('/topup', [TopUpController::class, 'show']);
 
 
 Route::get('/profile', function () {return view('main_content.profile');});
+Route::get('/order', function () {return view('main_content.order');});
 
 Route::get('/cart', [CartController::class, 'show']);

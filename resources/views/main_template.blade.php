@@ -7,9 +7,10 @@
         <title>{{ $page_title }}</title>
         <script src="https://kit.fontawesome.com/db7406598f.js" crossorigin="anonymous"></script>
         <script src="editprofile.js"></script>
-        
+
         <link href="{{asset('css/homepage.css')}}" rel="stylesheet" />
         <link href="{{asset('css/profile.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/order.css')}}" rel="stylesheet" />
 
 
     </head>
@@ -34,13 +35,13 @@
                     <p>Cart</p>
                 </div>
 
-                <div class="order" id="bar">
+                <div class="order" id="bar" onclick="window.location.href='/order'">
                     <i class='fas fa-file-alt' style='color: #ffffff'></i>
                     <p>Order</p>
                 </div>
 
 
-                <div class="profile" id="bar">
+                <div class="profile" id="bar" onclick="window.location.href='/profile'">
                     <i class="fa-solid fa-user" style='color: #ffffff'></i>
                     <p>Profile</p>
                 </div>

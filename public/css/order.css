@@ -1,0 +1,109 @@
+.AllOrder{
+    background-color: white;
+    width: 74vw;
+    height: 80vh;
+    margin-top: 3vw;
+    margin-left: 12vw;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+
+.transactionstatus{
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+    font-size: 20px;
+    margin-left: 3.5vw;
+}
+
+.allpart{
+    display: flex;
+    justify-content: left;
+    margin-left: 3.5vw;
+}
+
+.partprocessing{
+    padding: 1vw;
+    background-color: #FCEDCA;
+    border-top-left-radius: 10px;
+}
+
+.partfinished{
+    padding: 1vw;
+    border: 1px solid #FCEDCA;
+    border-top-right-radius: 10px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+.ordercontent{
+    background-color: #FCEDCA;
+    width: 67vw;
+    height: 47vh;
+    margin-left: 3.5vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 3vw;
+}
+
+
+.processingcontent{
+    display: flex;
+    justify-content: space-around;
+    width: 62vw;
+    margin-left: 2.5vw;
+    padding-top: 1.6vw;
+    border-top: 1px solid black;
+}
+
+.foto{
+    background-color: white;
+    width: 6.5vw;
+    height: 6.5vw;
+    /* margin-right: 1vw; */
+}
+
+.Partorder{
+    margin-right: 15vw;
+}
+
+.orderdetail{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.1vw;
+    margin-bottom: 1.5vw;
+    font-size: 14px;
+}
+
+.detailorder{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pesanan{
+    margin-left: 1vw;
+}
+.harga{
+    font-size: 14px;
+}
+
+.statusorder{
+    font-size: 14px;
+    color: white;
+    background-color: #F26122;
+    margin-left: 5vw;
+    padding-left: 7px;
+    padding-right: 1px;
+    margin-top: 1.6vw;
+}
+.estimation{
+    font-size: 14px;
+}
+
+
+
+/* iijo #08A618 */
