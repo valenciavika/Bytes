@@ -71,9 +71,9 @@
                             <p>{{$t['method']}}</p>
 
                             @if ($t['method']==="Payment")
-                                <p>- Rp{{$t['amount']}}</p>
+                                <p>- Rp{{number_format($t['amount'], 0 , '.' , '.' )}}</p>
                             @else
-                                <p>+ Rp{{$t['amount']}}</p>
+                                <p>+ Rp{{number_format($t['amount'], 0 , '.' , '.' )}}</p>
                             @endif
 
                         </div>
