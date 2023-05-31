@@ -6,48 +6,22 @@
         <div class="partTopUp">
             <p id="text" class="Ballance"><strong>Balance</strong></p>
 
-            <div class="Bipay">
+            @foreach ($emoneys as $emoney)
+            <div class="emoney_content">
                 <div id="divlogo">
-                    <img id="logo" src="{{asset('/images/Logo_Binuseats.png')}}" alt="Logo BinusEats">
+                    <img id="logo" src="{{ $emoney->img }}" alt="Logo {{ $emoney->name }}">
                 </div>
                 <div class="text">
-                    <p class="payment">BiPay</p>
+                    <p class="payment">{{ $emoney->name }}</p>
                 </div>
-                <div class="bipayamount">
-                    <p>Rp12.000</p>
-                </div>
-            </div>
-
-            <div class="Ovo">
-                <div id="divlogo">
-                    <img id="logo" src="{{asset('/images/Logo_Ovo.png')}}" alt="Logo OVO">
-                </div>
-                <div class="text">
-                    <p class="payment">Ovo Cash</p>
-                    <p class="payment point">Ovo Points</p>
-                </div>
-                <div class="ovoamount">
-                    <p>Rp15.277</p>
-                    <p class="point">Rp 5.529</p>
+                <div class="total_amount">
+                    <p> Rp{{number_format($moneys[$emoney->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                 </div>
             </div>
-
-            <div class="Gopay">
-                <div id="divlogo">
-                    <img id="logo" src="{{asset('/images/Logo_Gopay.png')}}" alt="Logo BinusEats">
-                </div>
-                <div class="text">
-                    <p class="payment">GoPay</p>
-                    <p class="payment point">GoPay Points</p>
-                </div>
-                <div class="gopayamount">
-                    <p>Rp50.512</p>
-                    <p class="point">Rp59.510</p>
-                </div>
-            </div>
+            @endforeach
 
             <div class="Topupbutton">
-                <button type="submit" id="button" value="topup" class="TopUpButton" onclick="window.location.href='/topup'">
+                <button type="submit" id="button" value="topup" class="TopUpButton" onclick="window.location.href='/1/topup/BiPay'">
                     <p id="Topup">
                         <strong>TOP UP</strong>
                     </p>

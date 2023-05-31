@@ -5,9 +5,8 @@
     margin-top: 3vw;
     margin-left: 12vw;
     border-radius: 15px;
-    border: 1px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
-
 
 .transactionstatus{
     padding-top: 2vw;
@@ -57,14 +56,16 @@ a{
     width: 62vw;
     margin-left: 2.5vw;
     padding-top: 1.6vw;
-    border-top: 1px solid black;
+    padding-bottom: 1.6vw;
+    border-top: 1px solid  #F26122;
+    border-bottom: 1px solid  #F26122;
 }
 
 .foto{
     background-color: white;
     width: 6.5vw;
     height: 6.5vw;
-    /* margin-right: 1vw; */
+
 }
 
 .Partorder{
@@ -94,11 +95,14 @@ a{
 .statusorder{
     font-size: 14px;
     color: white;
-    background-color: #F26122;
-    margin-left: 5vw;
-    padding-left: 7px;
-    padding-right: 1px;
     margin-top: 1.6vw;
+    display: flex;
+    justify-content: right;
+}
+.prosestxt{
+    background-color: #F26122;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
 }
 .estimation{
     font-size: 14px;
@@ -106,4 +110,63 @@ a{
 
 
 
+
 /* iijo #08A618 */
+
+.finishedcontent {
+    margin-bottom: 5vw;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+  }
+
+  .statuspickup{
+    display: flex;
+    justify-content: right;
+    font-size: 14px;
+    color: white;
+    margin-top:3vw ;
+    margin-right: 3.8vw;
+  }
+
+  .pickuptxt{
+    background-color: #F26122;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+}
+
+
+
+  .buttonpickup {
+    display: flex;
+    justify-content: right;
+    margin-top: 2vw;
+    margin-right: 3.8vw;
+    margin-bottom: 1vw;
+  }
+
+  .confirmbutton{
+    background-color: white;
+    border-radius: 20px;
+    padding: 0.2vw 0.6vw;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+  }
+
+  .statuscomplete{
+    display: flex;
+    justify-content: right;
+    font-size: 14px;
+    color: white;
+    margin-right: 3.8vw;
+  }
+
+  .finishtxt{
+    background-color: #08A618;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+}
+
+
+
+

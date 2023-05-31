@@ -42,6 +42,7 @@ class TopUpController extends Controller
             'method' => $method,
             'transaction' => $transaction,
             'tr_emone' => $transaction_emoney,
+            'active_number' => 0
         ]);
     }
 
@@ -70,6 +71,7 @@ class TopUpController extends Controller
             'method' => $method,
             'transaction' => $transaction,
             'tr_emone' => $transaction_emoney,
+            'active_number' => 0
         ]);
     }
 
@@ -98,6 +100,7 @@ class TopUpController extends Controller
             'method' => $method,
             'transaction' => $transaction,
             'tr_emone' => $transaction_emoney,
+            'active_number' => 0
         ]);
     }
 

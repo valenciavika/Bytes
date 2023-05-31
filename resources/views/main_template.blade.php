@@ -30,24 +30,24 @@
 
             <div class="navigation-bar">
                 <div class="Bell" id="bar" onclick="window.location='{{ url("") }}'">
-                    {{-- <i class="fa-solid fa-bell" style="color: #{{ active_number == 1 ? 'FD6727': 'ffffff'}} "></i> --}}
-                    <p>Notification</p>
+                    <i class="fa-solid fa-bell" style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} "></i>
+                    <p style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} ">Notification</p>
                 </div>
 
-                <div class="cart" id="bar" onclick="window.location.href='/cart'"">
-                    <i class="fas fa-shopping-cart" style="color: #ffffff"></i>
-                    <p>Cart</p>
+                <div class="cart" id="bar" onclick="window.location.href='/cart'">
+                    <i class="fas fa-shopping-cart" style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} "></i>
+                    <p style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} ">Cart</p>
                 </div>
 
                 <div class="order" id="bar" onclick="window.location.href='/order'">
-                    <i class='fas fa-file-alt' style='color: #ffffff'></i>
-                    <p>Order</p>
+                    <i class='fas fa-file-alt' style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}} "></i>
+                    <p style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}} ">Order</p>
                 </div>
 
 
                 <div class="profile" id="bar" onclick="window.location.href='/profile'">
-                    <i class="fa-solid fa-user" style='color: #ffffff'></i>
-                    <p>Profile</p>
+                    <i class="fa-solid fa-user" style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}} "></i>
+                    <p style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}} ">Profile</p>
                 </div>
             </div>
         </div>
