@@ -22,7 +22,7 @@
 
         <div class="banner">
             <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location='{{ url("") }}'">
-
+            
             <form action="/">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit">| <i class="fas fa-search" style="color: #000000;"></i></button>

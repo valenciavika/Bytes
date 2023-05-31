@@ -1,7 +1,7 @@
 .body-section{
     display: flex;
     justify-content: space-around;
-    height: 90vh;
+    height: 87vh;
 }
 
 .topup-container{
@@ -39,6 +39,10 @@
     border-right: solid 0.2vw rgba(0, 0, 0, 0.2);
     border-radius: 0vw 0vw 0.5vw 0.5vw ;
 
+}
+
+input[type="radio"] {
+    transform: scale(1.5);
 }
 
 .emone{
@@ -111,9 +115,8 @@ label input{
     border-radius: 0.5vw;
     border: solid 0.2vw rgba(0, 0, 0, 0.2);
     width: 60%;
-    height: 80%;
+    /* height: 80%; */
     align-self: center;
-    overflow-y: auto;
 }
 
 .emoney-hist{
@@ -129,11 +132,17 @@ label input{
 }
 
 .history-box{
+    overflow: hidden;
     padding: 0.5vw 1vw;
 }
 
+.topup-hist{
+    overflow-y: auto;
+    max-height: 70%;
+}
+
 .date{
-    padding:0.5vw 1.25vw;
+    padding:1vw 1.25vw 0 1.25vw;
 }
 
 .date p{
@@ -142,15 +151,22 @@ label input{
 }
 
 .emoney-hist img{
-    width: 2vw;
-    margin-right: 1vw;
+    width: 1.5vw;
+    margin-right: 0.5vw;
 }
 
-.topupp, .time-hist{
+.topupp{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding:0.5vw 2vw;
+}
+
+.time-hist{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 2vw 1vw 2vw;
 }
 
 .topupp p{
@@ -195,17 +211,9 @@ button{
     justify-content: center;
     font-size: 2vw;
     font-weight: bold;
-    /* width: 30%; */
     padding: 1vw 1vw;
 }
 
-/* .topup-but i{
-    display: flex;
-    align-items: center;
-    font-size: 1.75vw;
-    font-weight:5000;
-    margin-left: 1vw;
-} */
 
 .modal {
     display: none;
@@ -215,15 +223,15 @@ button{
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* overflow: auto; */
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .modal-content {
     background-color: #F9C140;
     margin: 15% auto;
     padding: 3vw;
-    border: solid 0.2vw rgba(0, 0, 0, 0.5)k;
+    box-shadow: 0 0.25vw 0.5px rgba(0, 0, 0, 0.2);
     max-width: 40vw;
     text-align: center;
     border-radius: 0.5vw;
@@ -234,7 +242,7 @@ button{
 }
 
 .confirm-button {
-    background-color: #4CAF50;
+    background-color:  #08A618;
     color: white;
     padding: 1vw 2vw;
     margin-right: 2vw;
@@ -245,7 +253,7 @@ button{
 
 .cancel-button {
     border-radius: 0.5vw;
-    background-color: #f44336;
+    background-color: #FD6727;
     color: white;
     padding: 1vw 2vw;
     border: none;

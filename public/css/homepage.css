@@ -1,5 +1,6 @@
 form {
     background-color: #F9F4EA;
+    margin-block-end: 0;
 }
 
 /*
@@ -24,6 +25,7 @@ body p{
     background-color: #F9C140;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navigation-bar{

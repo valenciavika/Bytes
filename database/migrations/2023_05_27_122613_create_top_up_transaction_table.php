@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('emoney_id');
-            $table->unsignedBigInteger('payment_id');
+            $table->unsignedBigInteger('payment_id')->nullable();
             $table->unsignedBigInteger('amount');
             $table->string('method');
             $table->dateTime('time');

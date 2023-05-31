@@ -29,13 +29,14 @@ class TopUpController extends Controller
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
+            $tr->transaction_day = date('l', strtotime($tr->time));
         }
         // dd($transaction);
         // dd($money);
 
         return view('main_content.topup', [
             'page_title' => 'Topup | BinusEats',
-            'active' => "TopUpBiPay",
+            'active' => 1,
             'user' => $user,
             'emoney' => $emoney,
             'money' => $money,
@@ -57,6 +58,7 @@ class TopUpController extends Controller
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
+            $tr->transaction_day = date('l', strtotime($tr->time));
         }
 
         // dd($transaction);
@@ -64,7 +66,7 @@ class TopUpController extends Controller
 
         return view('main_content.topup', [
             'page_title' => 'Topup | BinusEats',
-            'active' => "TopUpBiPay",
+            'active' => 2,
             'user' => $user,
             'emoney' => $emoney,
             'money' => $money,
@@ -86,6 +88,7 @@ class TopUpController extends Controller
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
+            $tr->transaction_day = date('l', strtotime($tr->time));
         }
 
         // dd($transaction);
@@ -93,7 +96,7 @@ class TopUpController extends Controller
 
         return view('main_content.topup', [
             'page_title' => 'Topup | BinusEats',
-            'active' => "TopUpBiPay",
+            'active' => 3,
             'user' => $user,
             'emoney' => $emoney,
             'money' => $money,
@@ -132,9 +135,6 @@ class TopUpController extends Controller
         ]);
 
         $this->updateUser($user_id, $emoney_id, $amount);
-
-
-
 
         return redirect()->back()->with('success', 'Top-up successful');
     }

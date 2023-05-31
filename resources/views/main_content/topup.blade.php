@@ -5,9 +5,9 @@
     <div class="body-section">
         <div class="topup-container">
             <div class="emoneyButton">
-                <a class="button" href="/{{ $user->id }}/topup/BiPay" >BiPay</a>
-                <a class="button" href="/{{ $user->id }}/topup/Ovo">Ovo</a>
-                <a class="button" href="/{{ $user->id }}/topup/GoPay">GoPay</a>
+                <a class="button" href="/{{ $user->id }}/topup/BiPay" style="background-color: #{{ $active == 1 ? 'F9C140': 'Fad685'}}; border-bottom:{{$active == 1?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}"><img src="" alt=""> BiPay</a>
+                <a class="button" href="/{{ $user->id }}/topup/Ovo" style="background-color: #{{ $active == 2 ? 'F9C140': 'Fad685'}}; border-bottom:{{$active == 2?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}">Ovo</a>
+                <a class="button" href="/{{ $user->id }}/topup/GoPay"style="background-color: #{{ $active == 3 ? 'F9C140': 'Fad685'}};border-bottom:{{$active == 3?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}">GoPay</a>
             </div>
             <form action="{{ route('topup.process')}}" method="POST" class="topup2" onsubmit="return showTopUpConfirmation(event)">
                 @csrf
@@ -24,14 +24,14 @@
                         <p>Rp{{$m['totalAmount']}}</p>
                     @endforeach
                 </div>
-                <input class="amount" type="text" name="amount" placeholder="INSERT AMOUNT..">
+                <input class="amount" type="text" name="amount" placeholder="INSERT AMOUNT.." required>
 
                 <div class="method-payment">
                     <p class="method-text">Payment Methods</p>
                     <div class="methods">
                         @foreach ($method as $pm)
                             <label>
-                                <input type="radio" name="payment_method" value="{{$pm['id']}}">
+                                <input type="radio" name="payment_method" value="{{$pm['id']}}" required>
                                 {{$pm['name']}}
                             </label>
                         @endforeach
@@ -64,14 +64,19 @@
                 <div class="topup-hist">
                     @foreach ($transaction as $t)
                         <div class="date">
-                            <p>{{$t['transaction_date']}}</p>
+                            <p>{{$t['transaction_day']}}, {{$t['transaction_date']}}</p>
                         </div>
 
                         <div class="topupp">
                             <p>{{$t['method']}}</p>
-                            <p>Rp{{$t['amount']}}</p>
-                        </div>
 
+                            @if ($t['method']==="Payment")
+                                <p>- Rp{{$t['amount']}}</p>
+                            @else
+                                <p>+ Rp{{$t['amount']}}</p>
+                            @endif
+
+                        </div>
 
                         <div class="time-hist">
                             <p>{{$t['transaction_time']}}</p>
