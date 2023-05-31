@@ -34,7 +34,7 @@
                     <p>Notification</p>
                 </div>
 
-                <div class="cart" id="bar" onclick="window.location.href='/cart'"">
+                <div class="cart" id="bar" onclick="window.location.href='/cart'">
                     <i class="fas fa-shopping-cart" style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} "></i>
                     <p>Cart</p>
                 </div>
