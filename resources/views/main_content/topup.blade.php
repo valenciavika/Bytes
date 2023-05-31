@@ -1,6 +1,7 @@
 @extends('/main_template')
 
 @section('content')
+    <!-- Add a hidden modal box -->
     <div class="body-section">
         <div class="topup-container">
             <div class="emoneyButton">
@@ -8,40 +9,53 @@
                 <a class="button" href="/{{ $user->id }}/topup/Ovo">Ovo</a>
                 <a class="button" href="/{{ $user->id }}/topup/GoPay">GoPay</a>
             </div>
-            <div class="topup2">
+            <form action="{{ route('topup.process')}}" method="POST" class="topup2" onsubmit="return showTopUpConfirmation(event)">
+                @csrf
+                <input type="text" name="user_id" value="{{ $user->id }}" style="display: none;">
+                <input type="text" name="emoney_id" value="{{ $emoney[0]->id }}" style="display: none;">
                 <div class="saldo">
                     <div class="emone">
                         @foreach ($emoney as $em)
-                        <img src="{{$em['img']}}" alt="">
-                        <p style="margin-left:0.5vw">{{$em['name']}}</p>
-                    @endforeach
+                            <img src="{{$em['img']}}" alt="">
+                            <p style="margin-left:0.5vw">{{$em['name']}}</p>
+                        @endforeach
                     </div>
-
                     @foreach ($money as $m)
                         <p>Rp{{$m['totalAmount']}}</p>
                     @endforeach
                 </div>
-                <input class="amount" type="text" name="" id="" placeholder="INSERT AMOUNT..">
+                <input class="amount" type="text" name="amount" placeholder="INSERT AMOUNT..">
 
                 <div class="method-payment">
                     <p class="method-text">Payment Methods</p>
                     <div class="methods">
                         @foreach ($method as $pm)
-                        <label>
-                            <input type="radio" name="payment-method" id="">
-                            {{$pm['name']}}
-                        </label>
-
-                    @endforeach
+                            <label>
+                                <input type="radio" name="payment_method" value="{{$pm['id']}}">
+                                {{$pm['name']}}
+                            </label>
+                        @endforeach
                     </div>
-
                 </div>
-                <a href="" class="topup_but">
-                    {{-- <i class="fa-solid fa-plus"aria-hidden="true" style="color: #ffffff;"></i> --}}
-                    <p>TOP UP</p>
-                </a>
-            </div>
 
+                <div class="button">
+                    <button type="submit" class="topup_but">
+                        <p>TOP UP</p>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+        <div id="topupConfirmation" class="modal">
+            <div class="modal-content">
+                <h3 style="font-size: 3vw">Top Up Confirmation</h3>
+                <p style="font-size: 1.5vw">Are you sure you want to top up your {{$emoney[0]->name}}?</p>
+
+                <div class="modal-buttons">
+                    <button style="font-size: 1.5vw" id="confirmTopUpButton" class="confirm-button">Yes</button>
+                    <button style="font-size: 1.5vw" id="cancelTopUpButton" class="cancel-button">No</button>
+                </div>
+            </div>
         </div>
 
         <div class="history-topup">
@@ -53,9 +67,8 @@
                             <p>{{$t['transaction_date']}}</p>
                         </div>
 
-
                         <div class="topupp">
-                            <p>TopUp</p>
+                            <p>{{$t['method']}}</p>
                             <p>Rp{{$t['amount']}}</p>
                         </div>
 
@@ -82,3 +95,26 @@
 
     </div>
 @endsection
+
+<script>
+    function showTopUpConfirmation(event) {
+        event.preventDefault(); // Prevent the form from submitting directly
+
+        // Display the pop-up overlay
+        var overlay = document.getElementById("topupConfirmation");
+        overlay.style.display = "block";
+
+        // Handle "Yes" button click
+        var confirmButton = document.getElementById("confirmTopUpButton");
+        confirmButton.addEventListener("click", function() {
+            overlay.style.display = "none"; // Hide the pop-up overlay
+            event.target.submit(); // Submit the form
+        });
+
+        // Handle "No" button click
+        var cancelButton = document.getElementById("cancelTopUpButton");
+        cancelButton.addEventListener("click", function() {
+            overlay.style.display = "none"; // Hide the pop-up overlay
+        });
+    }
+</script>

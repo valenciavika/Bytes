@@ -22,15 +22,14 @@ class TopUpController extends Controller
         $emoney = TopUp::where("id", 1)->get();
         $money = Money::where("emoney_id", 1)->get();
         $method = TopUpPaymentMethod::all();
-        $transaction = TopUpTransaction::where("user_id", $id)->get();
+        $transaction = TopUpTransaction::where("user_id", $id)->get()->sortByDesc('time');
         $transaction_emoney = TopUp::all();
+
 
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
         }
-
-
         // dd($transaction);
         // dd($money);
 
@@ -51,14 +50,13 @@ class TopUpController extends Controller
         $emoney = TopUp::where("id", 2)->get();
         $money = Money::where("emoney_id", 2)->get();
         $method = TopUpPaymentMethod::all();
-        $transaction = TopUpTransaction::where("user_id", $id)->get();
+        $transaction = TopUpTransaction::where("user_id", $id)->get()->sortByDesc('time');
         $transaction_emoney = TopUp::all();
 
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
         }
-
 
         // dd($transaction);
         // dd($money);
@@ -80,14 +78,13 @@ class TopUpController extends Controller
         $emoney = TopUp::where("id", 3)->get();
         $money = Money::where("emoney_id", 3)->get();
         $method = TopUpPaymentMethod::all();
-        $transaction = TopUpTransaction::where("user_id", $id)->get();
+        $transaction = TopUpTransaction::where("user_id", $id)->get()->sortByDesc('time');
         $transaction_emoney = TopUp::all();
 
         foreach($transaction as $tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
         }
-
 
         // dd($transaction);
         // dd($money);
@@ -103,4 +100,41 @@ class TopUpController extends Controller
             'tr_emone' => $transaction_emoney,
         ]);
     }
+
+    private function updateUser($user_id, $emoney_id, $amount) {
+        $money = Money::where('user_id', $user_id)->get();
+        foreach($money as $m){
+            if($m['emoney_id']==$emoney_id){
+                $m->totalAmount += $amount;
+                $m->save();
+                break;
+            }
+        }
+    }
+
+    public function processTopUp(Request $request)
+    {
+        $amount = $request->input('amount');
+        $paymentMethod = $request->input('payment_method');
+        $user_id = $request->input('user_id');
+        $emoney_id = $request->input('emoney_id');
+
+        TopUpTransaction::insert([
+            'emoney_id' => $emoney_id,
+            'user_id' => $user_id,
+            'amount' => $amount,
+            'payment_id' => $paymentMethod,
+            'method' => "Top Up",
+            'time' => now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
+        ]);
+
+        $this->updateUser($user_id, $emoney_id, $amount);
+
+
+
+
+        return redirect()->back()->with('success', 'Top-up successful');
+    }
+
+
 }

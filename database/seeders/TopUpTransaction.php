@@ -20,6 +20,7 @@ class TopUpTransaction extends Seeder
                 "emoney_id" => 1,
                 "payment_id" => 2,
                 "amount" => 20000,
+                'method' => 'Top Up',
                 "time" => '2023-03-19 11:23:00.00',
             ],
             [
@@ -27,6 +28,7 @@ class TopUpTransaction extends Seeder
                 "emoney_id" => 1,
                 "payment_id" => 2,
                 "amount" => 30000,
+                "method" => "Top Up",
                 "time" => '2023-03-21 11:23:00.00',
             ],
         ]);

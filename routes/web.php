@@ -36,4 +36,4 @@ Route::get('/profile', [ProfileController::class, 'show']);
 Route::get('/order', [OrderController::class, 'show']);
 Route::get('/cart', [CartController::class, 'show']);
 
-
+Route::post('/topup/process', [TopUpController::class, 'processTopUp'])->name('topup.process');
