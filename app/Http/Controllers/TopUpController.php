@@ -31,6 +31,10 @@ class TopUpController extends Controller
             $tr->transaction_time = date('H:i', strtotime($tr->time));
             $tr->transaction_day = date('l', strtotime($tr->time));
         }
+
+        foreach($money as $m){
+            $m->formattedPrice = number_format($m->totalAmount, 0, ',', '.');
+        }
         // dd($transaction);
         // dd($money);
 
@@ -61,6 +65,10 @@ class TopUpController extends Controller
             $tr->transaction_day = date('l', strtotime($tr->time));
         }
 
+        foreach($money as $m){
+            $m->formattedPrice = number_format($m->totalAmount, 0, ',', '.');
+        }
+
         // dd($transaction);
         // dd($money);
 
@@ -89,6 +97,10 @@ class TopUpController extends Controller
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
             $tr->transaction_day = date('l', strtotime($tr->time));
+        }
+
+        foreach($money as $m){
+            $m->formattedPrice = number_format($m->totalAmount, 0, ',', '.');
         }
 
         // dd($transaction);

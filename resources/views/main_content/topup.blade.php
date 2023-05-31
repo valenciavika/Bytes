@@ -5,9 +5,9 @@
     <div class="body-section">
         <div class="topup-container">
             <div class="emoneyButton">
-                <a class="button" href="/{{ $user->id }}/topup/BiPay" style="background-color: #{{ $active == 1 ? 'F9C140': 'Fad685'}}; border-bottom:{{$active == 1?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}"><img src="" alt=""> BiPay</a>
-                <a class="button" href="/{{ $user->id }}/topup/Ovo" style="background-color: #{{ $active == 2 ? 'F9C140': 'Fad685'}}; border-bottom:{{$active == 2?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}">Ovo</a>
-                <a class="button" href="/{{ $user->id }}/topup/GoPay"style="background-color: #{{ $active == 3 ? 'F9C140': 'Fad685'}};border-bottom:{{$active == 3?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}">GoPay</a>
+                <a class="button" href="/{{ $user->id }}/topup/BiPay" style="background-color: #{{ $active == 1 ? 'F9C140': 'Fad685'}}; border-bottom:{{$active == 1?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}"><img src="{{$tr_emone[0]->img}}" alt=""> BiPay</a>
+                <a class="button" href="/{{ $user->id }}/topup/Ovo" style="background-color: #{{ $active == 2 ? 'F9C140': 'Fad685'}}; border-bottom:{{$active == 2?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}"><img src="{{$tr_emone[1]->img}}" alt="">OVO</a>
+                <a class="button" href="/{{ $user->id }}/topup/GoPay"style="background-color: #{{ $active == 3 ? 'F9C140': 'Fad685'}};border-bottom:{{$active == 3?'none':"solid 0.2vw rgba(0, 0, 0, 0.2)"}}"><img src="{{$tr_emone[2]->img}}" alt="">GoPay</a>
             </div>
             <form action="{{ route('topup.process')}}" method="POST" class="topup2" onsubmit="return showTopUpConfirmation(event)">
                 @csrf
@@ -21,7 +21,7 @@
                         @endforeach
                     </div>
                     @foreach ($money as $m)
-                        <p>Rp{{$m['totalAmount']}}</p>
+                        <p>Rp{{$m['formattedPrice']}}</p>
                     @endforeach
                 </div>
                 <input class="amount" type="text" name="amount" placeholder="INSERT AMOUNT.." required>

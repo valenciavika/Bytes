@@ -8,14 +8,17 @@
     width: 30%;
     align-self: center;
 }
+
 .emoneyButton{
     display: flex;
     width: 100%;
     justify-content: space-evenly;
 }
 
-.button{
-    font-size: 1.5vw;
+.button img{
+    width: 1.75vw;
+    height: 1.75vw;
+    margin-right: 0.5vw;
 }
 
 .emoneyButton .button{
@@ -28,6 +31,9 @@
     width: 30%;
     text-align: center;
     cursor: pointer;
+    font-size: 1.5vw;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -48,7 +54,7 @@ input[type="radio"] {
 .emone{
     display: flex;
     align-items: center;
-    font-size: 1.5vw;
+    font-size: 2vw;
 }
 
 .saldo{
@@ -56,11 +62,11 @@ input[type="radio"] {
     justify-content: space-between;
     align-items: center;
     padding: 1.5vw;
-    font-size: 1.5vw;
+    font-size: 2vw;
 }
 
 .saldo img{
-    width: 2vw;
+    width: 2.5vw;
 }
 
 .amount{
