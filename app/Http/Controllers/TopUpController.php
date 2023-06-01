@@ -17,7 +17,7 @@ class TopUpController extends Controller
         ]);
     }
 
-    public function activeBiPay($id){
+    public function activeBiPay($id, $type){
         $user = User::find($id);
         $emoney = TopUp::where("id", 1)->get();
         $money = Money::where("emoney_id", 1)->get();
@@ -47,11 +47,12 @@ class TopUpController extends Controller
             'method' => $method,
             'transaction' => $transaction,
             'tr_emone' => $transaction_emoney,
-            'active_number' => 0
-        ]);
+            'active_number' => 0,
+            'type' => $type,
+        ])->with('id', $id);
     }
 
-    public function activeOvo($id){
+    public function activeOvo($id, $type){
         $user = User::find($id);
         $emoney = TopUp::where("id", 2)->get();
         $money = Money::where("emoney_id", 2)->get();
@@ -81,11 +82,12 @@ class TopUpController extends Controller
             'method' => $method,
             'transaction' => $transaction,
             'tr_emone' => $transaction_emoney,
-            'active_number' => 0
-        ]);
+            'active_number' => 0,
+            'type' => $type,
+        ])->with('id', $id);
     }
 
-    public function activeGoPay($id){
+    public function activeGoPay($id, $type){
         $user = User::find($id);
         $emoney = TopUp::where("id", 3)->get();
         $money = Money::where("emoney_id", 3)->get();
@@ -115,8 +117,9 @@ class TopUpController extends Controller
             'method' => $method,
             'transaction' => $transaction,
             'tr_emone' => $transaction_emoney,
-            'active_number' => 0
-        ]);
+            'active_number' => 0,
+            'type' => $type,
+        ])->with('id', $id);
     }
 
     private function updateUser($user_id, $emoney_id, $amount) {

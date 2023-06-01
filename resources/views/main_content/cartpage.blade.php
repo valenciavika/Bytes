@@ -1,5 +1,7 @@
 @extends('main_template')
 
+
+
 @section('content')
     <div class="mycart_section">
         <div class="mycart_head">
@@ -41,21 +43,21 @@
             <div class="emoney_section">
                 <img class="emoney_logo" src="" alt="">
                 <div class="emoney_name">bipay</div>
-                <div class="emoney_value">Rp{{number_format(' ', 0 , '.' , '.' )}}</div>
+                <div class="emoney_value">Rp{{number_format(1, 0 , '.' , '.' )}}</div>
             </div>
         </div>
         <div class="total_payment_section">
             <div class="subtotal">
                 <p>Subtotal:</p>
-                <p>Rp{{number_format(' ', 0 , '.' , '.' )}}</p>
+                <p>Rp{{number_format(1, 0 , '.' , '.' )}}</p>
             </div>
             <div class="service_charge">
                 <p>Service charge:</p>
-                <p>Rp{{number_format(' ', 0 , '.' , '.' )}}</p>
+                <p>Rp{{number_format(1, 0 , '.' , '.' )}}</p>
             </div>
             <div class="total_value">
                 <p>Total:</p>
-                <p>Rp{{number_format(' ', 0 , '.' , '.' )}}</p>
+                <p>Rp{{number_format(1, 0 , '.' , '.' )}}</p>
             </div>
         </div>
         <div class="order_button">ORDER NOW</div>

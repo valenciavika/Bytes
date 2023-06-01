@@ -6,6 +6,8 @@
 
         <title>{{ $page_title }}</title>
         <link rel = "icon" href = "{{ asset('images/Logo_Binuseats.png') }}" type = "image/x-icon">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
         <script src="https://kit.fontawesome.com/db7406598f.js" crossorigin="anonymous"></script>
         <script src="editprofile.js"></script>
@@ -19,11 +21,11 @@
 
     </head>
     <body>
-
         <div class="banner">
-            <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location='{{ url("") }}'">
-            
-            <form action="/">
+            @yield('home')
+            <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location.href='/homepage/{{$id}}'">
+
+            <form action="/homepage/{{$id}}">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit">| <i class="fas fa-search" style="color: #000000;"></i></button>
             </form>
@@ -34,18 +36,18 @@
                     <p style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} ">Notification</p>
                 </div>
 
-                <div class="cart" id="bar" onclick="window.location.href='/cart'">
+                <div class="cart" id="bar" onclick="window.location.href='/cart/{{$id}}'">
                     <i class="fas fa-shopping-cart" style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} ">Cart</p>
                 </div>
 
-                <div class="order" id="bar" onclick="window.location.href='/order'">
+                <div class="order" id="bar" onclick="window.location.href='/order/{{$id}}'">
                     <i class='fas fa-file-alt' style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}} ">Order</p>
                 </div>
 
 
-                <div class="profile" id="bar" onclick="window.location.href='/profile'">
+                <div class="profile" id="bar" onclick="window.location.href='/profile/{{$id}}'">
                     <i class="fa-solid fa-user" style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}} ">Profile</p>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -19,11 +20,16 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
+        // dd($user);
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            $user = User::where("email", $credentials['email'])->first();
+            $user_id = $user->id;
+            // dd($user_id);
+            return redirect()->intended('/homepage/'.$user_id);
         }
- 
+
         return back()->with('LoginError', 'Login Failed!');
     }
 }

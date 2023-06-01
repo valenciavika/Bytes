@@ -49,7 +49,6 @@ body p{
     outline: none;
 }
 
-
 .banner form button{
     background-color: #F9F4EA;
     border:none;
@@ -62,7 +61,6 @@ body p{
     font-size: 1.25vw;
     cursor: pointer;
 }
-
 
 #bar{
     display: flex;
@@ -95,13 +93,15 @@ body p{
     height: fit-content;
     display: flex;
     align-self: center;
-    padding-left: 2vw;
+    margin-left: 2vw;
     cursor: pointer;
 }
+
 
 .content{
     background-color: #FCEDCA;
     min-height: 87vh;
+    /* padding-top: 3vw; */
 }
 
 .no_result {
@@ -117,11 +117,9 @@ body p{
 
 .topup{
     border-radius: 0.7vw;
-    width: 40%;
+    /* width: 40%; */
     background-color: #F9C140;
     display: flex;
-    margin-left: 3vw;
-    margin-top: 1.5vw;
     justify-content: space-evenly;
 }
 
@@ -131,20 +129,42 @@ body p{
     align-items: center;
 }
 
-.emoney{
+
+#topup-carousel{
+    width: 40%;
+    background-color: #F9C140;
+    margin-top: 1.5vw;
+    margin-left: 3vw;
+    border-radius: 0.7vw;
+}
+#emoney{
     display: flex;
     border-radius: 0.7vw;
     justify-content: space-between;
     background-color: white;
     opacity: 88%;
     margin-top: 1.5vw;
-    margin-bottom: 1.75vw;
+    /* margin-bottom: 1.75vw; */
     align-items: center;
-    width: 50%;
+    width: 60%;
+    padding: 1.5vw 0.5vw;
 }
 
-.emoney p, .hist p, .status p{
+#emoney p{
+    font-size: 1.75vw;
+}
+
+
+.hist p, .status p{
     font-size: 1.25vw;
+}
+
+.carousel-indicators {
+    list-style: none;
+}
+
+ol.carousel-indicators {
+    margin-bottom: 0.5vw;
 }
 
 .topup_button{
@@ -152,26 +172,26 @@ body p{
     background-color: #FD6727;
     display: flex;
     color: white;
-    font-size: 1.25vw;
+    font-size: 1.6vw;
     font-weight: bold;
     width: 23%;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 1.5vw;
-    margin-bottom: 1.5vw;
+    /* margin-bottom: 1.4vw; */
     text-decoration: none;
 }
 
 .topup-button p{
     margin-right: 1vw;
     display: flex;
+    font-size: 3vw;
     align-items: center;
 }
 
 .topup-button i{
     display: flex;
     align-items: center;
-    font-size: 1.75vw;
     font-weight:5000;
     margin-left: 1vw;
 }
@@ -285,3 +305,4 @@ body p{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+

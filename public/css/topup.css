@@ -28,12 +28,14 @@
     border-right: solid 0.2vw rgba(0, 0, 0, 0.2);
     border-radius: 0.5vw 0.5vw 0vw 0vw ;
     padding: 0.5vw 3% 0.5vw 3%;
-    width: 30%;
+    width: 33.333%;
     text-align: center;
     cursor: pointer;
     font-size: 1.5vw;
     display: flex;
     align-items: center;
+    color: black;
+    text-decoration: none;
 }
 
 
@@ -44,6 +46,7 @@
     border-left: solid 0.2vw rgba(0, 0, 0, 0.2);
     border-right: solid 0.2vw rgba(0, 0, 0, 0.2);
     border-radius: 0vw 0vw 0.5vw 0.5vw ;
+    height: fit-content;
 
 }
 
@@ -116,13 +119,24 @@ label input{
     width: 2vw;
 }
 
+.history-help{
+    width: 60%;
+    align-self: center;
+}
+
+.history-help .button{
+    width: 50%;
+}
+
 .history-topup{
     background-color: #F9C140;
-    border-radius: 0.5vw;
-    border: solid 0.2vw rgba(0, 0, 0, 0.2);
-    width: 60%;
-    /* height: 80%; */
-    align-self: center;
+    border-radius: 0 0.5vw 0.5vw 0.5vw;
+    border-bottom: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-right: solid 0.2vw rgba(0, 0, 0, 0.2);
+    border-left: solid 0.2vw rgba(0, 0, 0, 0.2);
+    /* width: 60%; */
+    height: 80%;
+
 }
 
 .emoney-hist{
@@ -144,7 +158,7 @@ label input{
 
 .topup-hist{
     overflow-y: auto;
-    max-height: 70%;
+    max-height: 77%;
 }
 
 .date{
@@ -266,6 +280,30 @@ button{
     cursor: pointer;
 }
 
+.instruct {
+    margin-left: 1.5vw;
+    margin-top: 0.5vw;
+    padding: 0.5vw 1vw;
+    text-align: justify;
+    background-color: #fad685;
+    margin-right: 1vw;
+    box-shadow: inset 0 0 0.25vw 0.125vw rgba(0, 0, 0, 0.2);
+    border-radius: 0.25vw;
+}
+
+.methodss{
+    border-bottom: solid;
+    padding-bottom: 1vw;
+}
+
+.methodss p{
+    font-size: 1.25vw;
+    margin-bottom: 0.5vw;
+}
+
+.methodss h2{
+    padding-top: 1vw;
+}
 
 
 
