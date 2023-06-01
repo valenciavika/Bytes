@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('menu_id');
+            $table->unsignedBigInteger('quantity');
+            $table->text('additional_description')->nullable();
+            $table->string('jenis')->nullable();
         });
     }
 
