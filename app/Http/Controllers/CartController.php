@@ -23,5 +23,15 @@ class CartController extends Controller
         ])->with('id', $id);;
     }
 
-    
+    public function checkout(Request $request, $id)
+    {
+        $totalPrice = $request->input('totalPrice');
+
+        $idArr = json_decode($request->input('idArr'), true);
+
+        return response()->json([
+            'message' => 'Total price received: ' . $totalPrice,
+            'idArr' => $idArr
+        ]);
+    }
 }

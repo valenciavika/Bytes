@@ -1,9 +1,10 @@
 @extends('main_template')
 
 @section('content')
-
+    <div id="block_div" class="block_div"></div>
     <div class="inner_div_relative">
-        <div class="mycart_section">
+        
+        <div id="cartSection" class="mycart_section">
             <div class="mycart_head">
                 MyCart
             </div>
@@ -19,7 +20,7 @@
                             $tenant = $tenants[$menu->tenant_id-1];
                             array_push($price, $menu->price);
                         @endphp
-                        <input id="check{{$cart->id}}" type="checkbox" onclick="updateTotal(this, {{ $price[$cart->id-1] }}, {{ $cart->id }})">
+                        <input id="check{{$cart->id}}" type="checkbox" onclick="updateTotalandIdArr(this, {{ $price[$cart->id-1] }}, {{ $cart->id }})">
                         <div class="item_section">
                             <img src="{{''}}" alt="">
                             <div class="item_desc">
@@ -46,12 +47,14 @@
                     <p >Subtotal: </p>
                     <p class="subtotal_value">Rp{{number_format(0, 0 , '.' , '.' )}}</p>
                 </div>
-                <div class="mycart_checkout">CHECK OUT</div>
+                <div class="mycart_checkout" onclick="checkout()">
+                    CHECK OUT
+                </div>
             </div>
         </div>
-    
-        <form class="order_summary" style="display: none;">
-            <i class="fa fa-arrow-left back_sign"></i>
+        
+        <form id="order_summary" class="order_summary" style="display: none;">
+            <i class="fa fa-arrow-left back_sign" onclick="hideOrder()"></i>
             <div class="order_summary_header">
                 ORDER SUMMARY
             </div>
@@ -59,12 +62,19 @@
                 <div class="payment_methods_header">Payment Methods</div>
                 <div class="payment_methods">
                     @foreach ($emoneys as $emoney)
-                        <div class="emoney_section">
+                        <div id="emoney_section{{ $emoney->id }}" class="emoney_section">
                             <div class="emoney_logo_name">
                                 <img class="emoney_logo" src="{{ $emoney->img }}" alt="">
                                 <div class="emoney_name">{{ $emoney->name }}</div>
                             </div>
-                            <div class="emoney_value">Rp{{number_format(1, 0 , '.' , '.' )}}</div>
+                            @foreach ($moneys as $money)
+                                @if ($money->emoney_id == $emoney->id)
+                                    <div class="emoney_value" onload="sendData({{ $money->totalAmount }}, {{ $emoney->id }})">
+                                        <span id="emoney_insufficient{{ $emoney->id }}">(insufficient)</span>
+                                        Rp{{number_format($money->totalAmount, 0, '.' , '.' )}}
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                     @endforeach
                 </div>
@@ -72,15 +82,15 @@
             <div class="total_payment_section">
                 <div class="subtotal">
                     <p>Subtotal:</p>
-                    <p>Rp{{number_format(1, 0 , '.' , '.' )}}</p>
+                    <p id="orderSubtotal"></p>
                 </div>
                 <div class="service_charge">
                     <p>Service charge:</p>
-                    <p>Rp{{number_format(1, 0 , '.' , '.' )}}</p>
+                    <p id="orderCharge"></p>
                 </div>
                 <div class="total_value">
                     <p>Total:</p>
-                    <p>Rp{{number_format(1, 0 , '.' , '.' )}}</p>
+                    <p id="orderTotal"></p>
                 </div>
             </div>
             <div class="order_button_section">
@@ -92,18 +102,28 @@
 
 <script>
     var totalPrice = 0;
-    
-    function updateTotal(checkbox, price, id) {
+    var formattedPrice;
+    var idArr = [];
+
+    function updateTotalandIdArr(checkbox, price, id) {
         var status = checkbox.checked;
         var element = document.getElementById("quality_value"+id);
         var quantity = element.innerHTML;
 
         if (status) {
             totalPrice += price * quantity
+            idArr.push(id)
         } else {
             totalPrice -= price * quantity
+            for (let i = 0; i < idArr.length; i++) {
+                if (id == idArr[i]) {
+                    idArr.splice(i, 1);
+                    break;
+                }
+            }
         }
         updateViewTotal();
+        checkEmoneyStatus();
     }
 
     function stop_hover(id) {
@@ -155,7 +175,7 @@
     }
 
     function updateViewTotal() {
-        var formattedPrice = 'Rp' + totalPrice.toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
+        formattedPrice = 'Rp' + totalPrice.toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
 
         var subtotalElements = document.getElementsByClassName('subtotal_value');
         if (subtotalElements.length > 0) {
@@ -163,5 +183,71 @@
         }
     }
 
+    function checkout() {
+        var url = '/cart/' + {{$id}} + '/checkout?totalPrice=' + totalPrice + '&idArr=' + JSON.stringify(idArr);
+        
+        if (totalPrice == 0) {
+
+            return
+        }
+
+        fetch(url)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+        })
+        .then(data => {
+        // Handle the JSON response data
+            console.log('Response:', data);
+            })
+            .catch(error => {
+            // Handle any errors that occurred during the request
+            console.error('Error:', error);
+        });
+        
+        showOrder();
+    }
+
+    function hideOrder() {
+        document.getElementById('order_summary').style.display = "none";
+        document.getElementById('cartSection').style.opacity = 1;
+        document.getElementById('block_div').style.display = "none";
+    }
+
+    function showOrder() {
+        var formattedCharge = 'Rp' + (idArr.length * 1500).toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
+        var formattedTotalPrice = 'Rp' + (idArr.length * 1500 + totalPrice).toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
+        
+        document.getElementById('orderSubtotal').innerHTML = formattedPrice;
+        document.getElementById('orderCharge').innerHTML = formattedCharge;
+        document.getElementById('orderTotal').innerHTML = formattedTotalPrice;
+
+        document.getElementById('cartSection').style.opacity = 0.4;
+        document.getElementById('order_summary').style.display = "block";
+
+        document.getElementById('block_div').style.display = "block";
+    }
+
+    function checkEmoneyStatus(totalAmount, emoneyId) {
+        console.log(emoneyId);
+        if (totalAmount < totalPrice) {
+            document.getElementById('emoney_section' + emoneyId).style.opacity = 0.7;
+            document.getElementById('emoney_insufficient' + emoneyId).style.display =  "block";
+        }
+        else {
+            document.getElementById('emoney_section' + emoneyId).style.opacity = 1;
+            document.getElementById('emoney_insufficient' + emoneyId).style.display =  "none";
+        }
+    }
+
+    function sendData(totalAmountData, emoneyIdData) {
+        totalAmount = totalAmountData;
+        emoneyId = emoneyIdData;
+    }
+
+   
 
 </script>

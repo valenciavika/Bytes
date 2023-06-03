@@ -1,3 +1,13 @@
+.block_div {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
 .inner_div_relative {
     position: relative;
 }
@@ -128,7 +138,7 @@ input[type=checkbox]     {
     justify-content: space-between;
     border-top: 0.2vw rgba(253, 103, 39, 0.3) solid;
     position: absolute;
-    width: 90%;
+    width: 100%;
     bottom: 0;
     right: 0;
 }
@@ -137,6 +147,7 @@ input[type=checkbox]     {
     display: flex;
     align-items: flex-end;
     font-size: 1.8vw;
+    margin-left: 5vw;
 }
 
 .subtotal_value {
@@ -154,6 +165,15 @@ input[type=checkbox]     {
     font-weight: 700;
 }
 
+.mycart_checkout:hover {
+    cursor: pointer;
+}
+
+.mycart_checkout:active {
+    position: relative;
+    top: 0.1vw;
+}
+
 .order_summary {
     width: 23vw;
     position: absolute;
@@ -162,6 +182,7 @@ input[type=checkbox]     {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 1vw;
+    z-index: 11;
 }
 
 .back_sign {
@@ -170,6 +191,17 @@ input[type=checkbox]     {
     left: 0.7vw;
     top: 0.8vw;
     font-size: 1.6vw;
+    padding: 0.1vw;
+}
+
+.back_sign:hover {
+    cursor: pointer;
+    border-radius: 10vw;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.back_sign:active {
+    left: 0.5vw;
 }
 
 .order_summary_header {
@@ -212,6 +244,10 @@ input[type=checkbox]     {
     width: 2vw;
     height: 2vw;
     margin-right: 1.5vw;
+}
+
+.emoney_value span {
+    display: none;
 }
 
 .total_payment_section {
