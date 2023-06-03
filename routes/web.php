@@ -36,6 +36,5 @@ Route::get('/profile/{id}', [ProfileController::class, 'show']);
 Route::get('/order/{id}', [OrderController::class, 'show']);
 Route::get('/cart/{id}', [CartController::class, 'show']);
 
-
-Route::get('/cart/{id}/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+Route::get('/{id}/cart/order_now', [CartController::class, 'store']);
 

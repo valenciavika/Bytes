@@ -47,13 +47,14 @@
                     <p >Subtotal: </p>
                     <p class="subtotal_value">Rp{{number_format(0, 0 , '.' , '.' )}}</p>
                 </div>
-                <div class="mycart_checkout" onclick="checkout()">
+                <div class="mycart_checkout" onclick="showOrder()">
                     CHECK OUT
                 </div>
             </div>
         </div>
         
-        <form id="order_summary" class="order_summary" style="display: none;">
+        <form id="order_summary" class="order_summary" action="/{{$id}}/cart/order_now" method="post" onsubmit="orderNow(event)" style="display: none">
+            @csrf
             <i class="fa fa-arrow-left back_sign" onclick="hideOrder()"></i>
             <div class="order_summary_header">
                 ORDER SUMMARY
@@ -62,7 +63,7 @@
                 <div class="payment_methods_header">Payment Methods</div>
                 <div class="payment_methods">
                     @foreach ($emoneys as $emoney)
-                        <div id="emoney_section{{ $emoney->id }}" class="emoney_section">
+                        <div id="emoney_section{{ $emoney->id }}" class="emoney_section" onclick="chooseEmoneytoPay({{ $emoney->id }})">
                             <div class="emoney_logo_name">
                                 <img class="emoney_logo" src="{{ $emoney->img }}" alt="">
                                 <div class="emoney_name">{{ $emoney->name }}</div>
@@ -73,6 +74,9 @@
                                         <span id="emoney_insufficient{{ $emoney->id }}">(insufficient)</span>
                                         Rp{{number_format($money->totalAmount, 0, '.' , '.' )}}
                                     </div>
+                                    <script>
+                                        window.addEventListener('DOMContentLoaded', sendData({{ $money->totalAmount }}, {{ $emoney->id }}, {{ $id }}));
+                                    </script>
                                 @endif
                             @endforeach
                         </div>
@@ -94,7 +98,8 @@
                 </div>
             </div>
             <div class="order_button_section">
-                <button class="order_button">ORDER NOW<button>
+                <button id="orderButton" class="order_button">ORDER NOW</button>
+                <a id="topUpButton" class="order_button" href="/{{$id}}/topup/BiPay/History">Top Up</a>
             </div>
         </form>
     </div>
@@ -104,6 +109,11 @@
     var totalPrice = 0;
     var formattedPrice;
     var idArr = [];
+    var totalAmount = [];
+    var emoneyId = [];
+    var chosenEmoneyId = 0;
+    var statusInsufficient = [];
+    var userId;
 
     function updateTotalandIdArr(checkbox, price, id) {
         var status = checkbox.checked;
@@ -183,34 +193,6 @@
         }
     }
 
-    function checkout() {
-        var url = '/cart/' + {{$id}} + '/checkout?totalPrice=' + totalPrice + '&idArr=' + JSON.stringify(idArr);
-        
-        if (totalPrice == 0) {
-
-            return
-        }
-
-        fetch(url)
-        .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Error: ' + response.status);
-        }
-        })
-        .then(data => {
-        // Handle the JSON response data
-            console.log('Response:', data);
-            })
-            .catch(error => {
-            // Handle any errors that occurred during the request
-            console.error('Error:', error);
-        });
-        
-        showOrder();
-    }
-
     function hideOrder() {
         document.getElementById('order_summary').style.display = "none";
         document.getElementById('cartSection').style.opacity = 1;
@@ -229,25 +211,78 @@
         document.getElementById('order_summary').style.display = "block";
 
         document.getElementById('block_div').style.display = "block";
+
+        checkEmoneyStatus();
     }
 
-    function checkEmoneyStatus(totalAmount, emoneyId) {
-        console.log(emoneyId);
-        if (totalAmount < totalPrice) {
-            document.getElementById('emoney_section' + emoneyId).style.opacity = 0.7;
-            document.getElementById('emoney_insufficient' + emoneyId).style.display =  "block";
+    function checkEmoneyStatus() {
+        for (let i = 0; i < totalAmount.length; i++) {
+            var elementEmoneySection = document.getElementById('emoney_section' + emoneyId[i]);
+            var elementEmoneyinsufficient = document.getElementById('emoney_insufficient' + emoneyId[i]);
+            
+            if (totalAmount[i] < totalPrice) {
+                elementEmoneySection.style.opacity = 0.5;
+                elementEmoneyinsufficient.style.display = 'block';
+                statusInsufficient.push(false);
+            }
+            else {
+                elementEmoneySection.style.opacity = 1;
+                elementEmoneyinsufficient.style.display = 'none';
+                statusInsufficient.push(true);
+                chooseEmoneytoPay(i+1)
+                chosenEmoneyId = i+1;
+            }
         }
-        else {
-            document.getElementById('emoney_section' + emoneyId).style.opacity = 1;
-            document.getElementById('emoney_insufficient' + emoneyId).style.display =  "none";
-        }
+
     }
 
-    function sendData(totalAmountData, emoneyIdData) {
-        totalAmount = totalAmountData;
-        emoneyId = emoneyIdData;
+    function sendData(totalAmountData, emoneyIdData, userIdData) {
+        totalAmount.push(totalAmountData);
+        emoneyId.push(emoneyIdData);
+        userId = userIdData;
     }
-
    
+    function chooseEmoneytoPay(emoneyId) {
+        var elementChosenEmoneyId;
+        if (chosenEmoneyId != 0) {
+            elementChosenEmoneyId = document.getElementById('emoney_section' + chosenEmoneyId);
+            elementChosenEmoneyId.style.borderStyle = "none";
+            elementChosenEmoneyId.style.backgroundColor = "#F9C140";
+        }
+        
+        chosenEmoneyId = emoneyId;
+        elementChosenEmoneyId = document.getElementById('emoney_section' + emoneyId);
+        elementChosenEmoneyId.style.borderStyle = "solid";
+        elementChosenEmoneyId.style.backgroundColor = "rgba(217, 217, 217, 0.1)";
 
+        if (statusInsufficient[emoneyId-1]) {
+            document.getElementById('topUpButton').style.display = "none";
+            document.getElementById('orderButton').style.display = "block";
+            return;
+        }
+        
+        document.getElementById('topUpButton').style.display = "block";
+        document.getElementById('orderButton').style.display = "none";
+    }
+
+    function orderNow() {
+        event.preventDefault();
+        var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + totalPrice + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
+        
+        fetch(url)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+        })
+        .then(data => {
+            console.log('Response:', data);
+            })
+            .catch(error => {
+            console.error('Error:', error);
+        });
+        
+    }
 </script>

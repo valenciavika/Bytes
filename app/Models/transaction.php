@@ -11,4 +11,8 @@ class Transaction extends Model
 
     protected $guarded = ['id'];
     
+    public function menu()
+    {
+        return $this->hasTo(Menu::class);
+    }
 }

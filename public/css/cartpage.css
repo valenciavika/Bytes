@@ -233,11 +233,18 @@ input[type=checkbox]     {
 .emoney_section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2vw;
+    align-items: center;
+    padding: 1.2vw 1vw;
+    margin-bottom: 0.8vw;
+    border: none;
+    border-radius: 0.3vw;
+    border-width: 0.1vw;
+    border-color: white;
 }
 
 .emoney_logo_name {
     display: flex;
+    align-items: center;
 }
 
 .emoney_logo_name img {
