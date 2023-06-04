@@ -36,7 +36,7 @@
                     <p style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} ">Notification</p>
                 </div>
 
-                <div class="cart" id="bar" onclick="window.location.href='/cart/{{$id}}'">
+                <div class="cart" id="bar" onclick="window.location.href='/{{$id}}/cart'">
                     <i class="fas fa-shopping-cart" style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} ">Cart</p>
                 </div>

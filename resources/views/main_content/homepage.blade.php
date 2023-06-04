@@ -99,7 +99,7 @@
                     @endforeach
                 @endif
             @else
-                <p class="no_result">No post found.</p>
+                <p class="no_result">No result found.</p>
             @endif
 
             <div class="tenant-1">

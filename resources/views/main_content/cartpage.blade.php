@@ -3,58 +3,72 @@
 @section('content')
     <div id="block_div" class="block_div"></div>
     <div class="inner_div_relative">
-        
         <div id="cartSection" class="mycart_section">
             <div class="mycart_head">
                 MyCart
             </div>
-    
-            <div class="mycart_item_list_section">
-                @php
-                    $price = [];
+            @php
+                $cart_not_empty = true;
+                if ($carts->count() == 0) {
+                    $cart_not_empty = false;
+                }
+            @endphp
+            @if ($cart_not_empty)
+                <div class="mycart_item_list_section">
+                    @php
+                        $price = [];
                     @endphp
-                @foreach ($carts as $cart)
-                    <div class="mycart_item_lists">
-                        @php
-                            $menu = $menus[$cart->menu_id-1];
-                            $tenant = $tenants[$menu->tenant_id-1];
-                            array_push($price, $menu->price);
-                        @endphp
-                        <input id="check{{$cart->id}}" type="checkbox" onclick="updateTotalandIdArr(this, {{ $price[$cart->id-1] }}, {{ $cart->id }})">
-                        <div class="item_section">
-                            <img src="{{''}}" alt="">
-                            <div class="item_desc">
-                                <p class="item_tenant">{{ $tenant->name }}</p>
-                                <p class="item_menu">{{ $menu->name }}</p>
-                                <p id="checkbox_{{ $cart->id }}" class="item_price">Rp{{number_format($menu->price, 0 , '.' , '.' )}}</p>
-                            </div>
-                        </div>
-                        <div class="item_quantity_section">
-                            <div class="item_quantity_value_section">
-                                <div id="hover_toggle{{$cart->id}}" class="item_quantity_minus_sign" style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};">
-                                    <i id="min_sign{{$cart->id}}" onclick="myFunction_minus(id, {{ $price[$cart->id-1] }})" class="fa fa-minus" aria-hidden="true"></i>
+                    @foreach ($carts as $cart)
+                        <div class="mycart_item_lists">
+                            @php
+                                $menu = $menus[$cart->menu_id-1];
+                                $tenant = $tenants[$menu->tenant_id-1];
+                                $price[$cart->id] = $menu->price;
+                            @endphp
+                            <input id="check{{$cart->id}}" type="checkbox" onclick="updateTotalandIdArr(this, {{ $price[$cart->id] }}, {{ $cart->id }})">
+                            <div class="item_section">
+                                <img src="{{''}}" alt="">
+                                <div class="item_desc">
+                                    <p class="item_tenant">{{ $tenant->name }}</p>
+                                    <p class="item_menu">{{ $menu->name }}</p>
+                                    <p id="checkbox_{{ $cart->id }}" class="item_price">Rp{{number_format($menu->price, 0 , '.' , '.' )}}</p>
                                 </div>
-                                <div id="quality_value{{$cart->id}}" class="item_quantity_value">{{ $cart->quantity }}</div>
-                                <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus(id, {{ $price[$cart->id-1] }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
                             </div>
-                            <div class="item_quantity_edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</div>
-                        </div>  
-                    </div>
-                @endforeach
-            </div>
+                            <div class="item_quantity_section">
+                                <div class="item_quantity_value_section">
+                                    <div id="hover_toggle{{$cart->id}}" class="item_quantity_minus_sign" style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};">
+                                        <i id="min_sign{{$cart->id}}" onclick="myFunction_minus(id, {{ $price[$cart->id] }})" class="fa fa-minus" aria-hidden="true"></i>
+                                    </div>
+                                    <div id="quality_value{{$cart->id}}" class="item_quantity_value">{{ $cart->quantity }}</div>
+                                    <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus(id, {{ $price[$cart->id] }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                </div>
+                                <div class="item_quantity_edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</div>
+                            </div>  
+                        </div>
+                    @endforeach
+                </div>      
+            @else
+                <p class="no_result">You cart is empty.</p>
+            @endif
+
             <div class="totalvalue_and_checkout_section">
                 <div class="mycart_totalvalue">
                     <p >Subtotal: </p>
                     <p class="subtotal_value">Rp{{number_format(0, 0 , '.' , '.' )}}</p>
                 </div>
-                <div class="mycart_checkout" onclick="showOrder()">
-                    CHECK OUT
-                </div>
+                @if ($cart_not_empty) 
+                    <div class="mycart_checkout" onclick="showOrder()">
+                        CHECK OUT
+                    </div>
+                @else
+                    <a class="mycart_checkout" href="/homepage/{{$id}}">
+                        Back Shopping
+                    </a>
+                @endif
             </div>
         </div>
-        
-        <form id="order_summary" class="order_summary" action="/{{$id}}/cart/order_now" method="post" onsubmit="orderNow(event)" style="display: none">
-            @csrf
+            
+        <div id="order_summary" class="order_summary" style="display: none">
             <i class="fa fa-arrow-left back_sign" onclick="hideOrder()"></i>
             <div class="order_summary_header">
                 ORDER SUMMARY
@@ -98,10 +112,10 @@
                 </div>
             </div>
             <div class="order_button_section">
-                <button id="orderButton" class="order_button">ORDER NOW</button>
+                <button id="orderButton" class="order_button" onclick="orderNow()">ORDER NOW</button>
                 <a id="topUpButton" class="order_button" href="/{{$id}}/topup/BiPay/History">Top Up</a>
             </div>
-        </form>
+        </div>
     </div>
 @endsection
 
@@ -133,7 +147,6 @@
             }
         }
         updateViewTotal();
-        checkEmoneyStatus();
     }
 
     function stop_hover(id) {
@@ -200,6 +213,10 @@
     }
 
     function showOrder() {
+        if (totalPrice == 0) {
+            return;
+        }
+
         var formattedCharge = 'Rp' + (idArr.length * 1500).toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
         var formattedTotalPrice = 'Rp' + (idArr.length * 1500 + totalPrice).toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
         
@@ -219,21 +236,27 @@
         for (let i = 0; i < totalAmount.length; i++) {
             var elementEmoneySection = document.getElementById('emoney_section' + emoneyId[i]);
             var elementEmoneyinsufficient = document.getElementById('emoney_insufficient' + emoneyId[i]);
-            
-            if (totalAmount[i] < totalPrice) {
+
+            if (totalAmount[i] < (totalPrice + 1500 * idArr.length)) {
                 elementEmoneySection.style.opacity = 0.5;
                 elementEmoneyinsufficient.style.display = 'block';
-                statusInsufficient.push(false);
+                statusInsufficient[i] = false;
             }
             else {
                 elementEmoneySection.style.opacity = 1;
                 elementEmoneyinsufficient.style.display = 'none';
-                statusInsufficient.push(true);
+                statusInsufficient[i] = true;
                 chooseEmoneytoPay(i+1)
                 chosenEmoneyId = i+1;
             }
         }
 
+        if (chosenEmoneyId == 0) {
+            chooseEmoneytoPay(1);
+            chosenEmoneyId = 1;
+        }
+
+        console.log(statusInsufficient);
     }
 
     function sendData(totalAmountData, emoneyIdData, userIdData) {
@@ -266,8 +289,7 @@
     }
 
     function orderNow() {
-        event.preventDefault();
-        var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + totalPrice + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
+        var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
         
         fetch(url)
         .then(response => {
@@ -283,6 +305,7 @@
             .catch(error => {
             console.error('Error:', error);
         });
-        
+
+        location.reload();
     }
 </script>

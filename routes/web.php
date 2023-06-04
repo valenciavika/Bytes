@@ -34,7 +34,6 @@ Route::post('/topup/process', [TopUpController::class, 'processTopUp'])->name('t
 
 Route::get('/profile/{id}', [ProfileController::class, 'show']);
 Route::get('/order/{id}', [OrderController::class, 'show']);
-Route::get('/cart/{id}', [CartController::class, 'show']);
+Route::get('/{id}/cart', [CartController::class, 'show']);
 
 Route::get('/{id}/cart/order_now', [CartController::class, 'store']);
-
