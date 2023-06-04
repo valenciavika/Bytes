@@ -125,11 +125,11 @@
                     @foreach ($tenant as $t)
                         @if ($t['tenant_category_id'] == $tc['id'])
                             @if ($count < 4)
-                                <div class="box">
+                                <a class="box" href="/{{$id}}/menu/{{$t->name}}">
                                     <div class="img">
                                     </div>
                                     <p style="font-size: 1.5vw;">{{$t['name']}}</p>
-                                </div>
+                                </a>
 
                                 @php
                                     $count++;

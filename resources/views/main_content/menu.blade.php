@@ -20,34 +20,26 @@
         <div class="kanan">
             <div class="menu">
                 <div class="container-menu">
-                    <div class="nama-menu">
-                        <div class="isi-menu">
-                            <div class="menu1">
-                                <p class="text-nama-menu">Bakmi keriting/lebar ayam biasa polos</p>
-                            </div>
-                            <div class="tengah">
-                                <div class="harga">
-                                    <p class="text-harga">Rp20.000</p>
+                    @foreach ($menus as $menu)
+                        <div class="nama-menu">
+                            <div class="isi-menu">
+                                <div class="menu1">
+                                    <p class="text-nama-menu">Bakmi keriting/lebar ayam biasa polos</p>
                                 </div>
-                                <div class="order">
-                                    <p class="text-order">ORDER</p>
+                                <div class="tengah">
+                                    <div class="harga">
+                                        <p class="text-harga">Rp20.000</p>
+                                    </div>
+                                    <a class="order" href="/{{$id}}/menu_detail/{{$tenant_name}}/{{$menu->id}}">
+                                        <p class="text-order">ORDER</p>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="stock">
-                                <p style="color:#F26122" class="text-stock"><b>50 in stock</b></p>
+                                <div class="stock">
+                                    <p style="color:#F26122" class="text-stock"><b>50 in stock</b></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="nama-menu">
-                    </div>
-                    <div class="nama-menu">
-                    </div>
-                    <div class="nama-menu">
-                    </div>
-                    <div class="nama-menu">
-                    </div>
-                    <div class="nama-menu">
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="logo-panah">
