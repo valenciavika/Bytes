@@ -17,6 +17,8 @@
         <link href="{{asset('css/order.css')}}" rel="stylesheet" />
         <link href="{{asset('css/cartpage.css')}}" rel="stylesheet" />
         <link href="{{asset('css/topup.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/menu.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/menudetail.css')}}" rel="stylesheet" />
 
 
     </head>

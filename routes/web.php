@@ -9,6 +9,8 @@ use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeMenuController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MenuDetailController;
 
 Route::get('/homepage/{id}', [HomeMenuController::class, 'home'])->name('home.index');
 
@@ -38,3 +40,6 @@ Route::get('/cart/{id}', [CartController::class, 'show']);
 
 Route::get('/{id}/cart/order_now', [CartController::class, 'store']);
 
+Route::get('/menu', [MenuController::class, 'show']);
+
+Route::get('/menudetail', [MenuDetailController::class, 'show']);
