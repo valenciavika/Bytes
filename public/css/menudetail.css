@@ -1,0 +1,237 @@
+menudetail.css 
+
+.kontener{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 87vh;
+}
+
+.left{
+    margin-right: 7vw;
+}
+
+.div-name-restoran{
+    display: flex;
+    justify-content: center;
+    width: 25vw;
+}
+
+.text-name-restoran{
+    background-color: #F9C140;
+    color: #F26122;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    text-align: center;
+    font-size: 50px;
+    width: 25vw;
+}
+
+.logo-binuseat{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5vw;
+    width: 25vw;
+}
+
+.right{
+    display: flex;
+    background-color:white;
+    border-radius: 25px;
+    flex-direction: column;
+    width: 45vw;
+    height: 72vh;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.detail{
+    display: flex;
+    justify-content: space-between;
+    background-color: #F26122;
+    width: 45vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14vw;
+}
+
+
+.detail2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30vw;
+}
+
+.stok{
+    display: flex;
+    justify-content: right;
+    width: 28vw;
+}
+
+.batch{
+    display: flex;
+    justify-content: right;
+    width: 28vw;
+}
+
+.text-title{
+    font-size:28px;
+}
+
+.text-price{
+    font-size:20px;
+    color:white;
+}
+
+.text-stok{
+    font-size:20px;
+    color:white;
+}
+
+.batch{
+    font-size:20px;
+    color: white;
+}
+
+.jem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+}
+
+.text-jem{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.jumlah{
+    display: flex;
+    height: 15vh;
+}
+
+.pilih{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 16vw;
+}
+
+.jenis1{
+    display: flex;
+}
+
+.jenis2{
+    display: flex;
+}
+
+.kotak{
+    margin-right: 2vw;
+}
+
+#checkbox{
+    accent-color:#F26122;
+}
+
+.counter{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: end;
+    padding-bottom: 1vw;
+    width: 20vw;
+}
+
+.mines{
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #F26122;
+    margin-right: 1vw;
+    padding-bottom: 3px;
+}
+
+.text-mines{
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 0.5px;
+    padding-bottom: 0.5px;
+    align-items: center;
+    color: #F26122;
+    font-weight: bold;
+}
+
+.plus{
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #F26122;
+    margin-left: 1vw;
+    padding-top:2px;
+    padding-bottom: 3px;
+}
+
+.text-plus{
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #F26122;
+    font-weight: bold;
+}
+
+.text-isi{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    width: 3vw;
+    height: 3vh;
+    text-align: center;
+}
+
+.request{
+    display: flex;
+    justify-content: center;
+    background-color:#F4F4F4;
+    width: 43vw;
+    height: 20vh;
+}
+
+.add-cart{
+    display: flex;
+    justify-content: right;
+    align-items: end;
+    height: 20vh;
+    width: 45vw;
+}
+
+.add{
+    padding: 1.5vw;
+}
+
+.text-add{
+    color:white;
+    background-color: #FD6727;
+    padding: 1vw;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
