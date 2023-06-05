@@ -91,7 +91,7 @@
                     @foreach ($tenant_category as $tc)
                         @if ($tenant[0]->tenant_category_id == $tc['id'])
                             <div class="category-1">
-                                <i onclick="window.location.href='/homepage/{{$id}}'" class='fas fa-angle-left'></i>
+                                <i onclick="window.location.href='/{{$id}}/homepage'" class='fas fa-angle-left'></i>
                                 <p style="margin-left: 1vw" >{{$tc['name']}}</p>
                             </div>
                             @break
@@ -115,7 +115,7 @@
             @foreach ($tenant_category as $tc)
                 <div class="Category">
                     <p>{{$tc['name']}}</p>
-                    <a href="/homepage/{{$id}}/?category={{ $tc->id }}"><i class='fas fa-angle-right'></i></a>
+                    <a href="/{{$id}}/homepage/?category={{ $tc->id }}"><i class='fas fa-angle-right'></i></a>
                 </div>
                 <div class="tenant">
 

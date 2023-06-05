@@ -151,7 +151,7 @@
     accent-color:#F26122;
 }
 
-.item_quantity_section  {
+.item_quantity_section_menu_detail  {
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -162,7 +162,7 @@
     margin-left: 34.5vw;
 }
 
-.item_quantity_value_section {
+.item_quantity_value_section_menu_detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -170,14 +170,14 @@
     height: 100%;
 }
 
-.item_quantity_value {
+.item_quantity_value_menu_detail {
     padding: 0.2vw 1.4vw;
     background-color: #D9D9D9;
     box-shadow: 0 0.1vw 0.2vw 0.1vw inset rgba(0, 0, 0, 0.4);
     font-size: 1.2vw;
 }
 
-.item_quantity_minus_sign, .item_quantity_plus_sign {
+.item_quantity_minus_sign_menu_detail, .item_quantity_plus_sign_menu_detail {
     padding: 0.25vw 0.4vw;
     border: 0.13vw rgba(253, 103, 39, 0.6) solid;
     border-radius: 0.4vw;
@@ -188,7 +188,7 @@
     color: rgba(253, 103, 39, 0.6);
 }
 
-.item_quantity_minus_sign:hover , .item_quantity_plus_sign:hover {
+.item_quantity_minus_sign_menu_detail:hover , .item_quantity_plus_sign_menu_detail:hover {
     border: 0.13vw rgba(253, 103, 39, 1) solid;
     color: rgba(253, 103, 39, 1);
     cursor: pointer;

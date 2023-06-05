@@ -45,5 +45,6 @@ Route::get('/{id}/cart/order_now', [CartController::class, 'store']);
 
 Route::get('/{id}/menu/{tenant_name}', [MenuController::class, 'show']);
 Route::get('/{id}/menu_detail/{tenant_name}/{menu_id}', [MenuDetailController::class, 'show']);
+Route::get('/{id}/menu_detail/add_to_cart', [MenuDetailController::class, 'store']);
 
 Route::get('/{id}/notification', [NotificationController::class, 'show']);
