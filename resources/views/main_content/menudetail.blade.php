@@ -93,10 +93,24 @@
             </div>
             <div class="add-cart">
                 <div class="add" onclick="addToCart()">
-                    <p class="text-add">ADD TO CART</p>
+                    <a href="#popup-confirm">
+                        <p class="text-add">ADD TO CART</p>
+                    </a>
                 </div>
             </div>
         </div>
+
+        <div class="popup-confirm" id="popup-confirm">
+            <div class="isi">
+                <div class="text-sukses">
+                    <p class="teks-sukses"><strong>Order successfully added to cart!</strong></p>    
+                </div>
+                <div class="text-ok">
+                    <p class="teks-ok"><strong>OK</strong></p>
+                </div>
+            </div>
+        </div>
+
         <script>
             window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}, {{ $menu->id }}//, {{ $menu->additional_description }}, {{ $menu->jenis }}
             ));
