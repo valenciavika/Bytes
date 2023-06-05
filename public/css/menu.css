@@ -77,25 +77,36 @@
     align-items: center;
 }
 
-.logo_panah{
+.logo_panah_kanan, .logo_panah_kiri{
     display: flex;
     align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 50%;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    width: 2vw;
+    height: 2vw;
 }
 
-.logo_panah img{
-    width: 3vw;
-    height: 3vw;
+.logo_panah_kiri {
+    left: 0;
 }
 
-.logo_block_div{
+.logo_panah_kanan i {
+    margin-right: 0.5vw;
+    font-size: 2vw;
+}
+
+.logo_panah_kiri i {
+    margin-left: 0.5vw;
+    font-size: 2vw;
+}
+
+.logo_block_div {
     display: none; 
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
     position: absolute;
     top: 0;
     left: 0;

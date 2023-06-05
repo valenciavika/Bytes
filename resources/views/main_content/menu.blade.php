@@ -51,9 +51,13 @@
                 @endfor
                 
             </div>
-            <div class="logo_panah" id="rightLogo">
+            <div class="logo_panah_kanan" id="rightLogo">
                 <div id="logoRightBlockDiv" class="logo_block_div"></div>
-                <img src="{{asset('/images/Right_Arrow.png')}}" onclick="changeRightMenuView()">
+                <i class="fa fa-chevron-right" aria-hidden="true" onclick="changeRightMenuView()""></i>
+            </div>
+            <div class="logo_panah_kiri" id="leftLogo">
+                <div id="logoLeftBlockDiv" class="logo_block_div"></div>
+                <i class="fa fa-chevron-left" aria-hidden="true" onclick="changeLeftMenuView()"></i>
             </div>
         </div>
         <script>
@@ -81,13 +85,39 @@
         }
         document.getElementById('menuContainer' + viewCount).style.display = 'flex';
         
+        updateBlockDiv();
+    }
+
+    function changeLeftMenuView() {
+        prevViewCount = viewCount;
+        viewCount -= 1;
+        
+        if (prevViewCount > 0) {
+            document.getElementById('menuContainer' + prevViewCount).style.display = 'none';
+        }
+        document.getElementById('menuContainer' + viewCount).style.display = 'flex';
+        
+        updateBlockDiv();
+    }
+
+    function updateBlockDiv() {
         if (viewCount == totalView) {
             document.getElementById('rightLogo').style.opacity = 0.4;
             document.getElementById('logoRightBlockDiv').style.display = 'block';
+            document.getElementById('leftLogo').style.opacity = 1;
+            document.getElementById('logoLeftBlockDiv').style.display = 'none';
+        }
+        else if (viewCount == 1) {
+            document.getElementById('leftLogo').style.opacity = 0.4;
+            document.getElementById('logoLeftBlockDiv').style.display = 'block';
+            document.getElementById('rightLogo').style.opacity = 1;
+            document.getElementById('logoRightBlockDiv').style.display = 'none';
         }
         else {
             document.getElementById('rightLogo').style.opacity = 1;
             document.getElementById('logoRightBlockDiv').style.display = 'none';
+            document.getElementById('leftLogo').style.opacity = 1;
+            document.getElementById('logoLeftBlockDiv').style.display = 'none';
         }
     }
-</script>
+    </script>
