@@ -1,6 +1,9 @@
 @extends('/main_template')
 
 @section('content')
+    @php
+        $count = $menus->count();
+    @endphp
     <div class="container">
         <div class="kiri">
             <div class="div-nama-restoran">
@@ -19,32 +22,72 @@
         </div>
         <div class="kanan">
             <div class="menu">
-                <div class="container-menu">
-                    @foreach ($menus as $menu)
+                @for ($i = 0; $i < $count/6; $i++)
+                    <div id="menuContainer{{$i+1}}" class="container-menu" style="display: none">
+                    @for ($j = 6*$i; $j < 6*$i + 6; $j++)
+                        @if ($j == $menus->count())
+                           @break
+                        @endif
                         <div class="nama-menu">
                             <div class="isi-menu">
                                 <div class="menu1">
-                                    <p class="text-nama-menu">Bakmi keriting/lebar ayam biasa polos</p>
+                                    <p class="text-nama-menu">{{$menus[$j]->name}}</p>
                                 </div>
                                 <div class="tengah">
                                     <div class="harga">
-                                        <p class="text-harga">Rp20.000</p>
+                                        <p class="text-harga">{{$menus[$j]->price}}</p>
                                     </div>
-                                    <a class="order" href="/{{$id}}/menu_detail/{{$tenant_name}}/{{$menu->id}}">
+                                    <a class="order" href="/{{$id}}/menu_detail/{{$tenant_name}}/{{$menus[$j]->id}}">
                                         <p class="text-order">ORDER</p>
                                     </a>
                                 </div>
-                                <div class="stock">
-                                    <p style="color:#F26122" class="text-stock"><b>50 in stock</b></p>
+                                <div class="stock"> 
+                                    <p style="color:#F26122" class="text-stock"><b>{{$menus[$j]->stock}} in stock</b></p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    @endfor
+                    </div>
+                @endfor
+                
             </div>
-            <div class="logo-panah">
-                <img src="{{asset('/images/Right_Arrow.png')}}" >
+            <div class="logo_panah" id="rightLogo">
+                <div id="logoRightBlockDiv" class="logo_block_div"></div>
+                <img src="{{asset('/images/Right_Arrow.png')}}" onclick="changeRightMenuView()">
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', sendData({{$count/6}}));
+        </script>
     </div>
 @endsection
+
+<script>
+    var prevViewCount = 0;
+    var viewCount = 0;
+    var totalView = 0;
+
+    function sendData(totalViewData) {
+       totalView = totalViewData;
+       changeRightMenuView();
+    }
+    
+    function changeRightMenuView() {
+        prevViewCount = viewCount;
+        viewCount += 1;
+        
+        if (prevViewCount > 0) {
+            document.getElementById('menuContainer' + prevViewCount).style.display = 'none';
+        }
+        document.getElementById('menuContainer' + viewCount).style.display = 'flex';
+        
+        if (viewCount == totalView) {
+            document.getElementById('rightLogo').style.opacity = 0.4;
+            document.getElementById('logoRightBlockDiv').style.display = 'block';
+        }
+        else {
+            document.getElementById('rightLogo').style.opacity = 1;
+            document.getElementById('logoRightBlockDiv').style.display = 'none';
+        }
+    }
+</script>

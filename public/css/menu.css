@@ -77,7 +77,7 @@
     align-items: center;
 }
 
-.logo-panah{
+.logo_panah{
     display: flex;
     align-items: center;
     position: absolute;
@@ -87,9 +87,20 @@
     transform: translateY(-50%);
 }
 
-.logo-panah img{
+.logo_panah img{
     width: 3vw;
+    height: 3vw;
 }
+
+.logo_block_div{
+    display: none; 
+    width: 3vw;
+    height: 3vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 
 .isi-menu{
     display: flex;
