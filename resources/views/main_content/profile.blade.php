@@ -8,12 +8,17 @@
 
             @foreach ($emoneys as $emoney)
             <div class="emoney_content">
-                <div id="divlogo">
-                    <img id="logo" src="{{ $emoney->img }}" alt="Logo {{ $emoney->name }}">
+                <div class="logoNtext">
+                    <div class="logo">
+                        <img id="logo" src="{{ $emoney->img }}" alt="Logo {{ $emoney->name }}">
+                    </div>
+
+                    <div class="paymentname">
+                        <p class="payment">{{ $emoney->name }}</p>
+                    </div>
+
                 </div>
-                <div class="text">
-                    <p class="payment">{{ $emoney->name }}</p>
-                </div>
+
                 <div class="total_amount">
                     <p> Rp{{number_format($moneys[$emoney->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                 </div>
@@ -21,7 +26,7 @@
             @endforeach
 
             <div class="Topupbutton">
-                <button type="submit" id="button" value="topup" class="TopUpButton" onclick="window.location.href='/1/topup/BiPay'">
+                <button type="submit" id="button" value="topup" class="TopUpButton" onclick="window.location.href='/{{$id}}/topup/BiPay/History'">
                     <p id="Topup">
                         <strong>TOP UP</strong>
                     </p>
@@ -97,7 +102,7 @@
 
                 <div class="Allbutton">
                     <div class="discardbutton">
-                        <button type="submit" id="button" value="edit" class="discardButton" onclick="window.location.href='/profile'">
+                        <button type="submit" id="button" value="edit" class="discardButton" onclick="window.location.href='/profile/{{$id}}'">
                             <p id="discard">
                                 <strong>DISCARD</strong>
                             </p>
@@ -105,7 +110,7 @@
                     </div>
 
                     <div class="savebutton">
-                        <button type="submit" id="button" value="edit" class="saveButton" onclick="window.location.href='/profile'">
+                        <button type="submit" id="button" value="edit" class="saveButton" onclick="window.location.href='/profile/{{$id}}'">
                             <p id="save">
                                 <strong>SAVE</strong>
                             </p>
