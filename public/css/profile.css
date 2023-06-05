@@ -31,26 +31,28 @@ body{
 
 .emoney_content{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     margin-bottom: 1.2vw;
+    /* margin-left: 1vw; */
+}
+
+.logoNtext{
     margin-left: 1vw;
-}
-
-.text{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 0.3yvw;
-}
-
-
-.point{
-    font-size: 13px;
+    justify-content: baseline;
 }
 
 #logo{
     max-width: 2vw;
+}
+
+.paymentname{
+    margin-top: 0.5vw;
+    margin-left: 0.7vw;
+}
+.total_amount{
+    margin-top: 0.5vw;
 }
 
 .Topupbutton{
@@ -259,10 +261,11 @@ body{
 .popupContent {
     background-color: #F9C140;
     border-radius: 15px;
-    width: 35vw;
-    height: 21vw;
-    padding: 2vw;
+    width: 36vw;
+    height: 25vw;
+    padding-top: 1.4vw;
     box-shadow:  2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 1vw;
 
     opacity: 0;
 }

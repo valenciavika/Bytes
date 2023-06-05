@@ -19,6 +19,7 @@
         <link href="{{asset('css/topup.css')}}" rel="stylesheet" />
         <link href="{{asset('css/menu.css')}}" rel="stylesheet" />
         <link href="{{asset('css/menudetail.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/notification.css')}}" rel="stylesheet" />
 
 
     </head>
@@ -33,7 +34,7 @@
             </form>
 
             <div class="navigation-bar">
-                <div class="Bell" id="bar" onclick="window.location='{{ url("") }}'">
+                <div class="Bell" id="bar" onclick="window.location.href='/notification/{{$id}}'">
                     <i class="fa-solid fa-bell" style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} ">Notification</p>
                 </div>

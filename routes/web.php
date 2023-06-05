@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeMenuController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuDetailController;
+use App\Http\Controllers\NotificationController;
 
 Route::get('/homepage/{id}', [HomeMenuController::class, 'home'])->name('home.index');
 
@@ -42,3 +43,5 @@ Route::get('/{id}/cart/order_now', [CartController::class, 'store']);
 
 Route::get('/{id}/menu/{tenant_name}', [MenuController::class, 'show']);
 Route::get('/{id}/menu_detail/{tenant_name}/{menu_id}', [MenuDetailController::class, 'show']);
+
+Route::get('/notification/{id}', [NotificationController::class, 'show']);
