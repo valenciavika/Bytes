@@ -52,7 +52,7 @@
                             if (minutes < 10) {
                                 jemTextElement.textContent += "0";
                             }
-                            jemTextElement.textContent += minutes;  
+                            jemTextElement.textContent += minutes;
                         } else {
                             batchTextElement.textContent = "Batch " + batchNumber + " ends at ";
                             jemTextElement.textContent = hours.toString().padStart(2, '0') + ":" + minutes.toString().padStart(2, '0');
@@ -70,25 +70,25 @@
                         <div class="jenis">
                             <div class="kotak">
                                 <input type="checkbox" id="checkbox" name="checkbox" required>
-                            </div>    
+                            </div>
                             <p>{{ $item }}</p>
                         </div>
                     @endforeach
                     </div>
                 @endif
-                <div class="item_quantity_section">
-                    <div class="item_quantity_value_section">
-                        <div id="hover_toggle" class="item_quantity_minus_sign" style="visibility: hidden;">
-                            <i id="min_sign" onclick="myFunction_minus({{ $menu->price }})" class="fa fa-minus" aria-hidden="true"></i>
-                        </div>
-                        <div id="quality_value" class="item_quantity_value">1</div>
-                        <div id="plus_sign" class="item_quantity_plus_sign" onclick="myFunction_plus({{ $menu->price }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                    </div>
-                </div>
             </div>
             <div class="request">
                 <div>
-                    <p>halo</p>
+                    <p class="text">halo</p>
+                </div>
+            </div>
+            <div class="item_quantity_section">
+                <div class="item_quantity_value_section">
+                    <div id="hover_toggle" class="item_quantity_minus_sign" style="visibility: hidden;">
+                        <i id="min_sign" onclick="myFunction_minus({{ $menu->price }})" class="fa fa-minus" aria-hidden="true"></i>
+                    </div>
+                    <div id="quality_value" class="item_quantity_value">1</div>
+                    <div id="plus_sign" class="item_quantity_plus_sign" onclick="myFunction_plus({{ $menu->price }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
                 </div>
             </div>
             <div class="add-cart">
@@ -121,14 +121,13 @@
         document.getElementById(id).style.visibility = "visible";
     }
 
-    function myFunction_plus(price) {
-        element = document.getElementById("quality_value");
-        quality_total = element.innerHTML;
-        quality_total++;
+    function myFunction_plus(id, price) {
+        id = id.slice(9);
+        element = document.getElementById("quality_value"+id);
+        quality_total = element.innerHTML;  
 
-       if (quality_total==totalStock) {
-            
-            stop_hover("plus_sign");
+        if(quality_total>=1) {
+            start_hover("hover_toggle"+id);
         }
 
         else {
@@ -153,10 +152,6 @@
         element.innerHTML = quality_total;
         updateViewTotal();
     }
-
-    function sendData(priceData) {
-        price = priceData;
-    }
-    
 </script>
+
 
