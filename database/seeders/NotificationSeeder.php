@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class NotificationSeeder extends Seeder
 {
@@ -12,7 +13,7 @@ class NotificationSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('menus')->insert([
+        DB::table('notifications')->insert([
             [
                 'title' =>'Your order is ready to be picked up!',
                 'description' => 'Your order at Bakmi Effata is ready, you can pick up your order at the cafeteria.',

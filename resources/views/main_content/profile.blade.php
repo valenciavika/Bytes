@@ -97,7 +97,7 @@
 
                 <div class="phonenumber">
                     <strong>Phone Number</strong><br>
-                    <input type="number" id="phonenumber" class="inputtext" placeholder="082178348389">
+                    <input type="tel" id="phonenumber" class="inputtext" placeholder="082178348389">
                 </div>
 
                 <div class="Allbutton">

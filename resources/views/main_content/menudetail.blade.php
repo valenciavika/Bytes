@@ -157,5 +157,6 @@
     function sendData(priceData) {
         price = priceData;
     }
+    
 </script>
 

@@ -35,6 +35,6 @@ class DatabaseSeeder extends Seeder
             'jenis' => 'Lorem ipsum d',
         ]);
 
-        $this->call([tenant_categorySeeder::class, tenantSeeder::class, MenuSeeder::class, TopUpSeeder::class, TopUpPaymentMethodSeeder::class, TopUpTransaction::class, MoneySeeder::class]);
+        $this->call([tenant_categorySeeder::class, tenantSeeder::class, MenuSeeder::class, TopUpSeeder::class, TopUpPaymentMethodSeeder::class, TopUpTransaction::class, MoneySeeder::class, NotificationSeeder::class]);
     }
 }
