@@ -78,11 +78,11 @@
                 @endif
                 <div class="item_quantity_section">
                     <div class="item_quantity_value_section">
-                        <div id="hover_toggle" class="item_quantity_minus_sign" {{--style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};"--}}>
-                            <i id="min_sign" {{--onclick="myFunction_minus(id, {{ $price[$cart->id] }})"--}} class="fa fa-minus" aria-hidden="true"></i>
+                        <div id="hover_toggle" class="item_quantity_minus_sign" style="visibility: hidden;">
+                            <i id="min_sign" onclick="myFunction_minus({{ $menu->price }})" class="fa fa-minus" aria-hidden="true"></i>
                         </div>
                         <div id="quality_value" class="item_quantity_value">1</div>
-                        <div id="plus_sign" class="item_quantity_plus_sign" {{--onclick="myFunction_plus(id, {{ $price[$cart->id] }})--}}"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                        <div id="plus_sign" class="item_quantity_plus_sign" onclick="myFunction_plus({{ $menu->price }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
                     </div>
                 </div>
             </div>
@@ -97,14 +97,23 @@
                 </div>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', sendData({{ $menu->price }}));
+        </script>
     </div>
 @endsection
 
 <script>
     var element;
     var quality_total;
+    var totalStock = 0;
+    var price = 0;
 
-      function stop_hover(id) {
+    function updateViewTotal() {
+        document.getElementById('orderSubtotal').innerHTML = quality_total * price;
+    }
+
+    function stop_hover(id) {
         document.getElementById(id).style.visibility = "hidden";
     }
 
@@ -112,44 +121,41 @@
         document.getElementById(id).style.visibility = "visible";
     }
 
-    function myFunction_plus(id, price) {
-        id = id.slice(9);
-        element = document.getElementById("quality_value"+id);
-        quality_total = element.innerHTML;  
-
-        if(quality_total>=1) {
-            start_hover("hover_toggle"+id);
-        }
-
+    function myFunction_plus(price) {
+        element = document.getElementById("quality_value");
+        quality_total = element.innerHTML;
         quality_total++;
-        var element1 = document.getElementById('check'+id)
-        var status = element1.checked;  
-        if (status) {
-            totalPrice += price
+
+       if (quality_total==totalStock) {
+            
+            stop_hover("plus_sign");
         }
+
+        else {
+            start_hover("hover_toggle");
+        }
+
         element.innerHTML = quality_total;
         updateViewTotal();
     }
 
-    function myFunction_minus(id, price) {
-        id = id.slice(8);
-        element = document.getElementById("quality_value"+id);
+    function myFunction_minus(price) {
+        element = document.getElementById("quality_value");
         quality_total = element.innerHTML;
-        
         quality_total--;
-        var element1 = document.getElementById('check'+id)
-        var status = element1.checked;
-        if (status) {
-            totalPrice -= price
-        }
         if(quality_total==1) {
-            stop_hover("hover_toggle"+id);
+            stop_hover("hover_toggle");
         }
-        else if (quality_total<1) {
-            return;
+        else {
+            start_hover("plus_sign");
         }
+
         element.innerHTML = quality_total;
         updateViewTotal();
+    }
+
+    function sendData(priceData) {
+        price = priceData;
     }
 </script>
 

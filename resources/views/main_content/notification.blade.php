@@ -2,7 +2,19 @@
 
 @section('content')
     <div class="notificationSection">
-        <div class="ready">
+        @foreach ($notifications as $notif)
+            <div class="{{ $notif->type }}">
+                <a href="">
+                    <div class="head">
+                        <p class="headtxt"><strong>{{ $notif->title }}</strong></p>
+                        <p class="time">3 mins ago</p>
+                    </div>
+                    <p>{{ $notif->description }}</p>
+                </a>
+            </div>
+        @endforeach
+
+        {{-- <div class="ready">
             <a href="">
                 <div class="head">
                     <p class="headtxt"><strong>Your order is ready to be picked up!</strong></p>
@@ -30,16 +42,6 @@
                 </div>
                 <p>You haven't paid your order at Bakmi Effata, please proceed to pay at your shopping cart.</p>
             </a>
-        </div>
+        </div> --}}
     </div>
 @endsection
-
-{{-- @section('scripts')
-    <script>
-        $(document).ready(function() {
-            $('.notificationSection').on('click', '.ready', function() {
-                $(this).addClass('clicked');
-            });
-        });
-    </script>
-@endsection --}}
