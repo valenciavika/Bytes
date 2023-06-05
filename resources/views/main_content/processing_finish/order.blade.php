@@ -14,10 +14,8 @@
         </div>
 
         @if ($temp_variable == 1)
-            @dump(1)
             @include('/main_content.processing_finish.processing')
         @elseif ($temp_variable == 2)
-            @dump(2)
             @include('/main_content.processing_finish.finish')
         @endif
 
@@ -26,11 +24,4 @@
 
 <script>
 
-    function finish() {
-      {{ $temp_variable = 2 }}
-    }
-
-    function processing() {
-      {{ $temp_variable = 1 }}
-    }
 </script>

@@ -21,20 +21,19 @@
         <link href="{{asset('css/menudetail.css')}}" rel="stylesheet" />
         <link href="{{asset('css/notification.css')}}" rel="stylesheet" />
 
-
     </head>
     <body>
         <div class="banner">
             @yield('home')
-            <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location.href='/homepage/{{$id}}'">
+            <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location.href='/{{$id}}/homepage'">
 
-            <form action="/homepage/{{$id}}">
+            <form action="/{{$id}}/homepage">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit">| <i class="fas fa-search" style="color: #000000;"></i></button>
             </form>
 
             <div class="navigation-bar">
-                <div class="Bell" id="bar" onclick="window.location.href='/notification/{{$id}}'">
+                <div class="Bell" id="bar" onclick="window.location.href='/{{$id}}/notification'">
                     <i class="fa-solid fa-bell" style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} ">Notification</p>
                 </div>
@@ -44,13 +43,12 @@
                     <p style="color: #{{ $active_number == 2 ? 'FD6727': 'ffffff'}} ">Cart</p>
                 </div>
 
-                <div class="order" id="bar" onclick="window.location.href='/order/{{$id}}'">
+                <div class="order" id="bar" onclick="window.location.href='/{{$id}}/order'">
                     <i class='fas fa-file-alt' style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 3 ? 'FD6727': 'ffffff'}} ">Order</p>
                 </div>
 
-
-                <div class="profile" id="bar" onclick="window.location.href='/profile/{{$id}}'">
+                <div class="profile" id="bar" onclick="window.location.href='/{{$id}}/profile'">
                     <i class="fa-solid fa-user" style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}} "></i>
                     <p style="color: #{{ $active_number == 4 ? 'FD6727': 'ffffff'}} ">Profile</p>
                 </div>

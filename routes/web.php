@@ -13,7 +13,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuDetailController;
 use App\Http\Controllers\NotificationController;
 
-Route::get('/homepage/{id}', [HomeMenuController::class, 'home'])->name('home.index');
+Route::get('/{id}/homepage', [HomeMenuController::class, 'home'])->name('home.index');
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -35,8 +35,8 @@ Route::get('/{id}/topup/OVO/{type}', [TopUpController::class, 'activeOvo']);
 Route::get('/{id}/topup/GoPay/{type}', [TopUpController::class, 'activeGoPay']);
 Route::post('/topup/process', [TopUpController::class, 'processTopUp'])->name('topup.process');
 
-Route::get('/profile/{id}', [ProfileController::class, 'show']);
-Route::get('/order/{id}', [OrderController::class, 'show']);
+Route::get('/{id}/profile', [ProfileController::class, 'show']);
+Route::get('/{id}/order/', [OrderController::class, 'show']);
 Route::get('/{id}/cart', [CartController::class, 'show']);
 
 Route::get('/{id}/cart/order_now', [CartController::class, 'store']);
@@ -44,4 +44,4 @@ Route::get('/{id}/cart/order_now', [CartController::class, 'store']);
 Route::get('/{id}/menu/{tenant_name}', [MenuController::class, 'show']);
 Route::get('/{id}/menu_detail/{tenant_name}/{menu_id}', [MenuDetailController::class, 'show']);
 
-Route::get('/notification/{id}', [NotificationController::class, 'show']);
+Route::get('/{id}/notification', [NotificationController::class, 'show']);
