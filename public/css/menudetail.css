@@ -35,18 +35,18 @@
 .right{
     display: flex;
     background-color:white;
-    border-radius: 25px;
+    border-radius: 20px;
     flex-direction: column;
     width: 45vw;
     height: 72vh;
-    align-items: center;
 }
 
 .title{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
 
 .detail{
@@ -90,7 +90,7 @@
 }
 
 .text-price{
-    font-size:20px;
+    font-size:26px;
     color:white;
 }
 
@@ -125,6 +125,9 @@
 .jumlah{
     display: flex;
     height: 15vh;
+    margin-left: 5vw;
+    margin-top: 1vw;
+    margin-bottom: 0.5vw;
 }
 
 .pilih{
@@ -136,6 +139,8 @@
 
 .jenis{
     display: flex;
+    padding-bottom: 0.5vw;
+    font-size: 17px;
 }
 
 .kotak{
@@ -150,10 +155,11 @@
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: right;
+    align-items: end;
     width: 17%;
     margin-top: 1.5vw;
+    margin-left: 34.5vw;
 }
 
 .item_quantity_value_section {
@@ -188,13 +194,18 @@
     cursor: pointer;
 }
 
-.request{
-    display: flex;
-    justify-content: center;
-    background-color:#F4F4F4;
-    width: 43vw;
+.requesttxt {
     height: 20vh;
+    background-color: #F4F4F4;
+    border: none;
+    outline: none;
+    width: 43vw;
+    margin-left: 1vw;
+    text-align: left;
+    padding: 0;
 }
+
+
 
 .add-cart{
     display: flex;
@@ -202,6 +213,7 @@
     align-items: end;
     height: 20vh;
     width: 45vw;
+    margin-top: 0.5vw;
 }
 
 .add{
@@ -211,8 +223,8 @@
 .text-add{
     color:white;
     background-color: #FD6727;
-    padding: 1vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }

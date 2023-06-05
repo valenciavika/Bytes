@@ -103,9 +103,9 @@
                 <div class="phonenumber">
                     <strong>Phone Number</strong><br>
                     @if ($user->phone)
-                        <input type="number" name="phonenumber" class="inputtext" placeholder="{{$user->phone}}">
+                        <input type="tel" name="phonenumber" class="inputtext" placeholder="{{$user->phone}}">
                     @else
-                        <input type="number" name="phonenumber" class="inputtext" placeholder="-">
+                        <input type="tel" name="phonenumber" class="inputtext" placeholder="-">
                     @endif
 
                 </div>
