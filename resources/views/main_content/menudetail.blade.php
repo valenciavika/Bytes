@@ -116,7 +116,6 @@
             ));
             
         </script>
-    </div>
 @endsection
 
 <script>
@@ -207,5 +206,4 @@
     }
 
 </script>
-
 
