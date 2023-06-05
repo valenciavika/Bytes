@@ -79,7 +79,7 @@
             </div>
             <div class="request">
                 <div>
-                    <p class="text">halo</p>
+                    <input type="text" class="requesttxt" placeholder="halo">
                 </div>
             </div>
             <div class="item_quantity_section">
@@ -98,7 +98,7 @@
             </div>
         </div>
         <script>
-            window.addEventListener('DOMContentLoaded', sendData({{ $menu->price }}));
+            window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}));
         </script>
     </div>
 @endsection
@@ -121,13 +121,14 @@
         document.getElementById(id).style.visibility = "visible";
     }
 
-    function myFunction_plus(id, price) {
-        id = id.slice(9);
-        element = document.getElementById("quality_value"+id);
-        quality_total = element.innerHTML;  
+    function myFunction_plus(price) {
+        element = document.getElementById("quality_value");
+        quality_total = element.innerHTML;
+        quality_total++;
 
-        if(quality_total>=1) {
-            start_hover("hover_toggle"+id);
+       if (quality_total==totalStock) {
+
+            stop_hover("plus_sign");
         }
 
         else {
@@ -151,6 +152,11 @@
 
         element.innerHTML = quality_total;
         updateViewTotal();
+    }
+
+    function sendData(priceData, stockData) {
+        price = priceData;
+        totalStock = stockData;
     }
 </script>
 

@@ -194,16 +194,18 @@
     cursor: pointer;
 }
 
-.request{
-    display: flex;
-    justify-content: center;
-    background-color:#F4F4F4;
+.requesttxt {
+    height: 20vh;
+    background-color: #F4F4F4;
+    border: none;
+    outline: none;
     width: 43vw;
     margin-left: 1vw;
+    text-align: left;
+    padding: 0;
 }
-.text{
-    height: 20vh;
-}
+
+
 
 .add-cart{
     display: flex;
@@ -211,7 +213,7 @@
     align-items: end;
     height: 20vh;
     width: 45vw;
-    margin-top: 1vw;
+    margin-top: 0.5vw;
 }
 
 .add{
