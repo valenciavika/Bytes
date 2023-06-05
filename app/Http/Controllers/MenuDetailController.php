@@ -4,22 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tenant;
-use App\Models\Menu;
 use App\Models\MenuDetail;
+use App\Models\Menu;
 
 class MenuDetailController extends Controller
 {
-    public function show($id, $tenant_name, $menu_id) { 
-        $menu = Menu::where('id', $menu_id)->get();
+    public function show($id, $tenant_name, $menu_id) {
+        $tenant = Tenant::where("name", $tenant_name)->first();
+        $Menu = Menu::where('id', $menu_id)->first();
 
         return view('/main_content.menudetail', [
             'page_title' => 'Menu | BinusEats',
             'active_number' => 0,
-            'tenant_name' => $tenant_name,
-            'menu_name' => $menu[0]->name,
-            'menu_price' => $menu[0]->price,
-            'menu_stock' => $menu[0]->stock,
-            'menu_jenis' => $menu[0]->jenis
+            'menu' => $Menu,
+            'tenant' => $tenant,
+
+            // 'tenant_name' => $tenant->name,
+            // 'tenant_img' => $tenant->img,
+            // 'tenant_desc' => $tenant->description,
+            // 'menu' => Menu::where('id', $tenant_id)
         ])->with('id', $id);
     }
 }
