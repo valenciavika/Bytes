@@ -27,7 +27,7 @@ class LoginController extends Controller
             $user = User::where("email", $credentials['email'])->first();
             $user_id = $user->id;
             // dd($user_id);
-            return redirect()->intended('/homepage/'.$user_id);
+            return redirect()->intended($user_id.'/homepage/');
         }
 
         return back()->with('LoginError', 'Login Failed!');

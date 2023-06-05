@@ -17,7 +17,7 @@
         <form action="/login" id="suform" method="post">
             @csrf
             <div class="upper_part">
-                <input type="email" id="emailphone" name="email" class="textbox" placeholder="Email/Phone number" required autofocus value="{{ old('email')}}"">
+                <input type="email" id="emailphone" name="email" class="textbox" placeholder="Email" required autofocus value="{{ old('email')}}"">
                 @error('email')
                 {{ $message}}
                 <div class="invalid">

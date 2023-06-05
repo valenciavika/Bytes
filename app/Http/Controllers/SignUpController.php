@@ -25,6 +25,7 @@ class SignUpController extends Controller
         ]);
 
         $validation['password'] = Hash::make($validation['password']);
+        $validation['phone'] = null;
 
         User::create($validation);
 

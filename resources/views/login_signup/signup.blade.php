@@ -10,7 +10,7 @@
         </div>
         <form action="/signup" id="suform" method="post">
             @csrf
-            <div class="upper_part">                          
+            <div class="upper_part">
                 <input type="text" id="fullname" class="textbox" placeholder="Full name" name="name" required value="{{ old('name') }}" autofocus>
                 @error('name')
                     <div class="invalid-feedback">
@@ -18,7 +18,7 @@
                     </div>
                 @enderror
 
-                <input type="email" id="emailphone" class="textbox" placeholder="Email/Phone number" name="email" required value="{{ old('email') }}">
+                <input type="email" id="emailphone" class="textbox" placeholder="Email" name="email" required value="{{ old('email') }}">
                     @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -31,7 +31,7 @@
                         {{ $message }}
                     </div>
                 @enderror
-                
+
                 <input type="password" id="confirmpassword" class="passbox" placeholder="Confirm Password" name="confirm_password" required>
                 @error('confirm_password')
                     <div class="invalid-feedback">
@@ -50,7 +50,7 @@
                         <strong>SIGN UP</strong>
                     </p>
                 </button>
-                <p id="alrd">Already have an account? 
+                <p id="alrd">Already have an account?
                     <a id="login" href="/login"><span id="login" style="color: #F26122">Log in</span></a>
                 </p>
             </div>

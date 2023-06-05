@@ -36,6 +36,8 @@ Route::get('/{id}/topup/GoPay/{type}', [TopUpController::class, 'activeGoPay']);
 Route::post('/topup/process', [TopUpController::class, 'processTopUp'])->name('topup.process');
 
 Route::get('/{id}/profile', [ProfileController::class, 'show']);
+Route::post('{user_id}/profile/edit', [ProfileController::class, 'editProfile'])->name('edit.profile');
+
 Route::get('/{id}/order/', [OrderController::class, 'show']);
 Route::get('/{id}/cart', [CartController::class, 'show']);
 

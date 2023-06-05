@@ -42,31 +42,35 @@
                         <span class="edit-text">Edit Foto</span>
                     </div>
                 </div>
-                <div class="welcome">
-                    <p>Welcome!</p>
-                    <strong>MATTHEW CHRISTIAN HADIPRASETYA</strong>
+                <div class="welcome-edit">
+                    <div class="welcome">
+                        <p>Welcome!</p>
+                        <strong style="text-transform: uppercase;">{{$user->name}}</strong>
+                    </div>
+                    <div class="editbutton">
+                        <a href="#popupedit" class="editButton">
+                            <p id="editdata">
+                                <strong>Edit</strong>
+                            </p>
+                        </a>
+                    </div>
                 </div>
-                <div class="editbutton">
-                    <a href="#popupedit" class="editButton">
-                        <p id="editdata">
-                            <strong>Edit</strong>
-                        </p>
-                    </a>
-                </div>
-
-
-
             </div>
 
             <div class="datadiri">
                 <strong>Full Name</strong>
-                <p class="isidata">MATTHEW CHRISTIAN HADIPRASETYA</p>
+                <p class="isidata"style="text-transform: capitalize">{{$user->name}}</p>
 
                 <strong>Email</strong>
-                <P class="isidata">matthew.hadiprasetya@binus.ac.id</P>
+                <P class="isidata">{{$user->email}}</P>
 
                 <strong>Phone Number</strong>
-                <p class="isidata">082178348389</p>
+                @if ($user->phone)
+                    <p class="isidata">{{$user->phone}}</p>
+                @else
+                    <p class="isidata">-</p>
+                @endif
+
             </div>
 
             <div class="signoutbutton">
@@ -85,39 +89,70 @@
                 <strong>EDIT PROFILE</strong>
             </div>
 
-            <div class="editprofile">
+            <form action="{{ route('edit.profile', $user->id)}}" method="POST" class="editprofile" id="editProfileForm">
+                @csrf
                 <div class="name">
                     <strong>Full Name</strong><br>
-                    <input type="text" id="fullname" class="inputtext" placeholder="MATTHEW CHRISTIAN HADIPRASETYA">
+                    <input type="text" name="fullname" class="inputtext" placeholder="{{$user->name}}" style="text-transform: capitalize">
                 </div>
                 <div class="email">
                     <strong>Email</strong><br>
-                    <input type="email" id="email" class="inputtext" placeholder="matthew.hadiprasetya@binus.ac.id">
+                    <input type="email" name="email" class="inputtext" placeholder="{{$user->email}}">
                 </div>
 
                 <div class="phonenumber">
                     <strong>Phone Number</strong><br>
-                    <input type="number" id="phonenumber" class="inputtext" placeholder="082178348389">
+                    @if ($user->phone)
+                        <input type="number" name="phonenumber" class="inputtext" placeholder="{{$user->phone}}">
+                    @else
+                        <input type="number" name="phonenumber" class="inputtext" placeholder="-">
+                    @endif
+
                 </div>
 
                 <div class="Allbutton">
-                    <div class="discardbutton">
-                        <button type="submit" id="button" value="edit" class="discardButton" onclick="window.location.href='/profile/{{$id}}'">
-                            <p id="discard">
-                                <strong>DISCARD</strong>
-                            </p>
-                        </button>
-                    </div>
+                    <div class="save-wrapper">
+                        <div class="discardbutton" id="discardButtonContainer" style="display: none;">
+                            <button id="discardButton" value="edit" class="discardButton" onclick="discardForm(event)">
+                                <p id="discard">
+                                    <strong>DISCARD</strong>
+                                </p>
+                            </button>
+                        </div>
 
-                    <div class="savebutton">
-                        <button type="submit" id="button" value="edit" class="saveButton" onclick="window.location.href='/profile/{{$id}}'">
-                            <p id="save">
-                                <strong>SAVE</strong>
-                            </p>
-                        </button>
+                        <div class="savebutton">
+                            <button type="submit" id="button" value="edit" class="saveButton">
+                                <p id="save">
+                                    <strong>SAVE</strong>
+                                </p>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <script>
+                    function discardForm(event) {
+                        event.preventDefault(); // Prevent form submission
+                        document.getElementById('editProfileForm').reset();
+                        document.getElementById('discardButtonContainer').style.display = 'none';
+                    }
+
+                    const inputs = document.querySelectorAll('.inputtext');
+
+                    inputs.forEach(input => {
+                        input.addEventListener('input', () => {
+                            const discardButtonContainer = document.getElementById('discardButtonContainer');
+                            if (input.value.trim().length > 0) {
+                                discardButtonContainer.style.display = 'block';
+                            } else {
+                                discardButtonContainer.style.display = 'none';
+                            }
+                        });
+                    });
+                </script>
+            </form>
         </div>
     </div>
 @endsection
+
+
