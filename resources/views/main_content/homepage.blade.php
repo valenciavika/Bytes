@@ -104,7 +104,7 @@
 
             <div class="tenant-1">
                 @foreach ($tenant as $t)
-                    <div style="margin-bottom: 1.5vw"class="box">
+                    <div style="margin-bottom: 1.5vw; cursor: pointer; "class="box" onclick="window.location.href='/{{$id}}/menu/{{$t->name}}'">
                         <div class="img">
                         </div>
                         <p style="font-size: 1.5vw;">{{$t['name']}}</p>
