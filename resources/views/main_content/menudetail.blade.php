@@ -68,6 +68,14 @@
                     @php
                         $jenisArr = explode(",", $menu->jenis);
                     @endphp
+
+                    @if ($jenisArr)
+                        <script>
+                            jenisArr = [];
+                        </script>
+
+                    @endif
+
                     <div class="pilih">
                         @foreach ($jenisArr as $item)
                             <div class="jenis">
@@ -109,7 +117,7 @@
         <div class="popup-confirm" id="popup-confirm">
             <div class="isi">
                 <div class="text-sukses">
-                    <p class="teks-sukses"><strong>Order successfully added to cart!</strong></p>    
+                    <p class="teks-sukses"><strong>Order successfully added to cart!</strong></p>
                 </div>
                 <div class="text-ok" onclick="location.reload()">
                     <p class="teks-ok"><strong>OK</strong></p>
@@ -126,7 +134,7 @@
     var element;
     var quality_total = 1;
     var totalStock = 0;
-    var jenisArr = [];
+    var jenisArr = null;
     var menuId = 0;
     var price = 0;
     var additionalDescription = null;
@@ -212,18 +220,19 @@
     function showErrorInput(idElement) {
         document.getElementById(idElement).style.display = 'block';
     }
-    
+
     function hideErrorInput(idElement) {
         document.getElementById(idElement).style.display = 'none';
     }
 
     function addToCart() {
-        
+
         if (jenisArr != null) {
             if (jenis == null) {
                 showErrorInput('errorInputCeck');
                 return;
             }
+            console.log(jenisArr);
         }
 
         var url = '/' + {{$id}} + '/menu_detail/add_to_cart?menuId=' + menuId + '&quantity=' + quality_total + '&additionalDescription=' + additionalDescription + '&jenis=' + jenis;

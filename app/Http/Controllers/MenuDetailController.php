@@ -30,14 +30,14 @@ class MenuDetailController extends Controller
     public function store(Request $request, $id) {
         $menu_id = $request->input('menuId');
         $quantity = $request->input('quantity');
-        // $additionalDescription = $request->input('additionalDescription');
-        // $jenis = $request->input('jenis');
+        $additionalDescription = $request->input('additionalDescription');
+        $jenis = $request->input('jenis');
 
         Cart::insert([
             'menu_id' => $menu_id,
             'quantity' => $quantity,
-            'additional_description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt veniam, nobis inventore, aperiam illum velit quis omnis soluta qui totam ducimus voluptatum recusandae eaque dolor nostrum sunt dignissimos. Sed, repellat!',
-            'jenis' => 'lorem'
+            'additional_description' => $additionalDescription,
+            'jenis' => $jenis
         ]);
     }
 }
