@@ -97,7 +97,7 @@
                 </div>
                 <div class="email">
                     <strong>Email</strong><br>
-                    <input type="email" name="email" class="inputtext" placeholder="{{$user->email}}">
+                    <input type="email" name="email" class="inputtext" placeholder="{{$user->email}}" value="ikan">
                 </div>
 
                 <div class="phonenumber">
