@@ -20,6 +20,8 @@
         <link href="{{asset('css/menu.css')}}" rel="stylesheet" />
         <link href="{{asset('css/menudetail.css')}}" rel="stylesheet" />
         <link href="{{asset('css/notification.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/admin.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/history.css')}}" rel="stylesheet" />
 
     </head>
     <body>

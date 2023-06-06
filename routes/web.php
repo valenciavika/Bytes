@@ -12,6 +12,9 @@ use App\Http\Controllers\HomeMenuController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuDetailController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HistoryController;
+
 
 Route::get('/{id}/homepage', [HomeMenuController::class, 'home'])->name('home.index');
 
@@ -48,3 +51,6 @@ Route::get('/{id}/menu_detail/{tenant_name}/{menu_id}', [MenuDetailController::c
 Route::get('/{id}/menu_detail/add_to_cart', [MenuDetailController::class, 'store']);
 
 Route::get('/{id}/notification', [NotificationController::class, 'show']);
+
+Route::get('/{id}/admin', [AdminController::class, 'show']);
+Route::get('/{id}/history', [HistoryController::class, 'show']);

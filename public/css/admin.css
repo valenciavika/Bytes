@@ -1,0 +1,111 @@
+.admin-transaction{
+    background-color: white;
+    width: 74vw;
+    min-height: 87vh;
+    margin-top: 3vw;
+    margin-left: 12vw;
+    margin-bottom: 3vw;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-status{
+    display: flex;
+    justify-content: left;
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+    font-size: 30px;
+    margin-left: 3.5vw;
+}
+
+.transaction-list{
+    margin-left: 3.5vw;
+    margin-right: 3.5vw;
+}
+
+.order-content{
+    background-color: #FCEDCA;
+    width: 67vw;
+    margin-left: 3.5vw;
+    border-radius: 10px;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    margin-bottom: 3vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+/* .status-order{
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+} */
+
+
+.notes{
+    font-size: 14px;
+}
+
+.text-namatenant{
+    font-size: 20px;
+}
+
+.text-quantity{
+    font-size: 16px;
+}
+
+.text-pesanan{
+    font-size: 16px;
+}
+
+.text-notes{
+    font-size: 16px;
+}
+
+
+.processing-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid  #F26122;
+    border-bottom: 1px solid  #F26122;
+    padding-top: 1.6vw;
+    padding-bottom: 1.6vw;
+}
+
+
+#iconcheck{
+    font-size: 35px;
+    color: #F26122;
+    position: relative;
+}
+
+.status-order {
+    position: relative;
+    display: inline-block;
+}
+
+.status-order .proses-txt {
+    visibility: hidden;
+    width: 7vw;
+    text-align: center;
+    background-color: #F26122;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-top-right-radius: 1vw;
+    border-top-left-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    font-size: 10px;
+    position: absolute;
+    right: 2.6vw;
+    color: white;
+} 
+
+.status-order:hover .proses-txt {
+    visibility: visible;
+}
