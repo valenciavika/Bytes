@@ -22,6 +22,7 @@ class ProfileController extends Controller
 
     private function updateUser($user_id, $name, $email, $phone_num) {
         $user = User::find($user_id);
+
         if($name){
             $user->name = $name;
         }
@@ -38,18 +39,35 @@ class ProfileController extends Controller
 
     public function editProfile(Request $request, $user_id)
     {
-        // $validation = $request->validate([
-        //     'fullname' => 'max:255',
-        //     'email' => 'email:dns|max:255|unique:users',
-        //     'phonenumber' => 'min:5|max:255',
-        // ]);
-        $fullname = $request->input('fullname');
-        $email = $request->input('email');
-        $phone_num = $request->input('phonenumber');
-        dd($fullname);
+        $validation = $request->validate([
+            'fullname' => 'max:255',
+            'email' => 'email:dns|max:255|unique:users',
+            'phonenumber' => 'min:5|max:255',
+        ]);
 
+        
+        $fullname = null;
+        $email = null;
+        $phone_num = null;
+        
+        if ($validation['fullname'] != 'tempInputName') {
+            $fullname = $validation['fullname'];
+        }
+        
+        if ($validation['email'] != 'tempInputEmail@gmail.com') {
+            $email = $validation['email'];
+        }
+        
+        if ($validation['phonenumber'] != '0123456') {
+            $phone_num = $validation['phonenumber'];
+        }
+        
+        // dd($validation, $fullname, $email, $phone_num);
+        // $fullname = $request->input('fullname');
+        // $email = $request->input('email');
+        // $phone_num = $request->input('phonenumber');
+        // dd($fullname);
 
-        dd($validation->fullname);
 
         $this->updateUser($user_id, $fullname, $email, $phone_num);
         return redirect()->back()->with('success', 'Edit Profile successful');

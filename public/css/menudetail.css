@@ -151,7 +151,7 @@
     accent-color:#F26122;
 }
 
-.item_quantity_section  {
+.item_quantity_section_menu_detail  {
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -162,7 +162,7 @@
     margin-left: 34.5vw;
 }
 
-.item_quantity_value_section {
+.item_quantity_value_section_menu_detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -170,14 +170,16 @@
     height: 100%;
 }
 
-.item_quantity_value {
+.item_quantity_value_menu_detail {
     padding: 0.2vw 1.4vw;
     background-color: #D9D9D9;
     box-shadow: 0 0.1vw 0.2vw 0.1vw inset rgba(0, 0, 0, 0.4);
     font-size: 1.2vw;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
 }
 
-.item_quantity_minus_sign, .item_quantity_plus_sign {
+.item_quantity_minus_sign_menu_detail, .item_quantity_plus_sign_menu_detail {
     padding: 0.25vw 0.4vw;
     border: 0.13vw rgba(253, 103, 39, 0.6) solid;
     border-radius: 0.4vw;
@@ -188,24 +190,21 @@
     color: rgba(253, 103, 39, 0.6);
 }
 
-.item_quantity_minus_sign:hover , .item_quantity_plus_sign:hover {
+.item_quantity_minus_sign_menu_detail:hover , .item_quantity_plus_sign_menu_detail:hover {
     border: 0.13vw rgba(253, 103, 39, 1) solid;
     color: rgba(253, 103, 39, 1);
     cursor: pointer;
 }
 
 .requesttxt {
-    height: 20vh;
+    width: 43vw;
     background-color: #F4F4F4;
     border: none;
     outline: none;
-    width: 43vw;
     margin-left: 1vw;
     text-align: left;
-    padding: 0;
+    padding-bottom: 20vh;
 }
-
-
 
 .add-cart{
     display: flex;
@@ -227,4 +226,64 @@
     border-radius: 20px;
     font-size: 16px;
     font-weight: bold;
+}
+
+.popup-confirm{
+    background-color: #F26122;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.popup-confirm:target{
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-confirm:target .isi{
+    opacity: 1;
+}
+
+.isi{
+    display: flex;
+    flex-direction: column;
+    background-color: #F9C140;
+    border-radius: 15px;
+    padding-top: 5vw;
+    padding-bottom: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    box-shadow:  2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.teks-sukses{
+    font-size: 30px;
+    padding-bottom: 0.5vw;
+}
+
+.text-ok{
+    display: flex;
+    padding-top:1.5vw;
+    justify-content: right;
+}
+
+.teks-ok{
+    background-color: #FD6727;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
 }

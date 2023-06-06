@@ -79,34 +79,52 @@
             </div>
             <div class="request">
                 <div>
-                    <input type="text" class="requesttxt" placeholder="halo">
+                    <input type="text" class="requesttxt" placeholder=" Additional requests...">
                 </div>
             </div>
-            <div class="item_quantity_section">
-                <div class="item_quantity_value_section">
-                    <div id="hover_toggle" class="item_quantity_minus_sign" style="visibility: hidden;">
+            <div class="item_quantity_section_menu_detail">
+                <div class="item_quantity_value_section_menu_detail">
+                    <div id="hover_toggle" class="item_quantity_minus_sign_menu_detail" style="visibility: hidden;">
                         <i id="min_sign" onclick="myFunction_minus({{ $menu->price }})" class="fa fa-minus" aria-hidden="true"></i>
                     </div>
-                    <div id="quality_value" class="item_quantity_value">1</div>
-                    <div id="plus_sign" class="item_quantity_plus_sign" onclick="myFunction_plus({{ $menu->price }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                    <div id="quality_value" class="item_quantity_value_menu_detail">1</div>
+                    <div id="plus_sign" class="item_quantity_plus_sign_menu_detail" onclick="myFunction_plus({{ $menu->price }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
                 </div>
             </div>
             <div class="add-cart">
-                <div class="add">
-                    <p class="text-add">ADD TO CART</p>
+                <div class="add" onclick="addToCart()">
+                    <a href="#popup-confirm">
+                        <p class="text-add">ADD TO CART</p>
+                    </a>
                 </div>
             </div>
         </div>
+
+        <div class="popup-confirm" id="popup-confirm">
+            <div class="isi">
+                <div class="text-sukses">
+                    <p class="teks-sukses"><strong>Order successfully added to cart!</strong></p>    
+                </div>
+                <div class="text-ok">
+                    <p class="teks-ok"><strong>OK</strong></p>
+                </div>
+            </div>
+        </div>
+
         <script>
-            window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}));
+            window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}, {{ $menu->id }}//, {{ $menu->additional_description }}, {{ $menu->jenis }}
+            ));
+            
         </script>
-    </div>
 @endsection
 
 <script>
     var element;
-    var quality_total;
+    var quality_total = 1;
     var totalStock = 0;
+    var additionalDescription = '';
+    var menuId = 0;
+    var jenis = '';
     var price = 0;
 
     function updateViewTotal() {
@@ -154,10 +172,40 @@
         updateViewTotal();
     }
 
-    function sendData(priceData, stockData) {
+    function sendData(priceData, stockData, menuIdData) {
         price = priceData;
         totalStock = stockData;
+        menuId = menuIdData;
+        // additionalDescription = additionalDescriptionData;
+        // jenis = jenisData;
+        console.log(price, totalStock, menuId, quality_total);
     }
+
+    function addToCart() {
+        
+        var url = '/' + {{$id}} + '/menu_detail/add_to_cart?menuId=' + menuId + '&quantity=' + quality_total //+ '&additionalDescription=' + additionalDescription + '&jenis=' + jenis;
+
+        console.log(url);
+
+        fetch(url)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+        })
+        .then(data => {
+            console.log('Response:', data);
+            })
+            .catch(error => {
+            console.error('Error:', error);
+        });
+
+        // location.reload();
+    }
+
 </script>
+
 
 

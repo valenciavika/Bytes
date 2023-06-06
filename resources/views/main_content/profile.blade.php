@@ -93,7 +93,7 @@
                 @csrf
                 <div class="name">
                     <strong>Full Name</strong><br>
-                    <input type="text" name="fullname" class="inputtext" placeholder="{{$user->name}}" style="text-transform: capitalize">
+                    <input type="text" name="fullname" class="inputtext" placeholder="{{$user->name}}" style="text-transform: capitalize" onfocus="changeInputValue()">
                 </div>
                 <div class="email">
                     <strong>Email</strong><br>
@@ -149,6 +149,10 @@
                             }
                         });
                     });
+
+                    function changeInputValue() {
+                        
+                    }
                 </script>
             </form>
         </div>
