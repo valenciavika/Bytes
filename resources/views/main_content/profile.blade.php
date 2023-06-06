@@ -1,6 +1,11 @@
 @extends('/main_template')
 
 @section('content')
+    @if ($errors->any())
+    <script>
+        window.location.href = window.location.href.split('#')[0] + '#popupedit';
+    </script>
+@endif
     <div class="allprofile">
 
         <div class="partTopUp">
@@ -93,21 +98,30 @@
                 @csrf
                 <div class="name">
                     <strong>Full Name</strong><br>
-                    <input type="text" name="fullname" class="inputtext" placeholder="{{$user->name}}" style="text-transform: capitalize" onfocus="changeInputValue()">
+                    <input type="text" name="fullname" class="inputtext" id="name" placeholder="{{$user->name}}" style="text-transform: capitalize">
+                    @error('fullname')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
+
                 <div class="email">
                     <strong>Email</strong><br>
-                    <input type="email" name="email" class="inputtext" placeholder="{{$user->email}}" value="ikan">
+                    <input type="email" name="email" class="inputtext" id="email" placeholder="{{$user->email}}">
+                    @error('email')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="phonenumber">
                     <strong>Phone Number</strong><br>
                     @if ($user->phone)
-                        <input type="tel" name="phonenumber" class="inputtext" placeholder="{{$user->phone}}">
+                        <input type="tel" name="phonenumber" class="inputtext" id="phonenumber" placeholder="{{$user->phone}}">
                     @else
-                        <input type="tel" name="phonenumber" class="inputtext" placeholder="-">
+                        <input type="tel" name="phonenumber" class="inputtext" id="phonenumber" placeholder="-">
                     @endif
-
+                    @error('phonenumber')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="Allbutton">
@@ -121,7 +135,7 @@
                         </div>
 
                         <div class="savebutton">
-                            <button type="submit" id="button" value="edit" class="saveButton">
+                            <button id="savebutton" value="edit" class="saveButton" onclick="changeInputValue(event)">
                                 <p id="save">
                                     <strong>SAVE</strong>
                                 </p>
@@ -129,6 +143,12 @@
                         </div>
                     </div>
                 </div>
+
+                <style>
+                    input.placeholder-color {
+                        color: #999999; /* Set the color of the placeholder text */
+                    }
+                </style>
 
                 <script>
                     function discardForm(event) {
@@ -150,8 +170,27 @@
                         });
                     });
 
-                    function changeInputValue() {
-                        
+                    function changeInputValue(event) {
+                        const inputName = document.getElementById('name');
+                        const inputEmail = document.getElementById('email');
+                        const inputPhone = document.getElementById('phonenumber');
+
+                        if(!inputName.value){
+                            inputName.value = inputName.placeholder;
+                            inputName.classList.add('placeholder-color');
+                        }
+                        if(!inputEmail.value){
+                            // inputName.removeAttribute('name');
+                            inputEmail.value = inputEmail.placeholder;
+                            inputEmail.classList.add('placeholder-color');
+                        }
+                        if(!inputPhone.value){
+                            // inputName.removeAttribute('name');
+                            inputPhone.value = $user->phone;
+                            inputPhone.classList.add('placeholder-color');
+                        }
+                        var form = document.getElementById("editProfileForm");
+                        form.submit();
                     }
                 </script>
             </form>

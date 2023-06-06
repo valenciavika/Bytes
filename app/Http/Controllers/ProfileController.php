@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -39,29 +41,36 @@ class ProfileController extends Controller
 
     public function editProfile(Request $request, $user_id)
     {
-        $validation = $request->validate([
+        $validator = Validator::make($request->all(), [
             'fullname' => 'max:255',
-            'email' => 'email:dns|max:255|unique:users',
-            'phonenumber' => 'min:5|max:255',
+            'email' => 'email:dns|max:255|unique:users,email,' . $user_id,
+            'phonenumber' => 'max:13|unique:users,phone,' . $user_id,
         ]);
 
-        
+        if ($validator->fails()) {
+            return redirect()->route('profile', $user_id)->withErrors($validator)->withInput();
+        }
+
+        $user = User::find($user_id);
+        // dd($user);
+
         $fullname = null;
         $email = null;
         $phone_num = null;
-        
-        if ($validation['fullname'] != 'tempInputName') {
+        $validation = $validator->validated();
+
+        if ($validation['fullname'] != $user['name']) {
             $fullname = $validation['fullname'];
         }
-        
-        if ($validation['email'] != 'tempInputEmail@gmail.com') {
+
+        if ($validation['email'] != $user['email']) {
             $email = $validation['email'];
         }
-        
-        if ($validation['phonenumber'] != '0123456') {
+
+        if ($validation['phonenumber'] != $user['phone']) {
             $phone_num = $validation['phonenumber'];
         }
-        
+
         // dd($validation, $fullname, $email, $phone_num);
         // $fullname = $request->input('fullname');
         // $email = $request->input('email');
