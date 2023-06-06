@@ -137,6 +137,10 @@
     width: 16vw;
 }
 
+.errorInputCeck {
+    display: none;
+}
+
 .jenis{
     display: flex;
     padding-bottom: 0.5vw;
@@ -216,7 +220,11 @@
 }
 
 .add{
-    padding: 1.5vw;
+    margin: 1.5vw;
+}
+
+.add:hover {
+    cursor: pointer;
 }
 
 .text-add{
@@ -239,20 +247,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    visibility: hidden;
+    display: none;
 }
-
-
-.popup-confirm:target{
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup-confirm:target .isi{
-    opacity: 1;
-}
-
 .isi{
     display: flex;
     flex-direction: column;
@@ -263,7 +259,6 @@
     padding-left: 4vw;
     padding-right: 4vw;
     box-shadow:  2px 2px 4px rgba(0, 0, 0, 0.5);
-    opacity: 0;
 }
 
 .teks-sukses{
@@ -275,6 +270,10 @@
     display: flex;
     padding-top:1.5vw;
     justify-content: right;
+}
+
+.teks-ok:hover {
+    cursor: pointer;
 }
 
 .teks-ok{

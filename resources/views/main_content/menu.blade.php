@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="tengah">
                                     <div class="harga">
-                                        <p class="text-harga">{{$menus[$j]->price}}</p>
+                                        <p class="text-harga">Rp{{number_format($menus[$j]->price, 0 , '.' , '.' )}}</p>
                                     </div>
                                     <a class="order" href="/{{$id}}/menu_detail/{{$tenant_name}}/{{$menus[$j]->id}}">
                                         <p class="text-order">ORDER</p>

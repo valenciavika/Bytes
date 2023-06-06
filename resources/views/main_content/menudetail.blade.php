@@ -1,6 +1,9 @@
 @extends('/main_template')
 
 @section('content')
+    @php
+        $jenisArr = [];
+    @endphp
     <div class="kontener">
         <div class="left">
             <div class="div-name-restoran">
@@ -66,20 +69,25 @@
                         $jenisArr = explode(",", $menu->jenis);
                     @endphp
                     <div class="pilih">
-                    @foreach ($jenisArr as $item)
-                        <div class="jenis">
-                            <div class="kotak">
-                                <input type="checkbox" id="checkbox" name="checkbox" required>
+                        @foreach ($jenisArr as $item)
+                            <div class="jenis">
+                                <div class="kotak">
+                                    <input id="{{$item}}" type="checkbox" id="checkbox" name="checkbox" required value="{{ $item }}" onclick="inputCheckHandle(value)">
+                                </div>
+                                <p>{{ $item }}</p>
+                                <script>
+                                    jenisArr.push("{{ $item }}");
+                                </script>
                             </div>
-                            <p>{{ $item }}</p>
-                        </div>
-                    @endforeach
+                        @endforeach
+
                     </div>
-                @endif
+                    @endif
+                    <div id="errorInputCeck" class="errorInputCeck">Please choose between these {{count($jenisArr)}} items</div>
             </div>
             <div class="request">
                 <div>
-                    <input type="text" class="requesttxt" placeholder=" Additional requests...">
+                    <input type="text" class="requesttxt" placeholder=" Additional requests..." onmouseleave="mouseLeaveHandle(value)">
                 </div>
             </div>
             <div class="item_quantity_section_menu_detail">
@@ -92,10 +100,8 @@
                 </div>
             </div>
             <div class="add-cart">
-                <div class="add" onclick="addToCart()">
-                    <a href="#popup-confirm">
-                        <p class="text-add">ADD TO CART</p>
-                    </a>
+                <div class="add" onclick="addToCart('none')">
+                    <p class="text-add">ADD TO CART</p>
                 </div>
             </div>
         </div>
@@ -105,16 +111,14 @@
                 <div class="text-sukses">
                     <p class="teks-sukses"><strong>Order successfully added to cart!</strong></p>    
                 </div>
-                <div class="text-ok">
+                <div class="text-ok" onclick="location.reload()">
                     <p class="teks-ok"><strong>OK</strong></p>
                 </div>
             </div>
         </div>
 
         <script>
-            window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}, {{ $menu->id }}//, {{ $menu->additional_description }}, {{ $menu->jenis }}
-            ));
-            
+            window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}, {{ $menu->id }}));
         </script>
 @endsection
 
@@ -122,10 +126,11 @@
     var element;
     var quality_total = 1;
     var totalStock = 0;
-    var additionalDescription = '';
+    var jenisArr = [];
     var menuId = 0;
-    var jenis = '';
     var price = 0;
+    var additionalDescription = null;
+    var jenis = null;
 
     function updateViewTotal() {
         document.getElementById('orderSubtotal').innerHTML = quality_total * price;
@@ -172,20 +177,56 @@
         updateViewTotal();
     }
 
+    function inputCheckHandle(jenisData) {
+        element = document.getElementById(jenisData).checked
+
+        if (element) {
+            jenisArr.forEach(i => {
+                if (i == jenisData) {
+                    jenis = jenisData;
+                }
+                else {
+                    document.getElementById(i).checked = false;
+                }
+            });
+        }
+
+        else {
+            jenis = null;
+        }
+
+
+        hideErrorInput('errorInputCeck');
+    }
+
+    function mouseLeaveHandle(value) {
+        additionalDescription = value;
+    }
+
     function sendData(priceData, stockData, menuIdData) {
         price = priceData;
         totalStock = stockData;
         menuId = menuIdData;
-        // additionalDescription = additionalDescriptionData;
-        // jenis = jenisData;
-        console.log(price, totalStock, menuId, quality_total);
+    }
+
+    function showErrorInput(idElement) {
+        document.getElementById(idElement).style.display = 'block';
+    }
+    
+    function hideErrorInput(idElement) {
+        document.getElementById(idElement).style.display = 'none';
     }
 
     function addToCart() {
         
-        var url = '/' + {{$id}} + '/menu_detail/add_to_cart?menuId=' + menuId + '&quantity=' + quality_total //+ '&additionalDescription=' + additionalDescription + '&jenis=' + jenis;
+        if (jenisArr != null) {
+            if (jenis == null) {
+                showErrorInput('errorInputCeck');
+                return;
+            }
+        }
 
-        console.log(url);
+        var url = '/' + {{$id}} + '/menu_detail/add_to_cart?menuId=' + menuId + '&quantity=' + quality_total + '&additionalDescription=' + additionalDescription + '&jenis=' + jenis;
 
         fetch(url)
         .then(response => {
@@ -201,10 +242,13 @@
             .catch(error => {
             console.error('Error:', error);
         });
-
-        // location.reload();
+        popUpHandle('flex');
     }
 
+    function popUpHandle(displayData) {
+        document.getElementById('popup-confirm').style.display = displayData;
+        // location.reload();
+    }
 </script>
 
 
