@@ -175,6 +175,8 @@
     background-color: #D9D9D9;
     box-shadow: 0 0.1vw 0.2vw 0.1vw inset rgba(0, 0, 0, 0.4);
     font-size: 1.2vw;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
 }
 
 .item_quantity_minus_sign_menu_detail, .item_quantity_plus_sign_menu_detail {
@@ -195,17 +197,14 @@
 }
 
 .requesttxt {
-    height: 20vh;
+    width: 43vw;
     background-color: #F4F4F4;
     border: none;
     outline: none;
-    width: 43vw;
     margin-left: 1vw;
     text-align: left;
-    padding: 0;
+    padding-bottom: 20vh;
 }
-
-
 
 .add-cart{
     display: flex;

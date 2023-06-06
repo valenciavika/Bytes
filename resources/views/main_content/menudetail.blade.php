@@ -79,7 +79,7 @@
             </div>
             <div class="request">
                 <div>
-                    <input type="text" class="requesttxt" placeholder="halo">
+                    <input type="text" class="requesttxt" placeholder=" Additional requests...">
                 </div>
             </div>
             <div class="item_quantity_section_menu_detail">
@@ -206,4 +206,6 @@
     }
 
 </script>
+
+
 
