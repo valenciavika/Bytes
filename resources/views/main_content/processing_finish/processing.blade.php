@@ -1,26 +1,49 @@
-<div class="ordercontent">
-    <div class="processingcontent">
+@php
+    $menu;
+    $tenant;
+@endphp
+
+<div class="processingcontent">
+    @foreach ($transactions as $transaction)
+        @foreach ($menus as $i)
+            @if ($i->id == $transaction->menu_id)
+                @php
+                    $menu = $i;
+                    break;
+                @endphp
+            @endif
+        @endforeach
+
+        @foreach ($tenants as $i)
+            @if ($i->id == $menu->tenant_id)
+                @php
+                    $tenant = $i;
+                    break;
+                @endphp
+            @endif
+        @endforeach
+
         <div class="foto">
-           <img src="" alt="">
+            <img src="" alt="">
         </div>
 
 
         <div class="Partorder">
             <div class="namatenant">
-                <strong>Bakmi Effata</strong>
+                <strong>{{ $tenant->name }}</strong>
             </div>
 
             <div class="orderdetail">
                 <div class="quantity">
-                    <p>3x</p>
+                    <p>{{ $transaction->quantity }}x</p>
                 </div>
                 <div class="pesanan">
-                    <p>Bakmi Keriting/Lebar Ayam Biasa Polos</p>
+                    <p>{{ $menu->name }}</p>
                 </div>
             </div>
 
-             <div class="harga">
-                <p>Rp60.000</p>
+                <div class="harga">
+                <p>Rp{{number_format($menu->price * $transaction->quantity + $transaction->quantity * 1500, 0 , '.' , '.' )}}</p>
             </div>
 
         </div>
@@ -33,10 +56,6 @@
                 <p>Estimated ready at 11:00</p>
             </div>
         </div>
-
-
-
-    </div>
-
-
+    @endforeach
 </div>
+
