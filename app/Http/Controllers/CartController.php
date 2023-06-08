@@ -14,7 +14,7 @@ use App\Models\Transaction;
 class CartController extends Controller
 {
     public function show($id) {
-        return view('main_content.cartpage', [
+        return view('user_page.main_content.cartpage', [
             'page_title' => 'Cart | BinusEats',
             'active_number' => 2,
             'carts' => Cart::where('user_id', $id)->get(),

@@ -12,16 +12,9 @@
         <script src="https://kit.fontawesome.com/db7406598f.js" crossorigin="anonymous"></script>
         <script src="editprofile.js"></script>
 
-        <link href="{{asset('css/homepage.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/profile.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/order.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/cartpage.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/topup.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/menu.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/menudetail.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/notification.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/admin.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/history.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/main_template.css')}}" rel="stylesheet" />
+
+        @stack('styles')
 
     </head>
     <body>

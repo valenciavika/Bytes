@@ -38,7 +38,7 @@ class TopUpController extends Controller
         // dd($transaction);
         // dd($money);
 
-        return view('main_content.topup', [
+        return view('user_page.main_content.topup', [
             'page_title' => 'Topup | BinusEats',
             'active' => 1,
             'user' => $user,
@@ -73,7 +73,7 @@ class TopUpController extends Controller
         // dd($transaction);
         // dd($money);
 
-        return view('main_content.topup', [
+        return view('user_page.main_content.topup', [
             'page_title' => 'Topup | BinusEats',
             'active' => 2,
             'user' => $user,
@@ -108,7 +108,7 @@ class TopUpController extends Controller
         // dd($transaction);
         // dd($money);
 
-        return view('main_content.topup', [
+        return view('user_page.main_content.topup', [
             'page_title' => 'Topup | BinusEats',
             'active' => 3,
             'user' => $user,

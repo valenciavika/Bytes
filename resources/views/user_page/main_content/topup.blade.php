@@ -1,6 +1,4 @@
-@extends('/main_template')
-
-
+@extends('/user_page.main_template')
 
 @section('content')
     <!-- Add a hidden modal box -->
@@ -276,13 +274,18 @@
 
                 </div>
 
-            </div>
+            </div>directly
         </div>
 
 
 
     </div>
 @endsection
+
+
+@push('styles')
+    <link href="{{asset('css/topup.css')}}" rel="stylesheet" />
+@endpush
 
 <script>
     function showTopUpConfirmation(event) {

@@ -1,4 +1,4 @@
-@extends('main_template')
+@extends('/user_page.main_template')
 
 @section('content')
     <div id="block_div" class="block_div"></div>
@@ -61,7 +61,7 @@
                         CHECK OUT
                     </div>
                 @else
-                    <a class="mycart_checkout" href="/homepage/{{$id}}">
+                    <a class="mycart_checkout" href="/{{$id}}/homepage">
                         Back Shopping
                     </a>
                 @endif
@@ -118,6 +118,10 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+    <link href="{{asset('css/cartpage.css')}}" rel="stylesheet" />
+@endpush
 
 <script>
     var totalPrice = 0;

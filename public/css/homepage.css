@@ -8,108 +8,20 @@ kuning banner: F9C140
 oranye: FD6727
 bg: FCEDCA
 */
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: normal;
-    position: relative;
- /* display: ; */
-}
-
-body p{
-    margin: 0;
-}
-
-.banner{
-    /* color: #F9C140; */
-    background-color: #F9C140;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navigation-bar{
-    display: flex;
-    padding-right: 2vw;
-}
-
-.banner form{
-    display: flex;
-    align-items: center;
-    background-color: #F9C140;
-}
-
-.banner form input{
-    width: 30vw;
-    font-size: 1.5vw;
-    border: none;
-    background-color: #F9F4EA;
-    padding: 1vw 1.5vw 1vw 1.5vw;
-    border-radius: 2.5vw 0vw 0vw 2.5vw;
-    outline: none;
-}
-
-.banner form button{
-    background-color: #F9F4EA;
-    border:none;
-    font-size: 1.5vw;
-    padding: 1vw 1.5vw 1vw 1.5vw;
-    border-radius: 0vw 2.5vw 2.5vw 0vw;
-}
-
-.banner form i{
-    font-size: 1.25vw;
-    cursor: pointer;
-}
-
-#bar{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 6vw;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-#bar:hover{
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color:#ffb300;
-}
-
-#bar i{
-    padding-top: 1.5vw;
-    font-size: 2vw;
-}
-
-#bar p{
-    color: white;
-    padding-top: 0.5vw;
-    padding-bottom: 1.5vw;
-    font-size: 1.25vw;
-}
-
-.home-button{
-    width: 3vw;
-    height: fit-content;
-    display: flex;
-    align-self: center;
-    margin-left: 2vw;
-    cursor: pointer;
-}
-
-
-.content{
-    background-color: #FCEDCA;
-    min-height: 87vh;
-    /* padding-top: 3vw; */
-}
-
 .no_result {
     text-align: center;
     font-size: 2vw;
     margin-top: 5vw;
+}
+
+.emoney_section {
+    width: 40%;
+    background-color: #F9C140;
+    margin-top: 1.5vw;
+    margin-left: 3vw;
+    border-radius: 0.7vw;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .topup-history{
@@ -119,10 +31,14 @@ body p{
 
 .topup{
     border-radius: 0.7vw;
-    /* width: 40%; */
+    width: 26vw;
     background-color: #F9C140;
     display: flex;
     justify-content: space-evenly;
+}
+
+.topup_carousel_block {
+    max-width: 26vw;
 }
 
 .method{
@@ -131,24 +47,16 @@ body p{
     align-items: center;
 }
 
-
-#topup-carousel{
-    width: 40%;
-    background-color: #F9C140;
-    margin-top: 1.5vw;
-    margin-left: 3vw;
-    border-radius: 0.7vw;
-}
 #emoney{
     display: flex;
     border-radius: 0.7vw;
     justify-content: space-between;
     background-color: white;
+    width: 24vw;
     opacity: 88%;
     margin-top: 1.5vw;
-    /* margin-bottom: 1.75vw; */
+    margin-bottom: 1.75vw;
     align-items: center;
-    width: 60%;
     padding: 1.5vw 0.5vw;
 }
 
@@ -170,38 +78,29 @@ ol.carousel-indicators {
 }
 
 .topup_button{
-    border-radius: 0.7vw;
+    border-radius: 1.4vw;
     background-color: #FD6727;
     display: flex;
     color: white;
-    font-size: 1.6vw;
+    width: 10vw;
     font-weight: bold;
-    width: 23%;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 1.5vw;
-    /* margin-bottom: 1.4vw; */
-    text-decoration: none;
+    margin: 2vw 0;
+    padding: 0 1vw;
 }
 
-.topup-button p{
-    margin-right: 1vw;
-    display: flex;
-    font-size: 3vw;
-    align-items: center;
+.topup_button p{
+    font-size: 1.3vw;
 }
 
-.topup-button i{
-    display: flex;
-    align-items: center;
-    font-weight:5000;
-    margin-left: 1vw;
+.topup_button i{
+    font-size: 2vw
 }
 
 .history{
     border-radius: 0.7vw;
     width: 45%;
-    /* height: ; */
     background-color: white;
     margin-top: 1.5vw;
     margin-right: 3vw;

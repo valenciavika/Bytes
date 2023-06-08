@@ -1,11 +1,10 @@
 .AllOrder{
+    margin: 5vh auto;
     background-color: white;
     width: 74vw;
-    height: 80vh;
-    margin-top: 3vw;
-    margin-left: 12vw;
     border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    padding-bottom: 5vh;
 }
 
 .transactionstatus{
@@ -29,6 +28,7 @@
     padding-bottom: 1.2vw;
     border: 1px solid #FCEDCA;
     border-top-left-radius: 10px;
+    cursor: pointer;
 }
 
 .partfinished{
@@ -36,6 +36,7 @@
     padding-bottom: 1.2vw;
     border: 1px solid #FCEDCA;
     border-top-right-radius: 10px;
+    cursor: pointer;
 }
 
 a{
@@ -46,10 +47,10 @@ a{
 .ordercontent{
     background-color: #FCEDCA;
     width: 67vw;
-    height: 47vh;
-    margin-left: 3.5vw;
+    height: 57vh;
     border-radius: 10px;
     padding-top: 3vw;
+    margin: 0 auto;
     position: relative;
     z-index: 3;
 }

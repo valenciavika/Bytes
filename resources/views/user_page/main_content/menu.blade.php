@@ -1,4 +1,4 @@
-@extends('/main_template')
+@extends('/user_page.main_template')
 
 @section('content')
     @php
@@ -65,6 +65,11 @@
         </script>
     </div>
 @endsection
+
+@push('styles')
+    <link href="{{asset('css/menu.css')}}" rel="stylesheet" />
+@endpush
+
 
 <script>
     var prevViewCount = 0;

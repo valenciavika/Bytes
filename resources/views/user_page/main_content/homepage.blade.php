@@ -1,69 +1,66 @@
-@extends('/main_template')
+@extends('/user_page.main_template')
 
 @section('content')
     <div class="topup-history">
 
-        <div id="topup-carousel" class="carousel slide">
-            <ol class="carousel-indicators">
-                <li data-bs-target="#topup-carousel" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#topup-carousel" data-bs-slide-to="1"></li>
-                <li data-bs-target="#topup-carousel" data-bs-slide-to="2"></li>
-            </ol>
-
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="topup">
-                        {{-- @foreach ($emoneys as $emoney) --}}
-                        <div class="bipay_home" id="emoney">
-                            <div class="method">
-                                <img style="width: 1.7vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[0]->img }}" alt="bipay">
-                                <p style="padding-left: 0.5vw;"> {{ $emoneys[0]->name }}</p>
+        <div class="emoney_section">
+            <div class="topup_carousel_block">
+                <div id="topup-carousel" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#topup-carousel" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#topup-carousel" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#topup-carousel" data-bs-slide-to="2"></li>
+                    </ol>
+        
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="topup">
+                                {{-- @foreach ($emoneys as $emoney) --}}
+                                <div class="bipay_home" id="emoney">
+                                    <div class="method">
+                                        <img style="width: 1.7vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[0]->img }}" alt="bipay">
+                                        <p style="padding-left: 0.5vw;"> {{ $emoneys[0]->name }}</p>
+                                    </div>
+                                    <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[0]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
+                                </div>
+        
                             </div>
-                            <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[0]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                         </div>
-
-                        <a href="/{{$id}}/topup/BiPay/History" class="topup_button">
-                            <i class="fa-solid fa-plus"aria-hidden="true" style="color: #ffffff;"></i>
-                            <p>TOP UP</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="topup">
-                        <div class="OVO_home" id="emoney">
-                            <div class="method">
-                                <img style="width: 1.7vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[1]->img }}" alt="bipay">
-                                <p style="padding-left: 0.5vw;"> {{ $emoneys[1]->name }}</p>
+        
+                        <div class="carousel-item">
+                            <div class="topup">
+                                <div class="OVO_home" id="emoney">
+                                    <div class="method">
+                                        <img style="width: 1.7vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[1]->img }}" alt="bipay">
+                                        <p style="padding-left: 0.5vw;"> {{ $emoneys[1]->name }}</p>
+                                    </div>
+                                    <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[1]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
+                                </div>
+                                
                             </div>
-                            <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[1]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                         </div>
-                        <a href="/{{$id}}/topup/OVO/History" class="topup_button">
-                            <i class="fa-solid fa-plus"aria-hidden="true" style="color: #ffffff;"></i>
-                            <p>TOP UP</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="topup">
-                        <div class="GoPay_home" id="emoney">
-                            <div class="method">
-                                <img style="width: 1.7vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[2]->img }}" alt="bipay">
-                                <p style="padding-left: 0.5vw;"> {{ $emoneys[2]->name }}</p>
+        
+                        <div class="carousel-item">
+                            <div class="topup">
+                                <div class="GoPay_home" id="emoney">
+                                    <div class="method">
+                                        <img style="width: 1.7vw; height:max-content; display:flex; align-self: center;" src="{{ $emoneys[2]->img }}" alt="bipay">
+                                        <p style="padding-left: 0.5vw;"> {{ $emoneys[2]->name }}</p>
+                                    </div>
+                                    <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[2]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
+                                </div>
+        
                             </div>
-                            <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[2]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                         </div>
-                        <a href="/{{$id}}/topup/GoPay/History" class="topup_button">
-                            <i class="fa-solid fa-plus"aria-hidden="true" style="color: #ffffff;"></i>
-                            <p>TOP UP</p>
-                        </a>
-
                     </div>
+                    
                 </div>
             </div>
+            <a href="/{{$id}}/topup/BiPay/History" class="topup_button">
+                <i class="fa-solid fa-plus"aria-hidden="true" style="color: #ffffff;"></i>
+                <p>TOP UP</p>
+            </a>
         </div>
-
 
         <div class="history">
             <div class="history-container">
@@ -170,4 +167,7 @@
     </div>
 @endsection
 
+@push('styles')
+    <link href="{{asset('css/homepage.css')}}" rel="stylesheet" />
+@endpush
 

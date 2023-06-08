@@ -11,7 +11,7 @@ class MenuController extends Controller
     public function show($id, $tenant_name) {
         
         $tenant = Tenant::where("name", $tenant_name)->first();
-        return view('/main_content.menu', [
+        return view('/user_page.main_content.menu', [
             'page_title' => 'Menu | BinusEats',
             'active_number' => 0,
             'tenant_name' => $tenant_name,

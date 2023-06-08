@@ -1,4 +1,4 @@
-@extends('/main_template')
+@extends('/user_page.main_template')
 
 @section('content')
     @php
@@ -133,6 +133,11 @@
             window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}, {{ $menu->id }}));
         </script>
 @endsection
+
+@push('styles')
+    <link href="{{asset('css/menudetail.css')}}" rel="stylesheet" />
+@endpush
+
 
 <script>
     var element;

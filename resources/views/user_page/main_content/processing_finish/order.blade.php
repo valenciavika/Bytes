@@ -1,4 +1,4 @@
-@extends('/main_template')
+@extends('/user_page.main_template')
 
 @section('content')
     <div class="AllOrder">
@@ -18,11 +18,11 @@
         </div>
 
         <div id="orderFinish" style="display: none">
-            @include('/main_content.processing_finish.processing')
+            @include('/user_page.main_content.processing_finish.processing')
         </div>
 
         <div id="orderProcessing" style="display: none">
-            @include('/main_content.processing_finish.finish')
+            @include('/user_page.main_content.processing_finish.finish')
         </div>
 
         <script>
@@ -53,3 +53,8 @@
         document.getElementById("orderContent").innerHTML = element.innerHTML;
     }
 </script>
+
+@push('styles')
+    <link href="{{asset('css/order.css')}}" rel="stylesheet" />
+@endpush
+

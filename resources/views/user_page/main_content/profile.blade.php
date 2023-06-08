@@ -1,4 +1,4 @@
-@extends('/main_template')
+@extends('/user_page.main_template')
 
 @section('content')
     @if ($errors->any())
@@ -81,11 +81,14 @@
             </div>
 
             <div class="signoutbutton">
-                <button type="submit" id="button" value="edit" class="signoutButton" onclick="window.location.href='/login'">
-                    <p id="signout">
-                        <strong>SIGN OUT</strong>
-                    </p>
-                </button>
+                <form action="/signout" method="post">
+                    @csrf
+                    <button type="submit" id="button" value="edit" class="signoutButton">
+                        <p id="signout">
+                            <strong>SIGN OUT</strong>
+                        </p>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -201,3 +204,6 @@
 @endsection
 
 
+@push('styles')
+    <link href="{{asset('css/profile.css')}}" rel="stylesheet" />
+@endpush

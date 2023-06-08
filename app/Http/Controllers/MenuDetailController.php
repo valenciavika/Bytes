@@ -14,7 +14,7 @@ class MenuDetailController extends Controller
         $tenant = Tenant::where("name", $tenant_name)->first();
         $Menu = Menu::where('id', $menu_id)->first();
 
-        return view('/main_content.menudetail', [
+        return view('/user_page.main_content.menudetail', [
             'page_title' => 'Menu | BinusEats',
             'active_number' => 0,
             'menu' => $Menu,

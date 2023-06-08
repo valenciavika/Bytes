@@ -1,4 +1,4 @@
-@extends('main_template')
+@extends('/user_page.main_template')
 
 @section('content')
     <div class="notificationSection">
@@ -45,3 +45,8 @@
         </div> --}}
     </div>
 @endsection
+
+@push('styles')
+    <link href="{{asset('css/notification.css')}}" rel="stylesheet" />
+@endpush
+

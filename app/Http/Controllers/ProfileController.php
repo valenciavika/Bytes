@@ -13,7 +13,7 @@ use App\Models\User;
 class ProfileController extends Controller
 {
     public function show($id) {
-        return view('main_content.profile', [
+        return view('user_page.main_content.profile', [
             'page_title' => 'Profile | BinusEats',
             'active_number' => 4,
             'user' => User::find($id),
