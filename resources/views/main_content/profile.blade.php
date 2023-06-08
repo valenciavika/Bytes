@@ -54,9 +54,11 @@
                     </div>
                     <div class="editbutton">
                         <a href="#popupedit" class="editButton">
+                            {{-- <i class="fa fa-pencil" aria-hidden="true"></i>
                             <p id="editdata">
                                 <strong>Edit</strong>
-                            </p>
+                            </p> --}}
+                            <div class="edittxt"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</div>
                         </a>
                     </div>
                 </div>

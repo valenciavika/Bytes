@@ -5,8 +5,9 @@
 
 <div class="processingcontent">
 
-    @foreach ($orders as $order)
-        @foreach ($menus as $i)
+    @if ($orders->count())
+        @foreach ($orders as $order)
+            @foreach ($menus as $i)
             @if ($i->id == $order->menu_id)
                 @php
                     $menu = $i;
@@ -23,32 +24,37 @@
                 @endphp
             @endif
         @endforeach
-    
-    <div class="foto">
-        <img src="" alt="">
-    </div>
 
-
-    <div class="Partorder">
-        <div class="namatenant">
-            <strong>{{ $tenant->name }}</strong>
-        </div>
-
-        <div class="orderdetail">
-            <div class="quantity">
-                <p>{{ $transaction->quantity }}x</p>
+        <div class="processing_finish_list">
+            <div class="foto">
+                <img src="" alt="">
             </div>
-            <div class="pesanan">
-                <p>{{ $menu->name }}</p>
+
+
+            <div class="Partorder">
+                <div class="namatenant">
+                    <strong>{{ $tenant->name }}</strong>
+                </div>
+
+                <div class="orderdetail">
+                    <div class="quantity">
+                        <p>{{ $transaction->quantity }}x</p>
+                    </div>
+                    <div class="pesanan">
+                        <p>{{ $menu->name }}</p>
+                    </div>
+                </div>
+                    <div class="harga">
+                    <p>Rp{{number_format($menu->price * $transaction->quantity + $transaction->quantity * 1500, 0 , '.' , '.' )}}</p>
+                </div>
+
             </div>
         </div>
-            <div class="harga">
-            <p>Rp{{number_format($menu->price * $transaction->quantity + $transaction->quantity * 1500, 0 , '.' , '.' )}}</p>
-        </div>
 
-    </div>
-
-    @endforeach
+        @endforeach
+    @else
+        <p class="no_result">No order found.</p>
+    @endif
 </div>
 
 {{-- <div class="finishedcontent">
