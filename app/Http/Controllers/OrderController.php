@@ -14,8 +14,8 @@ class OrderController extends Controller
             'page_title' => 'Order | BinusEats',
             'active_number' => 3,
             'temp_variable' => 1,
-            'transactions' => Transaction::all(),
-            'orders' => Order::all(),
+            'transactions' => Transaction::where('user_id', $id)->get(),
+            'orders' => Order::where('user_id', $id)->get(),
             'menus' => Menu::all(),
             'tenants' => Tenant::all()
         ])->with('id', $id);

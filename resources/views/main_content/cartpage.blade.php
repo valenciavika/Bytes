@@ -43,10 +43,10 @@
                                     <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus(id, {{ $price[$cart->id] }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
                                 </div>
                                 <div class="item_quantity_edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</div>
-                            </div>  
+                            </div>
                         </div>
                     @endforeach
-                </div>      
+                </div>
             @else
                 <p class="no_result">You cart is empty.</p>
             @endif
@@ -56,7 +56,7 @@
                     <p >Subtotal: </p>
                     <p class="subtotal_value">Rp{{number_format(0, 0 , '.' , '.' )}}</p>
                 </div>
-                @if ($cart_not_empty) 
+                @if ($cart_not_empty)
                     <div class="mycart_checkout" onclick="showOrder()">
                         CHECK OUT
                     </div>
@@ -67,7 +67,7 @@
                 @endif
             </div>
         </div>
-            
+
         <div id="order_summary" class="order_summary" style="display: none">
             <i class="fa fa-arrow-left back_sign" onclick="hideOrder()"></i>
             <div class="order_summary_header">
@@ -160,7 +160,7 @@
     function myFunction_plus(id, price) {
         id = id.slice(9);
         element = document.getElementById("quality_value"+id);
-        quality_total = element.innerHTML;  
+        quality_total = element.innerHTML;
 
         if(quality_total>=1) {
             start_hover("hover_toggle"+id);
@@ -168,7 +168,7 @@
 
         quality_total++;
         var element1 = document.getElementById('check'+id)
-        var status = element1.checked;  
+        var status = element1.checked;
         if (status) {
             totalPrice += price
         }
@@ -180,7 +180,7 @@
         id = id.slice(8);
         element = document.getElementById("quality_value"+id);
         quality_total = element.innerHTML;
-        
+
         quality_total--;
         var element1 = document.getElementById('check'+id)
         var status = element1.checked;
@@ -219,7 +219,7 @@
 
         var formattedCharge = 'Rp' + (idArr.length * 1500).toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
         var formattedTotalPrice = 'Rp' + (idArr.length * 1500 + totalPrice).toLocaleString('en-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(',', '.');
-        
+
         document.getElementById('orderSubtotal').innerHTML = formattedPrice;
         document.getElementById('orderCharge').innerHTML = formattedCharge;
         document.getElementById('orderTotal').innerHTML = formattedTotalPrice;
@@ -264,7 +264,7 @@
         emoneyId.push(emoneyIdData);
         userId = userIdData;
     }
-   
+
     function chooseEmoneytoPay(emoneyId) {
         var elementChosenEmoneyId;
         if (chosenEmoneyId != 0) {
@@ -272,7 +272,7 @@
             elementChosenEmoneyId.style.borderStyle = "none";
             elementChosenEmoneyId.style.backgroundColor = "#F9C140";
         }
-        
+
         chosenEmoneyId = emoneyId;
         elementChosenEmoneyId = document.getElementById('emoney_section' + emoneyId);
         elementChosenEmoneyId.style.borderStyle = "solid";
@@ -283,14 +283,14 @@
             document.getElementById('orderButton').style.display = "block";
             return;
         }
-        
+
         document.getElementById('topUpButton').style.display = "block";
         document.getElementById('orderButton').style.display = "none";
     }
 
     function orderNow() {
         var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
-        
+
         fetch(url)
         .then(response => {
         if (response.ok) {

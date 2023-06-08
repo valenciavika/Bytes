@@ -37,12 +37,16 @@
                         var batchNumber;
                         if (hours < 8 || (hours == 8 && minutes < 50)) {
                             batchNumber = 1;
+                            batchEndTime = '08:50';
                         } else if (hours < 10 || (hours == 10 && minutes < 50)) {
                             batchNumber = 2;
+                            batchEndTime = '10:50';
                         } else if (hours < 12 || (hours == 12 && minutes < 50)) {
                             batchNumber = 3;
+                            batchEndTime = '12:50';
                         } else if (hours < 14 || (hours == 14 && minutes < 50)) {
                             batchNumber = 4;
+                            batchEndTime = '14:50';
                         } else {
                             batchNumber = "No more batches for today";
                         }
@@ -58,7 +62,7 @@
                             jemTextElement.textContent += minutes;
                         } else {
                             batchTextElement.textContent = "Batch " + batchNumber + " ends at ";
-                            jemTextElement.textContent = hours.toString().padStart(2, '0') + ":" + minutes.toString().padStart(2, '0');
+                            jemTextElement.textContent = batchEndTime;
                         }
                     </script>
                 </div>

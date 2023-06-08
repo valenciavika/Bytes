@@ -201,6 +201,7 @@ ol.carousel-indicators {
 .history{
     border-radius: 0.7vw;
     width: 45%;
+    /* height: ; */
     background-color: white;
     margin-top: 1.5vw;
     margin-right: 3vw;
@@ -214,9 +215,10 @@ ol.carousel-indicators {
     border-color: #FD6727;
 }
 
-.history-box{
+.history-box-home{
     margin-left: 1vw;
     margin-right: 1vw;
+    height: 6vw;
 }
 
 .tenant-time{
@@ -230,16 +232,19 @@ ol.carousel-indicators {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1vw;
     margin-bottom: 1vw;
 }
 
 
 .status{
-    background-color: #08A618;
+    /* background-color: #08A618; */
     display:flex;
     align-items:center;
-    padding: 0.25vw 0.75vw;
-    color: white;
+    padding-top: 0.25vw;
+    padding-left: 0.75vw;
+    padding-bottom: 0.25vw ;
+    /* color: white; */
     font-weight: bold;
 }
 

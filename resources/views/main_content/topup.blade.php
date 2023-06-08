@@ -73,36 +73,41 @@
                     @if ($type == "History")
                         <p class="judul">History</p>
                         <div class="topup-hist">
-                            @foreach ($transaction as $t)
-                                <div class="date">
-                                    <p>{{$t['transaction_day']}}, {{$t['transaction_date']}}</p>
-                                </div>
+                            @if ($transaction)
+                                @foreach ($transaction as $t)
+                                    <div class="date">
+                                        <p>{{$t['transaction_day']}}, {{$t['transaction_date']}}</p>
+                                    </div>
 
-                                <div class="topupp">
-                                    <p>{{$t['method']}}</p>
+                                    <div class="topupp">
+                                        <p>{{$t['method']}}</p>
 
-                                    @if ($t['method']==="Payment")
-                                        <p>- Rp{{number_format($t['amount'], 0 , '.' , '.' )}}</p>
-                                    @else
-                                        <p>+ Rp{{number_format($t['amount'], 0 , '.' , '.' )}}</p>
-                                    @endif
-
-                                </div>
-
-                                <div class="time-hist">
-                                    <p>{{$t['transaction_time']}}</p>
-                                    @foreach ($tr_emone as $em)
-                                        @if ($em['id']==$t['emoney_id'])
-                                            <div class="emoney-hist">
-                                                <img src="{{$em['img']}}" alt="">
-                                                <p>{{$em['name']}}</p>
-                                            </div>
-                                            @break
+                                        @if ($t['method']==="Payment")
+                                            <p>- Rp{{number_format($t['amount'], 0 , '.' , '.' )}}</p>
+                                        @else
+                                            <p>+ Rp{{number_format($t['amount'], 0 , '.' , '.' )}}</p>
                                         @endif
-                                    @endforeach
-                                </div>
 
-                            @endforeach
+                                    </div>
+
+                                    <div class="time-hist">
+                                        <p>{{$t['transaction_time']}}</p>
+                                        @foreach ($tr_emone as $em)
+                                            @if ($em['id']==$t['emoney_id'])
+                                                <div class="emoney-hist">
+                                                    <img src="{{$em['img']}}" alt="">
+                                                    <p>{{$em['name']}}</p>
+                                                </div>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    </div>
+
+                                @endforeach
+                            @else
+                                <p class="no_result">You Had Not Done Any Top Up</p>
+                            @endif
+
                         </div>
                     @else
                         <p class="judul">Help</p>

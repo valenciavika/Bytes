@@ -18,6 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('quantity');
             $table->text('additional_description')->nullable();
             $table->string('jenis')->nullable();
+            $table->dateTime('time');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

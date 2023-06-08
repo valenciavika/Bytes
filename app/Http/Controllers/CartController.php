@@ -17,11 +17,11 @@ class CartController extends Controller
         return view('main_content.cartpage', [
             'page_title' => 'Cart | BinusEats',
             'active_number' => 2,
-            'carts' => Cart::latest()->get(),
+            'carts' => Cart::where('user_id', $id)->get(),
             'tenants' => Tenant::all(),
             'menus' => Menu::all(),
             'emoneys' => TopUp::all(),
-            'moneys' => Money::all()
+            'moneys' => Money::where('user_id', $id)->get(),
         ])->with('id', $id);;
     }
 
@@ -39,8 +39,10 @@ class CartController extends Controller
                 'quantity' => $cart->quantity,
                 'additional_description' => $cart->additional_description,
                 'jenis' => $cart->jenis,
+                'user_id' => $id,
+                'time' => now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
             ]);
-            
+
             $cart->delete();
         }
 

@@ -107,14 +107,24 @@ input {
     justify-content: center;
 }
 
-button {
+#button-signup{
     width: 13rem;
     border-color: #F26122;
     border-radius: 20px;
     height: 40px;
     border-width: 1px;
     background-color: white;
+    font-weight: bold;
+    /* font-family: 'Inter'; */
+    color: #F26122;
+    font-size: 20px;
+    cursor: pointer;
 }
+
+#button-signup p{
+    margin: 0;
+}
+
 
 #fp{
     font-size: 15px;
@@ -129,39 +139,21 @@ button {
     text-decoration: none;
 }
 
-button:hover {
+#button-signup:hover {
     width: 13rem;
     border-color: #F26122;
     border-radius: 20px;
     height: 40px;
     border-width: 1px;
     background-color: #F26122;
-}
-
-
-button:hover p{
-    margin: 0;
     font-weight: bold;
     /* font-family: 'Inter'; */
     color: white;
     font-size: 20px;
 }
 
-#signup{
-    margin: 0;
-    font-weight: bold;
-    /* font-family: 'Inter'; */
-    color: #F26122;
-    font-size: 20px;
-}
 
-#signup:hover{
-    margin: 0;
-    font-weight: bold;
-    /* font-family: 'Inter'; */
-    color: white;
-    font-size: 20px;
-}
+
 
 
 #alrd{

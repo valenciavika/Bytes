@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="lower_part">
-                <button type="submit" id="button" value="SIGN UP">
+                <button type="submit" id="button-signup" value="SIGN UP">
                     <p id="signup">
                         <strong>LOG IN</strong>
                     </p>

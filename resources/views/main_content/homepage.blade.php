@@ -67,20 +67,42 @@
 
         <div class="history">
             <div class="history-container">
-                <div class="history-box">
-                    <div class="tenant-time">
-                        <p style="font-weight: bold; font-size: 1.5vw;">Bakmie Effata</p>
-                        <p style="font-size: 1.5vw;">09.00</p>
-                    </div>
-                    <div class="hist">
-                        <div class="food-order" style="display: flex;">
-                            <p>3x</p>
-                            <p style="padding-left: 0.75vw">Bakmi keriting/lebar ayam biasa polos</p>
-
+                @if ($transactions)
+                    <div class="history-box-home"  onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer;">
+                        <div class="tenant-time">
+                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant[$menu[$transactions->menu_id - 1]->tenant_id - 1]->name}}</p>
+                            <p style="font-size: 1.5vw;">{{$transactions->transaction_time}}</p>
                         </div>
-                        <p class="status">Completed</p>
+                        <div class="hist">
+                            <div class="food-order" style="display: flex;">
+                                <p>{{$transactions->quantity}}x</p>
+                                <p style="padding-left: 0.75vw">{{$menu[$transactions->menu_id - 1]->name}}</p>
+
+                            </div>
+                            <p class="status" style="color: #FD6727;">In-Progress</p>
+                        </div>
                     </div>
-                </div>
+                @elseif ($orders)
+                    <div class="history-box-home"onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer;">
+                        <div class="tenant-time">
+                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant[$menu[$orders->menu_id - 1]->tenant_id - 1]->name}}</p>
+                            <p style="font-size: 1.5vw;">{{$orders->orders_time}}</p>
+                        </div>
+                        <div class="hist">
+                            <div class="food-order" style="display: flex;">
+                                <p>{{$orders->quantity}}x</p>
+                                <p style="padding-left: 0.75vw">{{$menu[$orders->menu_id - 1]->name}}</p>
+
+                            </div>
+                            <p class="status" style="background-color: #08A618; color: white; padding-right: 0.75vw">Completed</p>
+                        </div>
+                    </div>
+
+                @else
+                    <div class="history-box-home" onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer; display: flex; justify-content: center; align-items: center;">
+                        <p style="font-size: 2vw; text-align:center;">No Transaction For Today</p>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

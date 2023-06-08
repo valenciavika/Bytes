@@ -37,7 +37,8 @@ class MenuDetailController extends Controller
             'menu_id' => $menu_id,
             'quantity' => $quantity,
             'additional_description' => $additionalDescription,
-            'jenis' => $jenis
+            'jenis' => $jenis,
+            'user_id' => $id,
         ]);
     }
 }
