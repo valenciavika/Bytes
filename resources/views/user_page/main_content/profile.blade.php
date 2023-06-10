@@ -195,18 +195,18 @@
                         document.getElementById('discardButtonContainer').style.display = 'none';
                     }
 
-                    // const inputs = document.querySelectorAll('.inputtext');
+                    const inputs = document.querySelectorAll('.inputtext');
 
-                    // inputs.forEach(input => {
-                    //     input.addEventListener('input', () => {
-                    //         const discardButtonContainer = document.getElementById('discardButtonContainer');
-                    //         if (input.value.trim().length > 0) {
-                    //             discardButtonContainer.style.display = 'block';
-                    //         } else {
-                    //             discardButtonContainer.style.display = 'none';
-                    //         }
-                    //     });
-                    // });
+                    inputs.forEach(input => {
+                        input.addEventListener('input', () => {
+                            const discardButtonContainer = document.getElementById('discardButtonContainer');
+                            if (input.value.trim().length > 0) {
+                                discardButtonContainer.style.display = 'block';
+                            } else {
+                                discardButtonContainer.style.display = 'none';
+                            }
+                        });
+                    });
                 </script>
 
                 <script>
