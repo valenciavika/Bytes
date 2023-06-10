@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin123@gmail.com',
             'password' => Hash::make('admin123'),
             'phone' => null,
+            'image_link' => 'storage/user_profile_images/default_profile_image.png'
         ]);
 
         Cart::create([

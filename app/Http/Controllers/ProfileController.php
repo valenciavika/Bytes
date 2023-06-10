@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 
 use Illuminate\Http\Request;
@@ -80,5 +81,31 @@ class ProfileController extends Controller
 
         $this->updateUser($user_id, $fullname, $email, $phone_num);
         return redirect()->back()->with('success', 'Edit Profile successful');
+    }
+
+    public function editProfileImage(Request $request, $user_id) {
+
+        $validation = $request->validate([
+            'image' => 'image|file'
+        ]);
+
+        $prev_image = explode('/', $request->prev_image)[2];
+        
+
+        $image_link = 'storage/'.$request->file('image')->store('user_profile_images');
+
+        if ($prev_image != "default_profile_image.png") {
+            Storage::delete('user_profile_images/'.$prev_image);
+        }
+
+        $this->updateImage($user_id, $image_link);
+        
+        // return back();
+    }
+
+    private function updateImage($user_id, $image_link) {
+        $user = User::where('id', $user_id)->first();
+        $user->image_link = $image_link;
+        $user->save();
     }
 }

@@ -1,12 +1,16 @@
 @extends('/user_page.main_template')
 
 @section('content')
-    @if ($errors->any())
+    @if ($errors->has('fullname') or $errors->has('email') or $errors->has('phonenumber'))
+        <script>
+            window.location.href = window.location.href.split('#')[0] + '#popupedit';
+        </script>
+    @elseif ($errors->has('image'))
     <script>
-        window.location.href = window.location.href.split('#')[0] + '#popupedit';
+        window.location.href = window.location.href.split('#')[0] + '#popup_edit_image';
     </script>
-@endif
-    <div class="allprofile">
+    @endif
+    <div id="all_profile" class="allprofile">
 
         <div class="partTopUp">
             <p id="text" class="Ballance"><strong>Balance</strong></p>
@@ -41,12 +45,14 @@
         </div>
         <div class="partPofile">
             <div class="bagianatas">
-                <div class="profile-image">
-                    <img class="foto"src="https://storage.googleapis.com/k-react.appspot.com/images/profilePicture/S9pCIFcoBkuBm2SHIvLG_300x300.jpg" alt="Profile Image">
-                    <div class="edit-overlay">
-                        <span class="edit-text">Edit Foto</span>
+                <a href="#popup_edit_image">
+                    <div class="profile-image">
+                        <img class="foto" src={{ asset( $user->image_link) }} alt="Profile Image">
+                        <div class="edit-overlay" onclick="showEditImageProfile()">
+                            <span class="edit-text">Edit Photo</span>
+                        </div>
                     </div>
-                </div>
+                </a>
                 <div class="welcome-edit">
                     <div class="welcome">
                         <p>Welcome!</p>
@@ -54,10 +60,6 @@
                     </div>
                     <div class="editbutton">
                         <a href="#popupedit" class="editButton">
-                            {{-- <i class="fa fa-pencil" aria-hidden="true"></i>
-                            <p id="editdata">
-                                <strong>Edit</strong>
-                            </p> --}}
                             <div class="edittxt"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</div>
                         </a>
                     </div>
@@ -93,9 +95,40 @@
         </div>
     </div>
 
+    <div class="popupeditimage" id="popup_edit_image">
+        <form class="partPopUpEditProfile" action="/{{$id}}/profile/edit_profile_image" method="post" enctype="multipart/form-data">
+            @csrf
+            <a href="/{{$id}}/profile"><i class="fa fa-arrow-left back_sign"></i></a>
+            <div class="editprofiletext">
+                <strong>EDIT IMAGE</strong>
+            </div>
+            <div class="popup-profile-image">
+                <img class="foto" src={{ asset( $user->image_link) }} alt="Profile Image">
+            </div>
+            <input type="hidden" value="{{ $user->image_link }}" name="prev_image">
+            <input type="file" name="image" required>
+            @error('image')
+                <div class="invalid">
+                    {{ $message }}
+                </div>
+            @enderror
+    
+            <div class="save-wrapper">
+                <div class="savebuttoneditimage">
+                    <button class="savebuttoneditimage" type="submit">
+                        <p id="save">
+                            <strong>SAVE</strong>
+                        </p>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <div class="popupedit" id="popupedit">
         <div class="popupContent">
             <div class="editprofiletext">
+                <a href="/{{$id}}/profile"><i class="fa fa-arrow-left back_sign"></i></a>
                 <strong>EDIT PROFILE</strong>
             </div>
 

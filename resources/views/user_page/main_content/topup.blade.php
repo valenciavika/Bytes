@@ -274,7 +274,7 @@
 
                 </div>
 
-            </div>directly
+            </div>
         </div>
 
 

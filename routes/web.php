@@ -46,8 +46,9 @@ Route::post('/topup/process', [TopUpController::class, 'processTopUp'])->name('t
 
 Route::get('/{id}/profile', [ProfileController::class, 'show'])->name('profile')->middleware('auth');
 Route::post('{user_id}/profile/edit', [ProfileController::class, 'editProfile'])->name('edit.profile');
+Route::post('{id}/profile/edit_profile_image', [ProfileController::class, 'editProfileImage']);
 
-Route::get('/{id}/order/', [OrderController::class, 'show'])->middleware('auth');
+Route::get('/{id}/order', [OrderController::class, 'show'])->middleware('auth');
 Route::get('/{id}/cart', [CartController::class, 'show'])->middleware('auth');
 
 Route::get('/{id}/cart/order_now', [CartController::class, 'store'])->middleware('auth');
