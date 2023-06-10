@@ -10,6 +10,8 @@ use App\Models\TopUp;
 use App\Models\Money;
 use App\Models\TopUpTransaction;
 use App\Models\Transaction;
+use App\Models\Notification;
+use Carbon\Carbon;
 
 class CartController extends Controller
 {
@@ -31,6 +33,8 @@ class CartController extends Controller
         $emoneyId = $request->input('emoneyId');
         $idArr = $request->input('idArr');
         $idArr = json_decode($request->input('idArr'), true);
+        $time = Carbon::now()->timezone('Asia/Jakarta');
+        $et = $time->copy()->addMinutes(rand(5, 10));
 
         foreach ($idArr as $i) {
             $cart = Cart::find($i);
@@ -40,7 +44,8 @@ class CartController extends Controller
                 'additional_description' => $cart->additional_description,
                 'jenis' => $cart->jenis,
                 'user_id' => $id,
-                'time' => now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
+                'time' => $time,
+                'expected_time' => $et,
             ]);
 
             $cart->delete();
@@ -53,6 +58,15 @@ class CartController extends Controller
             'payment_id' => null,
             'method' => "Payment",
             'time' => now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
+        ]);
+
+        Notification::insert([
+            'title' =>'Your order has been submitted!',
+            'description' => 'Thank you for ordering, please wait for the tenant to finish your order!',
+            'type' => 'ordersubmitted',
+            'clicked_status' => true,
+            'user_id' => $id,
+            'time'=> now(),
         ]);
 
         $this->updateEmoneyValue($id, $emoneyId, $totalPrice);

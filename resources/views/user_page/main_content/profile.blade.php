@@ -112,7 +112,7 @@
                     {{ $message }}
                 </div>
             @enderror
-    
+
             <div class="save-wrapper">
                 <div class="savebuttoneditimage">
                     <button class="savebuttoneditimage" type="submit">
@@ -195,6 +195,21 @@
                         document.getElementById('discardButtonContainer').style.display = 'none';
                     }
 
+                    // const inputs = document.querySelectorAll('.inputtext');
+
+                    // inputs.forEach(input => {
+                    //     input.addEventListener('input', () => {
+                    //         const discardButtonContainer = document.getElementById('discardButtonContainer');
+                    //         if (input.value.trim().length > 0) {
+                    //             discardButtonContainer.style.display = 'block';
+                    //         } else {
+                    //             discardButtonContainer.style.display = 'none';
+                    //         }
+                    //     });
+                    // });
+                </script>
+
+                <script>
                     function changeInputValue(event) {
                         console.log(inputs, input.value.trim().length)
                         const inputName = document.getElementById('name');
@@ -232,7 +247,7 @@
             const oFReader = new FileReader( );
             console.log(image, imgPreview, oFReader);
             oFReader.readAsDataURL(image.files[0]);
-            
+
             oFReader.onload = function(oFREvent) {
                 imgPreview.src = oFREvent.target.result;
             }

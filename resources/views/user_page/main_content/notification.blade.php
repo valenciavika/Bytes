@@ -1,18 +1,45 @@
 @extends('/user_page.main_template')
 
 @section('content')
+    @php
+        function getNotificationUrl($type, $user_id)
+        {
+            switch ($type) {
+                case 'ready':
+                    return url($user_id . '/cart');
+                case 'ordersubmitted':
+                    return url($user_id . '/order');
+                case 'unpaid':
+                    return url($user_id . '/cart');
+                default:
+                    return '#'; // Default fallback URL
+            }
+        }
+
+        $count = 0;
+
+    @endphp
+
     <div class="notificationSection">
-        @foreach ($notifications as $notif)
-            <div class="{{ $notif->type }}">
-                <a href="">
-                    <div class="head">
-                        <p class="headtxt"><strong>{{ $notif->title }}</strong></p>
-                        <p class="time">3 mins ago</p>
-                    </div>
-                    <p>{{ $notif->description }}</p>
-                </a>
-            </div>
-        @endforeach
+        <div class="all-notif">
+            @foreach ($notifications as $notif)
+                @php
+                    $count += 1;
+                @endphp
+                {{-- {{$count}} --}}
+                <div class="each-notif" style="border-bottom: {{ $count == $count_notif ? '': '1.5px solid black'}}">
+                    <a href="{{ getNotificationUrl($notif->type, $id) }}">
+                        <div class="head">
+                            <p class="headtxt"><strong>{{ $notif->title }}</strong></p>
+                            <p class="time">{{ \Carbon\Carbon::parse($notif->time)->diffForHumans()}}</p>
+                        </div>
+                        <p>{{ $notif->description }}</p>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+
+
 
         {{-- <div class="ready">
             <a href="">

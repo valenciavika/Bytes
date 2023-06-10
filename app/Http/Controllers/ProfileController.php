@@ -44,7 +44,7 @@ class ProfileController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'fullname' => 'max:255',
-            'email' => 'email:dns|max:255|unique:users,email,' . $user_id,
+            'email' => 'nullable|email:dns|max:255|unique:users,email,' . $user_id,
             'phonenumber' => 'max:13|unique:users,phone,' . $user_id,
         ]);
 
@@ -90,7 +90,7 @@ class ProfileController extends Controller
         ]);
 
         $prev_image = explode('/', $request->prev_image)[2];
-        
+
 
         $image_link = 'storage/'.$request->file('image')->store('user_profile_images');
 
@@ -99,7 +99,6 @@ class ProfileController extends Controller
         }
 
         $this->updateImage($user_id, $image_link);
-        
         return back();
     }
 
