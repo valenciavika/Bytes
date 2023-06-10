@@ -211,7 +211,6 @@
 
                 <script>
                     function changeInputValue(event) {
-                        console.log(inputs, input.value.trim().length)
                         const inputName = document.getElementById('name');
                         const inputEmail = document.getElementById('email');
                         const inputPhone = document.getElementById('phonenumber');
