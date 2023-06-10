@@ -40,14 +40,14 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        Transaction::create([
-            'menu_id' => 15,
-            'quantity' => 1,
-            'additional_description' => 'Mozzanya jangan terlalu lumer',
-            'jenis' => null,
-            'time' => '2023-05-08 11:23:00.00',
-            'user_id' => 1,
-        ]);
+        // Transaction::create([
+        //     'menu_id' => 15,
+        //     'quantity' => 1,
+        //     'additional_description' => 'Mozzanya jangan terlalu lumer',
+        //     'jenis' => null,
+        //     'time' => '2023-05-08 11:23:00.00',
+        //     'user_id' => 1,
+        // ]);
 
 
         $this->call([tenant_categorySeeder::class, tenantSeeder::class, MenuSeeder::class, TopUpSeeder::class, TopUpPaymentMethodSeeder::class, TopUpTransaction::class, MoneySeeder::class, NotificationSeeder::class]);

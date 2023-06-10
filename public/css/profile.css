@@ -206,6 +206,7 @@ body{
     border-radius: 2vw;
     height: 2vw;
     background-color: #F26122;
+    border: none;
 }
 
 /* .signoutButton:hover {
@@ -302,6 +303,8 @@ body{
 } */
 
 
+
+
 .save-wrapper {
     display: flex;
     align-items: center;
@@ -317,13 +320,13 @@ body{
 
 .discardButton{
     width:8vw;
-    border-color: #F26122;
+    border: solid #F26122;
     border-radius: 2vw;
     height: 2vw;
     border-width: 1px;
-    background-color: #F26122;
+    background-color: white;
     margin-left: 1vw;
-    color: white;
+    color: #F26122;
     font-size: 0.9vw;
 }
 

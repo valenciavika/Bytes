@@ -7,7 +7,7 @@ use App\Models\Tenant;
 use App\Models\MenuDetail;
 use App\Models\Menu;
 use App\Models\Cart;
-
+use App\Models\Notification;
 class MenuDetailController extends Controller
 {
     public function show($id, $tenant_name, $menu_id) {
@@ -32,6 +32,9 @@ class MenuDetailController extends Controller
         $quantity = $request->input('quantity');
         $additionalDescription = $request->input('additionalDescription');
         $jenis = $request->input('jenis');
+        $menu = Menu::where('id', $menu_id)->first();
+        $tenant = Tenant::where("id", $menu->tenant_id)->first();
+
 
         Cart::insert([
             'menu_id' => $menu_id,
@@ -39,6 +42,15 @@ class MenuDetailController extends Controller
             'additional_description' => $additionalDescription,
             'jenis' => $jenis,
             'user_id' => $id,
+        ]);
+
+        Notification::insert([
+            'title' =>'You have an unpaid order!',
+            'description' => "You haven't paid your order at " . $tenant->name . ", please proceed to pay at your shopping cart.",
+            'type' => 'unpaid',
+            'clicked_status' => false,
+            'user_id' => $id,
+            'time'=> now(),
         ]);
     }
 }

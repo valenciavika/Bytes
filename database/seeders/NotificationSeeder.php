@@ -19,7 +19,7 @@ class NotificationSeeder extends Seeder
                 'description' => 'Your order at Bakmi Effata is ready, you can pick up your order at the cafeteria.',
                 'type' => 'ready',
                 'clicked_status' => true,
-                'direct_to'=> '',
+                'user_id' => 1,
                 'time'=> now(),
             ],
             [
@@ -27,7 +27,7 @@ class NotificationSeeder extends Seeder
                 'description' => 'Thank you for ordering, please wait for the tenant to finish your order!',
                 'type' => 'ordersubmitted',
                 'clicked_status' => true,
-                'direct_to'=> '',
+                'user_id' => 1,
                 'time'=> now(),
             ],
             [
@@ -35,7 +35,7 @@ class NotificationSeeder extends Seeder
                 'description' => "You haven't paid your order at Bakmi Effata, please proceed to pay at your shopping cart.",
                 'type' => 'unpaid',
                 'clicked_status' => true,
-                'direct_to'=> '',
+                'user_id' => 1,
                 'time'=> now(),
             ],
         ]);

@@ -28,13 +28,13 @@
                 <div class="foto">
                     <img src="" alt="">
                 </div>
-    
-    
+
+
                 <div class="Partorder">
                     <div class="namatenant">
                         <strong>{{ $tenant->name }}</strong>
                     </div>
-    
+
                     <div class="orderdetail">
                         <div class="quantity">
                             <p>{{ $transaction->quantity }}x</p>
@@ -43,19 +43,19 @@
                             <p>{{ $menu->name }}</p>
                         </div>
                     </div>
-    
+
                         <div class="harga">
                         <p>Rp{{number_format($menu->price * $transaction->quantity + $transaction->quantity * 1500, 0 , '.' , '.' )}}</p>
                     </div>
-    
+
                 </div>
-    
+
                 <div class="statusinfo">
                     <div class="statusorder">
                         <p class="prosestxt"><strong>In Progress</strong></p>
                     </div>
                     <div class="estimation">
-                        <p>Estimated ready at 11:00</p>
+                        <p>Estimated ready at {{$transaction->expected_clock}}</p>
                     </div>
                 </div>
             </div>

@@ -112,7 +112,7 @@
                     {{ $message }}
                 </div>
             @enderror
-    
+
             <div class="save-wrapper">
                 <div class="savebuttoneditimage">
                     <button class="savebuttoneditimage" type="submit">
@@ -207,7 +207,9 @@
                             }
                         });
                     });
+                </script>
 
+                <script>
                     function changeInputValue(event) {
                         const inputName = document.getElementById('name');
                         const inputEmail = document.getElementById('email');
@@ -245,7 +247,7 @@
             const oFReader = new FileReader( );
             console.log(image, imgPreview, oFReader);
             oFReader.readAsDataURL(image.files[0]);
-            
+
             oFReader.onload = function(oFREvent) {
                 imgPreview.src = oFREvent.target.result;
             }
