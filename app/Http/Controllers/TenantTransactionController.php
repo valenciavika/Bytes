@@ -10,7 +10,7 @@ class TenantTransactionController extends Controller
 {
     public function show($id) {
 
-        return view('tenant_page.tenant_transaction', [
+        return view('tenant_page.tenant_content.tenant_transaction', [
             'page_title' => 'Admin | BinusEats',
             'active_number' => 1,
             'transactions' => Transaction::where('')

@@ -9,7 +9,7 @@ class TenantHistoryController extends Controller
 {
     public function show($id) {
 
-        return view('tenant_page.tenant_history', [
+        return view('tenant_page.tenant_content.tenant_history', [
             'page_title' => 'History | BinusEats',
             'active_number' => 1,
             // 'notifications' => Notification::all()
