@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         Cart::create([
             'menu_id' => 1,
             'quantity' => 1,
-            'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt, voluptatem omnis dolorem, impedit sapiente est assumenda? At voluptas tempora sint consectetur inventore laboriosam veniam et.',
+            'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt.',
             'jenis' => 'Lorem ipsum d',
             'user_id' => 1,
         ]);
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         Cart::create([
             'menu_id' => 2,
             'quantity' => 8,
-            'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt, voluptatem omnis dolorem, impedit sapiente est assumenda? At voluptas tempora sint consectetur inventore laboriosam veniam et.',
+            'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt, voluptatem omnis dolorem',
             'jenis' => 'Lorem ipsum d',
             'user_id' => 1,
         ]);

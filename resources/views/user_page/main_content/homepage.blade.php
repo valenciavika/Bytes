@@ -125,6 +125,7 @@
                 @foreach ($tenant as $t)
                     <div style="margin-bottom: 1.5vw; cursor: pointer; "class="box" onclick="window.location.href='/{{$id}}/menu/{{$t->name}}'">
                         <div class="img">
+                            <img src={{ asset('storage/tenant_images/'.$t->image_link) }} alt="">
                         </div>
                         <p style="font-size: 1.5vw;">{{$t['name']}}</p>
                     </div>

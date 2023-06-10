@@ -198,6 +198,11 @@ ol.carousel-indicators {
     border-top-right-radius: 10px;
 }
 
+.img img {
+    height: 20vw;
+    width: 20vw;
+}
+
 .box{
     margin-right: 3vw;
 }

@@ -25,24 +25,35 @@
                                 $tenant = $tenants[$menu->tenant_id-1];
                                 $price[$cart->id] = $menu->price;
                             @endphp
-                            <input id="check{{$cart->id}}" type="checkbox" onclick="updateTotalandIdArr(this, {{ $price[$cart->id] }}, {{ $cart->id }})">
+                            <input id="check{{$cart->id}}" class="quantity_input" type="checkbox" onclick="updateTotalandIdArr(this, {{ $price[$cart->id] }}, {{ $cart->id }})">
                             <div class="item_section">
-                                <img src="{{''}}" alt="">
+                                <img src={{ asset('storage/tenant_images/'.$tenant->image_link) }} alt="tenant image">
                                 <div class="item_desc">
                                     <p class="item_tenant">{{ $tenant->name }}</p>
                                     <p class="item_menu">{{ $menu->name }}</p>
                                     <p id="checkbox_{{ $cart->id }}" class="item_price">Rp{{number_format($menu->price, 0 , '.' , '.' )}}</p>
+                                    <p class="item_notes">Notes:</p>
+                                    <p class="item_notes_desc_not_edit" id="not_edit_item_notes_desc_{{ $cart->id }}">{{ $cart->additional_description }}</p>
+                                    <div class="item_notes_desc_edit_section" id="edit_item_notes_desc_{{ $cart->id }}">
+                                        <form action="/{{$id}}/edit_notes" method="post" id="editNotes">
+                                            @csrf
+                                            <textarea class="item_notes_desc_edit" id="item_desc" autofocus name="description">{{ $cart->additional_description }}</textarea>
+                                            <i class="fa-solid fa-x x_mark" onclick="hideEditNotes({{ $cart->id }})"></i>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="item_quantity_section">
-                                <div class="item_quantity_value_section">
-                                    <div id="hover_toggle{{$cart->id}}" class="item_quantity_minus_sign" style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};">
-                                        <i id="min_sign{{$cart->id}}" onclick="myFunction_minus(id, {{ $price[$cart->id] }})" class="fa fa-minus" aria-hidden="true"></i>
+                                <div class="item_quantity">
+                                    <div class="item_quantity_value_section">
+                                        <div id="hover_toggle{{$cart->id}}" class="item_quantity_minus_sign" style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};">
+                                            <i id="min_sign{{$cart->id}}" onclick="myFunction_minus(id, {{ $price[$cart->id] }})" class="fa fa-minus" aria-hidden="true"></i>
+                                        </div>
+                                        <div id="quality_value{{$cart->id}}" class="item_quantity_value">{{ $cart->quantity }}</div>
+                                        <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus(id, {{ $price[$cart->id] }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
                                     </div>
-                                    <div id="quality_value{{$cart->id}}" class="item_quantity_value">{{ $cart->quantity }}</div>
-                                    <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus(id, {{ $price[$cart->id] }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                    <div class="item_quantity_edit" id="togle_edit_save_notes_{{ $cart->id }}" onclick="toggleEditNotes({{ $cart->id }})"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Notes</div>
                                 </div>
-                                <div class="item_quantity_edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</div>
                             </div>
                         </div>
                     @endforeach
@@ -132,6 +143,8 @@
     var chosenEmoneyId = 0;
     var statusInsufficient = [];
     var userId;
+    var statusSaveNotes = false;
+    var statusNotes = 'edit';
 
     function updateTotalandIdArr(checkbox, price, id) {
         var status = checkbox.checked;
@@ -311,5 +324,36 @@
         });
 
         location.reload();
+    }
+
+    function toggleEditNotes(id) {
+        if (statusNotes == 'edit') {
+            document.getElementById('not_edit_item_notes_desc_'+id).style.display = 'none';
+            document.getElementById('edit_item_notes_desc_'+id).style.display = 'block';
+            statusNotes = 'save';
+            document.getElementById('togle_edit_save_notes_'+id).innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Save Notes';
+            statusSaveNotes = true;
+        }
+        else {
+            hideEditNotes(id);
+        }
+        saveNotes(id);
+    }
+
+    function hideEditNotes(id) {
+        document.getElementById('not_edit_item_notes_desc_'+id).style.display = 'block';
+        document.getElementById('edit_item_notes_desc_'+id).style.display = 'none';
+        statusNotes = 'edit';
+        document.getElementById('togle_edit_save_notes_'+id).innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i> Edit Notes';
+        statusSaveNotes = false;
+    }
+
+    function saveNotes(cart_id) {
+        if (statusSaveNotes) {
+            return;
+        }
+
+        var form = document.getElementById("editNotes");
+        form.submit();
     }
 </script>

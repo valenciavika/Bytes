@@ -26,6 +26,7 @@ class SignUpController extends Controller
 
         $validation['password'] = Hash::make($validation['password']);
         $validation['phone'] = null;
+        $validation['image_link'] = 'storage/user_profile_images/default_profile_image';
 
         User::create($validation);
 

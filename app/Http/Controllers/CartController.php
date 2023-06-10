@@ -70,4 +70,17 @@ class CartController extends Controller
             }
         }
     }
+
+    public function saveEdit(Request $request, $user_id) {
+        dd($user_id);
+        $cart_id = $request->input('cart_id');
+
+        $this->updateAddDesc($cart_id, $desc);
+    }
+
+    private function updateAddDesc($cart_id, $desc) {
+        $cart = Cart::find($cart_id);
+        $cart->additional_description = $desc;
+        $cart->save();
+    }
 }
