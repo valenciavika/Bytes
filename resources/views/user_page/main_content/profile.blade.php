@@ -103,10 +103,10 @@
                 <strong>EDIT IMAGE</strong>
             </div>
             <div class="popup-profile-image">
-                <img class="foto" src={{ asset( $user->image_link) }} alt="Profile Image">
+                <img class="img-preview" src={{ asset( $user->image_link) }} alt="Profile Image">
             </div>
             <input type="hidden" value="{{ $user->image_link }}" name="prev_image">
-            <input type="file" name="image" required>
+            <input type="file" name="image" required id="image" onchange="previewImage()">
             @error('image')
                 <div class="invalid">
                     {{ $message }}
@@ -234,6 +234,23 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function previewImage() {
+            const image = document.querySelector( '#image' );
+
+            const imgPreview = document.querySelector( '.img-preview' );
+
+            // imgPreview.style.display = 'block';
+            const oFReader = new FileReader( );
+            console.log(image, imgPreview, oFReader);
+            oFReader.readAsDataURL(image.files[0]);
+            
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
 @endsection
 
 

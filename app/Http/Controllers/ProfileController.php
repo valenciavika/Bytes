@@ -100,7 +100,7 @@ class ProfileController extends Controller
 
         $this->updateImage($user_id, $image_link);
         
-        // return back();
+        return back();
     }
 
     private function updateImage($user_id, $image_link) {
