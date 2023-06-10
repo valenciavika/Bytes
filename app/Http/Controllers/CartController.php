@@ -86,8 +86,9 @@ class CartController extends Controller
     }
 
     public function saveEdit(Request $request, $user_id) {
-        dd($user_id);
-        $cart_id = $request->input('cart_id');
+        $cart_id = $request->input("cart_id");
+        $desc = $request->input('item_desc');
+        // dd($cart_id);
 
         $this->updateAddDesc($cart_id, $desc);
     }

@@ -37,8 +37,9 @@
                                     <div class="item_notes_desc_edit_section" id="edit_item_notes_desc_{{ $cart->id }}">
                                         <form action="/{{$id}}/edit_notes" method="post" id="editNotes">
                                             @csrf
-                                            <textarea class="item_notes_desc_edit" id="item_desc" autofocus name="description">{{ $cart->additional_description }}</textarea>
+                                            <input type="text" class="item_notes_desc_edit" autofocus name="item_desc" id="item_desc" value="{{ $cart->additional_description }}<">
                                             <i class="fa-solid fa-x x_mark" onclick="hideEditNotes({{ $cart->id }})"></i>
+                                            <input type="hidden" name="cart_id" value="{{$cart->id}}">
                                         </form>
                                     </div>
                                 </div>
