@@ -16,6 +16,12 @@
     position: relative;
 }
 
+.no_result {
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 5vw;
+}
+
 .mycart_section {
     width: 60vw;
     background-color: rgba(255, 255, 255, 0.65);
@@ -360,4 +366,55 @@ input[type=checkbox]     {
     top: 0.2vw;
     left: 0.2vw;
     box-shadow: none;
+}
+
+.popup-confirm{
+    background-color: #F26122;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.isi{
+    display: flex;
+    flex-direction: column;
+    background-color: #F9C140;
+    border-radius: 15px;
+    padding-top: 5vw;
+    padding-bottom: 3vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    box-shadow:  2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.teks-sukses{
+    font-size: 30px;
+    padding-bottom: 0.5vw;
+}
+
+.text-ok{
+    display: flex;
+    padding-top:1.5vw;
+    justify-content: right;
+}
+
+.teks-ok:hover {
+    cursor: pointer;
+}
+
+.teks-ok{
+    background-color: #FD6727;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
 }

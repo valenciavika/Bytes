@@ -15,6 +15,7 @@ class MenuController extends Controller
             'page_title' => 'Menu | BinusEats',
             'active_number' => 0,
             'tenant_name' => $tenant_name,
+            'tenant_image' => $tenant->image_link,
             'menus' => Menu::where('tenant_id', $tenant->id)->get()
             // 'tenant_name' => $tenant->name,
             // 'tenant_img' => $tenant->img,

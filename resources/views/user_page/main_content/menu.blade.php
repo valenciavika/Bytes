@@ -7,10 +7,10 @@
     <div class="container">
         <div class="kiri">
             <div class="div-nama-restoran">
-                <p class="text-nama-restoran"><i><u>Bakmi Effata</u></i></p>
+                <p class="text-nama-restoran"><i><u>{{ $tenant_name }}</u></i></p>
             </div>
             <div class="logo-binuseats">
-                <img src="{{asset('/images/Logo_Binuseats.png')}}">
+                <img src="{{asset('/storage/tenant_images/'.$tenant_image)}}">
             </div>
             <div class="description">
                 <p class="text-description">

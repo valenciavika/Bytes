@@ -27,7 +27,7 @@
 
         <div class="processing_finish_list">
             <div class="foto">
-                <img src="" alt="">
+                <img src={{ asset('/storage/tenant_images/'.$tenant->image_link) }} alt="">
             </div>
 
 

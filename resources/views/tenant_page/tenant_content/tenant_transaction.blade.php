@@ -31,8 +31,8 @@
 
                 <div class="statusinfo">
                     <div class="status-order">
-                        <p class="proses-txt"><strong>Finish Order</strong></p>
-                        <i id="iconchecklist" class="fa-regular fa-circle-check"></i>
+                        <p id="text1" class="proses-txt"><strong>Finish Order</strong></p>
+                        <i id="iconchecklist" class="fa-regular fa-circle-check" onmouseover="showText('text1')" onmouseout="hideText('text1')"></i>
                     </div>
                         <i id="iconbell" class="fa-regular fa-bell"></i>
                 </div>
@@ -63,7 +63,7 @@
 
                 <div class="statusinfo">
                     <div class="status-order">
-                        <p class="proses-txt"><strong>Finish Order</strong></p>
+                        <p id="text1" class="proses-txt"><strong>Finish Order</strong></p>
                         <i id="iconchecklist" class="fa-regular fa-circle-check"></i>
                     </div>
                         <i id="iconbell" class="fa-regular fa-bell"></i>
@@ -173,3 +173,16 @@
 @push('styles')
     <link href="{{asset('css/tenanttransaction.css')}}" rel="stylesheet" />
 @endpush
+
+<script>
+    function showText(tag_id) {
+        document.getElementById(tag_id).style.visibility = 'visible';
+    }
+    
+    function hideText(tag_id) {
+        console.log(tag_id)
+        
+        document.getElementById(tag_id).style.visibility = 'hidden';
+    }
+
+</script>

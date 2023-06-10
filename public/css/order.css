@@ -14,6 +14,12 @@
     margin-left: 3.5vw;
 }
 
+.no_result {
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 5vw;
+}
+
 .allpart{
     display: flex;
     justify-content: left;
@@ -71,6 +77,11 @@ a{
     width: 6.5vw;
     height: 6.5vw;
 
+}
+
+.foto img {
+    width: 6.5vw;
+    height: 6.5vw;
 }
 
 .Partorder{

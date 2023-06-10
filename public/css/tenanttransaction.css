@@ -114,10 +114,10 @@
     right: 2.2vw;
     color: white;
 } 
-
+/* 
 .status-order:hover .proses-txt {
     visibility: visible;
-}
+} */
 
 .isisi{
     display: flex;

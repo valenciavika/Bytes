@@ -25,9 +25,9 @@
                 <div class="sapa-tenant">
                     <p class="text-sapa-tenant"><strong>Hello, Bakmi Effata!</strong></p>
                 </div>
-                <i id="icondrop" class="fa-solid fa-caret-down"></i>
+                <i id="icondrop" class="fa-solid fa-caret-down" onclick="toggleDropDown()"></i>
             </div>
-            <div class="dropdown">
+            <div class="dropdown" id="dropdown">
                 <div class="div-transaksi">
                     <i id="icontransaction" class='fas fa-file-alt'></i>
                     <p><strong>Transaction</strong></p>
@@ -53,3 +53,18 @@
 
     </body>
 </html>
+
+<script>
+    var dropDownStatus = false;
+
+    function toggleDropDown() {
+        if (dropDownStatus) {
+            document.getElementById('dropdown').style.display = 'none';
+            dropDownStatus = false;
+        }
+        else {
+            document.getElementById('dropdown').style.display = 'flex';
+            dropDownStatus = true;
+        }
+    }
+</script>

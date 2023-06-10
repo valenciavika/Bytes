@@ -129,6 +129,17 @@
                 <a id="topUpButton" class="order_button" href="/{{$id}}/topup/BiPay/History">Top Up</a>
             </div>
         </div>
+
+        <<div class="popup-confirm" id="popup-confirm">
+            <div class="isi">
+                <div class="text-sukses">
+                    <p class="teks-sukses"><strong>Added to cart successfully!</strong></p>
+                </div>
+                <div class="text-ok" onclick="location.reload()">
+                    <p class="teks-ok"><strong>OK</strong></p>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -325,7 +336,9 @@
             console.error('Error:', error);
         });
 
-        location.reload();
+        hideOrder();
+
+        document.getElementById('popup-confirm').style.display = 'flex';
     }
 
     function toggleEditNotes(id) {
