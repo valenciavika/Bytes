@@ -2,6 +2,7 @@
 
 @section('content')
     <div id="block_div" class="block_div"></div>
+    <div id="block_div" class="block_div"></div>
     <div class="inner_div_relative">
         <div id="cartSection" class="mycart_section">
             <div class="mycart_head">
@@ -35,12 +36,12 @@
                                     <p class="item_notes">Notes:</p>
                                     <p class="item_notes_desc_not_edit" id="not_edit_item_notes_desc_{{ $cart->id }}">{{ $cart->additional_description }}</p>
                                     <div class="item_notes_desc_edit_section" id="edit_item_notes_desc_{{ $cart->id }}">
-                                        <form action="/{{$id}}/edit_notes" method="post" id="editNotes">
-                                            @csrf
-                                            <input type="text" class="item_notes_desc_edit" autofocus name="item_desc" id="item_desc" value="{{ $cart->additional_description }}">
+                                        {{-- <form action="/{{$id}}/edit_notes" method="post" id="editNotes"> --}}
+                                            {{-- @csrf --}}
+                                            <textarea type="text" class="item_notes_desc_edit" autofocus name="item_desc" id="item_desc">{{$cart->additional_description}}</textarea>
                                             <i class="fa-solid fa-x x_mark" onclick="hideEditNotes({{ $cart->id }})"></i>
-                                            <input type="hidden" name="cart_id" value="{{$cart->id}}">
-                                        </form>
+                                            {{-- <input type="hidden" name="cart_id" value="{{$cart->id}}"> --}}
+                                        {{-- </form> --}}
                                     </div>
                                 </div>
                             </div>
@@ -354,7 +355,26 @@
             return;
         }
 
-        var form = document.getElementById("editNotes");
-        form.submit();
+        var desc = document.getElementById('item_desc').value;
+
+        var url = "/" + encodeURIComponent({{ $id }}) + '/edit_notes?cart_id=' + encodeURIComponent(cart_id) + '&item_desc=' + encodeURIComponent(desc);
+        console.log(url);
+
+        fetch(url)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+        })
+        .then(data => {
+            console.log('Response:', data);
+            })
+            .catch(error => {
+            console.error('Error:', error);
+        });
+
+        location.reload();
     }
 </script>

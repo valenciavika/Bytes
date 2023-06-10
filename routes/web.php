@@ -52,7 +52,7 @@ Route::get('/{id}/order', [OrderController::class, 'show'])->middleware('auth');
 Route::get('/{id}/cart', [CartController::class, 'show'])->middleware('auth');
 
 Route::get('/{id}/cart/order_now', [CartController::class, 'store'])->middleware('auth');
-Route::post('/{id}/edit_notes', [CartController::class, 'saveEdit']);
+Route::get('/{id}/edit_notes', [CartController::class, 'saveEdit']);
 
 Route::get('/{id}/menu/{tenant_name}', [MenuController::class, 'show'])->middleware('auth');
 Route::get('/{id}/menu_detail/{tenant_name}/{menu_id}', [MenuDetailController::class, 'show'])->middleware('auth');

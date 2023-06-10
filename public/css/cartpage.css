@@ -1,4 +1,4 @@
-.block_div {
+.block_div, .block_div_edit_notes {
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -6,6 +6,10 @@
     left: 0;
     top: 0;
     display: none;
+}
+
+.block_div_edit_notes {
+    z-index: 20;
 }
 
 .inner_div_relative {
