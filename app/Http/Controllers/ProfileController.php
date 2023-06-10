@@ -90,14 +90,15 @@ class ProfileController extends Controller
         ]);
 
         $prev_image = explode('/', $request->prev_image)[2];
-        return $request->file('image')->store('user_profile_images');
-        dump($prev_image, $image_link);
 
-        // if ($prev_image != "default_profile_image.png") {
-        //     Storage::delete('user_profile_images/'.$prev_image);
-        // }
 
-        // $this->updateImage($user_id, $image_link);
+        $image_link = 'storage/'.$request->file('image')->store('user_profile_images');
+
+        if ($prev_image != "default_profile_image.png") {
+            Storage::delete('user_profile_images/'.$prev_image);
+        }
+
+        $this->updateImage($user_id, $image_link);
         return back();
     }
 
