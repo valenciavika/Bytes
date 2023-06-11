@@ -14,7 +14,7 @@
         </div>
 
         <div id="orderContent" class="ordercontent">
-            
+
         </div>
 
         <div id="orderFinish" style="display: none">
@@ -57,7 +57,7 @@
     function fillContent(statusConfirm, order_id) {
         element = document.getElementById('finishedcontent_' + order_id);
         if (statusConfirm == 'not_confirm') {
-            temp = document.getElementById("finishedcontent1");
+            temp = document.getElementById("finishedcontent1_" + order_id);
         }
         else {
             temp = document.getElementById("finishedcontent2");
@@ -86,7 +86,7 @@
         });
 
 
-        // location.reload();
+        location.reload();
     }
 </script>
 

@@ -31,15 +31,19 @@ class OrderController extends Controller
         ])->with('id', $id);
     }
 
-    
+
     public function confirmPickup(Request $request, $id) {
         $order_id = $request->input('orderid');
         $this->changeConfirmStatus($order_id, 'confirm');
+
+        // return redirect()->back()->with('success', 'Edit Profile successful');
     }
 
     private function changeConfirmStatus($order_id, $status) {
         $order = Order::find($order_id);
         $order->confirmStatus = $status;
         $order->save();
+
+
     }
 }
