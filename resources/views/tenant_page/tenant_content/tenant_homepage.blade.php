@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div>
-                <hr>
+                <hr class="garis">
             </div>
             <div class="makanan">
                 <div class="nama-makanan">
