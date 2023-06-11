@@ -19,8 +19,7 @@ class HomeMenuController extends Controller
     public function home($id)
     {
         // dd($user_id);
-        $today = Carbon::today();
-
+        $today = Carbon::now('Asia/Jakarta')->format('Y-m-d');
         $tr = Transaction::where('user_id', $id)->whereDate('time', $today)->orderBy('time', 'desc')->first();
         $orders = Order::where('user_id', $id)->whereDate('time', $today)->orderBy('time', 'desc')->first();
         // dd($tr);

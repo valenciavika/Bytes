@@ -59,6 +59,7 @@ a{
     margin: 0 auto;
     position: relative;
     z-index: 3;
+    overflow: auto;
 }
 
 .processing_finish_list{
