@@ -40,6 +40,7 @@ class HomeMenuController extends Controller
             'page_title' => 'BinusEats',
             'active_number' => 0,
             'tenant_category' => Tenant_category::all(),
+            'tenant_all' => Tenant::all(),
             'tenant' => Tenant::latest()->filter(request(['search', 'category']))->get(),
             'menu' => Menu::all(),
             'emoneys' => TopUp::all(),

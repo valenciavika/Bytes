@@ -31,16 +31,22 @@ class CartController extends Controller
     {
         $totalPrice = $request->input('totalPrice');
         $emoneyId = $request->input('emoneyId');
+        $quantityArr = $request->input('quantityArr');
+        $quantityArr = json_decode($request->input('quantityArr'), true);
+
         $idArr = $request->input('idArr');
         $idArr = json_decode($request->input('idArr'), true);
         $time = Carbon::now()->timezone('Asia/Jakarta');
         $et = $time->copy()->addMinutes(rand(5, 10));
 
+        $count = 0;
         foreach ($idArr as $i) {
             $cart = Cart::find($i);
+            $quantityData = $quantityArr[$count];
+            $count += 1;
             Transaction::create([
                 'menu_id' => $cart->menu_id,
-                'quantity' => $cart->quantity,
+                'quantity' => $quantityData,
                 'additional_description' => $cart->additional_description,
                 'jenis' => $cart->jenis,
                 'user_id' => $id,
@@ -50,7 +56,7 @@ class CartController extends Controller
 
             $cart->delete();
             
-            $this->updateMenuStock($cart->menu_id, $cart->quantity);
+            $this->updateMenuStock($cart->menu_id, $quantityData);
         }
 
         TopUpTransaction::insert([

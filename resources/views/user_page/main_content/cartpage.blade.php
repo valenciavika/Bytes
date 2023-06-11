@@ -335,7 +335,7 @@
 
         var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&quantityArr=' + JSON.stringify(quantityArr) + '&idArr=' + JSON.stringify(idArr);
 
-        var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
+        console.log(url)
 
         fetch(url)
         .then(response => {

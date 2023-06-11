@@ -101,11 +101,13 @@
 .logo_panah_kanan i {
     margin-right: 0.5vw;
     font-size: 2vw;
+    cursor: pointer;
 }
 
 .logo_panah_kiri i {
     margin-left: 0.5vw;
     font-size: 2vw;
+    cursor: pointer;
 }
 
 .logo_block_div {

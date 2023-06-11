@@ -54,6 +54,8 @@ class TenantTransactionController extends Controller
         ]);
 
         $transaction->delete();
+
+        return back();
     }
 
 }
