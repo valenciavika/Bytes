@@ -49,6 +49,8 @@ class CartController extends Controller
             ]);
 
             $cart->delete();
+            
+            $this->updateMenuStock($cart->menu_id, $cart->quantity);
         }
 
         TopUpTransaction::insert([
@@ -72,6 +74,12 @@ class CartController extends Controller
         $this->updateEmoneyValue($id, $emoneyId, $totalPrice);
 
         return redirect()->route('{$id)/cart')->with('success', 'Order successful');
+    }
+
+    private function updateMenuStock($menu_id, $quantity) {
+        $menu = Menu::find($menu_id);
+        $menu->stock -= $quantity;
+        $menu->save();
     }
 
     private function updateEmoneyValue($user_id, $emoney_id, $amount) {

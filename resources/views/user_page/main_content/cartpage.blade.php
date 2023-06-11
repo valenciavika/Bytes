@@ -38,7 +38,7 @@
                                     <div class="item_notes_desc_edit_section" id="edit_item_notes_desc_{{ $cart->id }}">
                                         {{-- <form action="/{{$id}}/edit_notes" method="post" id="editNotes"> --}}
                                             {{-- @csrf --}}
-                                            <textarea type="text" class="item_notes_desc_edit" autofocus name="item_desc" id="item_desc">{{$cart->additional_description}}</textarea>
+                                            <textarea type="text" class="item_notes_desc_edit" autofocus name="item_desc" id="item_desc_{{$cart->id}}">{{$cart->additional_description}}</textarea>
                                             <i class="fa-solid fa-x x_mark" onclick="hideEditNotes({{ $cart->id }})"></i>
                                             {{-- <input type="hidden" name="cart_id" value="{{$cart->id}}"> --}}
                                         {{-- </form> --}}
@@ -48,11 +48,11 @@
                             <div class="item_quantity_section">
                                 <div class="item_quantity">
                                     <div class="item_quantity_value_section">
-                                        <div id="hover_toggle{{$cart->id}}" class="item_quantity_minus_sign" style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};">
-                                            <i id="min_sign{{$cart->id}}" onclick="myFunction_minus(id, {{ $price[$cart->id] }})" class="fa fa-minus" aria-hidden="true"></i>
+                                        <div id="hover_toggle{{$cart->id}}" class="item_quantity_minus_sign" onclick="myFunction_minus({{$cart->id}}, {{ $price[$cart->id] }})" style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};">
+                                            <i id="min_sign{{$cart->id}}" class="fa fa-minus" aria-hidden="true"></i>
                                         </div>
                                         <div id="quality_value{{$cart->id}}" class="item_quantity_value">{{ $cart->quantity }}</div>
-                                        <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus(id, {{ $price[$cart->id] }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                        <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus({{$cart->id}}, {{ $price[$cart->id] }}, {{ $menu->stock }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
                                     </div>
                                     <div class="item_quantity_edit" id="togle_edit_save_notes_{{ $cart->id }}" onclick="toggleEditNotes({{ $cart->id }})"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Notes</div>
                                 </div>
@@ -187,8 +187,7 @@
         document.getElementById(id).style.visibility = "visible";
     }
 
-    function myFunction_plus(id, price) {
-        id = id.slice(9);
+    function myFunction_plus(id, price, stock) {
         element = document.getElementById("quality_value"+id);
         quality_total = element.innerHTML;
 
@@ -202,14 +201,20 @@
         if (status) {
             totalPrice += price
         }
+        if(quality_total==stock) {
+            stop_hover("plus_sign"+id);
+        }
         element.innerHTML = quality_total;
         updateViewTotal();
     }
 
     function myFunction_minus(id, price) {
-        id = id.slice(8);
         element = document.getElementById("quality_value"+id);
         quality_total = element.innerHTML;
+
+        if(quality_total>=1) {
+            start_hover("plus_sign"+id);
+        }
 
         quality_total--;
         var element1 = document.getElementById('check'+id)
@@ -368,7 +373,8 @@
             return;
         }
 
-        var desc = document.getElementById('item_desc').value;
+        var desc = document.getElementById('item_desc_'+cart_id).value;
+        console.log(desc);
 
         var url = "/" + encodeURIComponent({{ $id }}) + '/edit_notes?cart_id=' + encodeURIComponent(cart_id) + '&item_desc=' + encodeURIComponent(desc);
         console.log(url);

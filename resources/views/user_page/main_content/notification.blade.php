@@ -27,8 +27,8 @@
                     $count += 1;
                 @endphp
                 {{-- {{$count}} --}}
-                <div class="each-notif" style="border-bottom: {{ $count == $count_notif ? '': '1.5px solid black'}}">
-                    <a href="{{ getNotificationUrl($notif->type, $id) }}">
+                <div class="each-notif" style="border-bottom: {{ $count == $count_notif ? '': '1.5px solid black'}}; background-color: {{ $notif->clicked_status == 1 ? '#F9C140' : 'rgba(249, 193, 64, 0.2'}}">
+                    <a href="{{ getNotificationUrl($notif->type, $id) }}" onclick="changeStatusClicked({{ $notif->clicked_status }}, {{ $notif->id }})">
                         <div class="head">
                             <p class="headtxt"><strong>{{ $notif->title }}</strong></p>
                             <p class="time">{{ \Carbon\Carbon::parse($notif->time)->diffForHumans()}}</p>
@@ -38,8 +38,6 @@
                 </div>
             @endforeach
         </div>
-
-
 
         {{-- <div class="ready">
             <a href="">
@@ -77,3 +75,29 @@
     <link href="{{asset('css/notification.css')}}" rel="stylesheet" />
 @endpush
 
+<script>
+    function changeStatusClicked(statusClicked, notif_id) {
+        if (statusClicked == 2) {
+            return;
+        }
+
+        var url = "{{ url('/') }}/{{ $id }}/notification/change_status?notif_id=" + notif_id;
+        console.log(url);
+
+        fetch(url)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+        })
+        .then(data => {
+            console.log('Response:', data);
+            })
+            .catch(error => {
+            console.error('Error:', error);
+        });
+
+    }
+</script>
