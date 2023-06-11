@@ -130,7 +130,7 @@
             </div>
         </div>
 
-        <<div class="popup-confirm" id="popup-confirm">
+        <div class="popup-confirm" id="popup-confirm">
             <div class="isi">
                 <div class="text-sukses">
                     <p class="teks-sukses"><strong>Added to cart successfully!</strong></p>

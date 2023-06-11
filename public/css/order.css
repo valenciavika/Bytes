@@ -86,7 +86,10 @@ a{
 }
 
 .Partorder{
-    margin-right: 15vw;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .orderdetail{
@@ -128,7 +131,7 @@ a{
 
 .finishedcontent {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -177,6 +180,8 @@ a{
     padding-right: 0.5vw;
 }
 
-
+.time {
+    margin-top: 0.6vw;
+}
 
 
