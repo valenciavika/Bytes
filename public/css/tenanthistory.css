@@ -1,44 +1,32 @@
-.status-orderan{
-    background-color: #08A618;
-    color: white;
-    padding: 0.5vw;
-}
-
 .admin-transaction{
     background-color: white;
-    height: 78.5vh;
     width: 70vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
     margin-left: 10vw;
     margin-right: 10vw;
-    border-radius: 15px;
+    border-radius: 1vw;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     overflow: auto;
+    padding: 1.3vw 2vw;
 }
 
 
 .transaction-status{
-    padding-top: 2vw;
-    padding-bottom: 1vw;
-    font-size: 30px;
-    margin-left: 5vw;
+    display: flex;
+    margin-bottom: 1.3vw;
+    font-size: 2vw;
 }
 
 .order-content{
     background-color: #FCEDCA;
-    width: 60vw;
+    height: 68vh;
+    width: 66vw;
     border-radius: 10px;
-    padding-top: 3vw;
-    padding-bottom: 3vw;
-    margin-bottom: 3vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding: 2vw;
     overflow: auto;
-    margin-left: 5vw;
-    margin-right: 5vw;
 }
 
 .coba{
@@ -48,34 +36,38 @@
 }
 
 .notes{
-    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    font-size: 1.2vw;
 }
 
-.text-namatenant{
-    font-size: 20px;
+.item_notes {
+    margin-right: 1vw;
 }
 
-.text-quantity{
-    font-size: 16px;
+.namatenant{
+    display: flex;
+    font-size: 1.5vw;
 }
 
-.text-pesanan{
-    font-size: 16px;
+.text-quantity {
+    margin-right: 1vw;
 }
 
-.text-notes{
-    font-size: 16px;
+.quantity{
+    text-align: center;
+    width: 5%;
+    font-size: 1.2vw;
 }
-
 
 .processing-content{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    border-top: 1px solid  #F26122;
-    border-bottom: 1px solid  #F26122;
-    padding-top: 1.6vw;
-    padding-bottom: 1.6vw;
+    border-top: 1px solid rgba(242, 97, 34, 0.4);
+    border-bottom: 1px solid rgba(242, 97, 34, 0.4);
+    padding: 1.4vw 2vw;
 }
 
 .foto-makanan{
@@ -97,32 +89,32 @@
     color: #F26122;
 }
 
-.status-order {
+.statusinfo {
     position: relative;
-    display: inline-block;
+    display: flex;
+    width: 25%;
+    justify-content: flex-end;
+    margin-right: 2vw;
 }
 
-.status-order .proses-txt {
-    visibility: hidden;
-    width: 7vw;
+.proses-txt2{
+    display: none;
+    width: 9vw;
     text-align: center;
     background-color: #F26122;
-    padding-top: 0.5vw;
-    padding-bottom: 0.5vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: 0.5vw 1vw;
     border-top-right-radius: 1vw;
     border-top-left-radius: 1vw;
     border-bottom-left-radius: 1vw;
-    font-size: 10px;
-    top:-9px;
+    font-size: 0.8vw;
     position: absolute;
-    right: 2.2vw;
+    top: -1.6vw;
+    right: 1.5vw;
     color: white;
-} 
+}
 
-.status-order:hover .proses-txt {
-    visibility: visible;
+.fa-bell:hover {
+    cursor: pointer;
 }
 
 .isisi{
@@ -133,18 +125,47 @@
 .Partorder{
     display: flex;
     flex-direction: column;
-    width: 25vw;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .namatenant{
-    margin-bottom: 0.5vw;
+    margin-bottom: 1vw;
 }
 
 .orderdetail{
     display: flex;
-    margin-bottom: 1.5vw;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
 }
 
 .pesanan{
     margin-left: 1.5vw;
 }
+
+.statuscomplete{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+}
+
+.finishtxt{
+    background-color: #08A618;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+}
+
+.time {
+    margin-top: ;
+}
+
+
+.no_result {
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 5vw;
+}
+

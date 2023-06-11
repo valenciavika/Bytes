@@ -25,23 +25,17 @@
                     @endforeach
                 <div class="processing-content">
                     <div class="namatenant">
+                        <p class="text-quantity"><strong>{{ $transaction->quantity }}x</strong></p>
                         <p class="text-namatenant"><strong>{{ $menu->name }}</strong></p>
                     </div>
                     <div class="Partorder">
-                        <div class="orderdetail">
-                            <div class="quantity">
-                                <p class="text-quantity"> {{ $transaction->quantity }}x</p>
-                            </div>
-                            <div class="notes">
-                                <p class="item_notes">Notes:</p>
-                                <p class="text-notes">{{ $transaction->additional_description }}</p>
-                            </div>
+                        <div class="notes">
+                            <p class="item_notes">Notes:</p>
+                            <p >{{ $transaction->additional_description }}</p>
                         </div>
                         <div class="statusinfo">
-                            <div class="status-order2">
-                                <p id="text2{{$transaction->id}}" class="proses-txt2"><strong>Send Notification</strong></p>
-                                <i id="iconbell" class="fa-regular fa-bell" onmouseover="showText('text2{{$transaction->id}}')" onmouseout="hideText('text2{{$transaction->id}}')" onclick="sendNotif({{$transaction->id}})"></i>
-                            </div>
+                            <p id="text2{{$transaction->id}}" class="proses-txt2"><strong>Send Notification</strong></p>
+                            <i id="iconbell" class="fa-regular fa-bell" onmouseover="showText('text2{{$transaction->id}}')" onmouseout="hideText('text2{{$transaction->id}}')" onclick="sendNotif({{$transaction->id}})"></i>
                         </div>
                     </div>
 
@@ -70,7 +64,7 @@
     
     function sendNotif(order_id) {
         var url = '/{{$id}}/tenant/finish_order/' + encodeURIComponent(order_id);
-        console.log(url);
+        
         fetch(url)
         .then(response => {
         if (response.ok) {

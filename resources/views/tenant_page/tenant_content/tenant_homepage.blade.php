@@ -25,15 +25,16 @@
                 <hr class="garis">
             </div>
             <div class="makanan">
+                @foreach ($menus as $menu)
                 <div class="nama-makanan">
                     <div class="id">
-                        <p><strong>1</strong></p>
+                        <p><strong>{{ $menu->id }}</strong></p>
                     </div>
                     <div class="menu">
-                        <p><strong>Bakmi keriting/lebar ayam biasa polos</strong></p>
+                        <p><strong>{{ $menu->name }}</strong></p>
                     </div>
                     <div class="stock">
-                        <p><strong>50</strong></p>
+                        <p><strong>{{ $menu->stock }}</strong></p>
                         <i class="fa-solid fa-pencil"></i>
                     </div>
                     <div class="action">
@@ -41,70 +42,9 @@
                         <i class="fa-solid fa-trash-can"></i>
                     </div>
                 </div>
-                <div class="nama-makanan">
-                    <div class="id">
-                        <p><strong>2</strong></p>
-                    </div>
-                    <div class="menu">
-                        <p><strong>Bakmi keriting/lebar ayam biasa polos</strong></p>
-                    </div>
-                    <div class="stock">
-                        <p><strong>50</strong></p>
-                        <i class="fa-solid fa-pencil"></i>
-                    </div>
-                    <div class="action">
-                        <i id="iconeye" class="fa-solid fa-eye"></i> 
-                        <i class="fa-solid fa-trash-can"></i>  
-                    </div>
-                </div>
-                <div class="nama-makanan">
-                    <div class="id">
-                        <p><strong>3</strong></p>
-                    </div>
-                    <div class="menu">
-                        <p><strong>Bakmi keriting/lebar ayam biasa polos</strong></p>
-                    </div>
-                    <div class="stock">
-                        <p><strong>50</strong></p>
-                        <i class="fa-solid fa-pencil"></i>
-                    </div>
-                    <div class="action">
-                        <i id="iconeye" class="fa-solid fa-eye"></i> 
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                </div>
-                <div class="nama-makanan">
-                    <div class="id">
-                        <p><strong>4</strong></p>
-                    </div>
-                    <div class="menu">
-                        <p><strong>Bakmi keriting/lebar ayam biasa polos</strong></p>
-                    </div>
-                    <div class="stock">
-                        <p><strong>50</strong></p>
-                        <i class="fa-solid fa-pencil"></i>
-                    </div>
-                    <div class="action">
-                        <i id="iconeye" class="fa-solid fa-eye"></i> 
-                        <i class="fa-solid fa-trash-can"></i> 
-                    </div>
-                </div>
-                <div class="nama-makanan">
-                    <div class="id">
-                        <p><strong>5</strong></p>
-                    </div>
-                    <div class="menu">
-                        <p><strong>Bakmi keriting/lebar ayam biasa polos</strong></p>
-                    </div>
-                    <div class="stock">
-                        <p><strong>50</strong></p>
-                        <i class="fa-solid fa-pencil"></i>
-                    </div>
-                    <div class="action">
-                        <i id="iconeye" class="fa-solid fa-eye"></i> 
-                        <i class="fa-solid fa-trash-can"></i>   
-                    </div>
-                </div>
+                @endforeach
+                
+            </div>
             <div class="add">
                 <div class="add-button">
                     <p class="text-add"><strong>+ Add New Product</strong></p>

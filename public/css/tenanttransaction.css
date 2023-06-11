@@ -36,12 +36,23 @@
 }
 
 .notes{
+    display: flex;
+    justify-content: flex-start;
     width: 90%;
-    font-size: 1.1vw;
+    font-size: 1.2vw;
 }
 
-.text-namatenant{
-    font-size: 1.3vw;
+.item_notes {
+    margin-right: 1vw;
+}
+
+.namatenant{
+    display: flex;
+    font-size: 1.5vw;
+}
+
+.text-quantity {
+    margin-right: 1vw;
 }
 
 .quantity{
@@ -50,12 +61,6 @@
     font-size: 1.2vw;
 }
 
-.text-notes{
-    margin-top: 0.3vw;
-    font-size: 1vw;
-}
-
-
 .processing-content{
     display: flex;
     flex-direction: column;
@@ -63,7 +68,7 @@
     justify-content: space-around;
     border-top: 1px solid rgba(242, 97, 34, 0.4);
     border-bottom: 1px solid rgba(242, 97, 34, 0.4);
-    padding: 1vw 0;
+    padding: 1.4vw 2vw;
 }
 
 .foto-makanan{
@@ -86,18 +91,16 @@
 }
 
 .statusinfo {
+    position: relative;
     display: flex;
     width: 25%;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    margin-right: 2vw;
 }
 
-.status-order1, .status-order2 {
-    position: relative;
-}
-
-.proses-txt1, .proses-txt2{
+.proses-txt2{
     display: none;
-    width: 7vw;
+    width: 9vw;
     text-align: center;
     background-color: #F26122;
     padding: 0.5vw 1vw;
@@ -106,18 +109,12 @@
     border-bottom-left-radius: 1vw;
     font-size: 0.8vw;
     position: absolute;
-    top: -1.7vw;
-    right: 2.3vw;
+    top: -1.6vw;
+    right: 1.5vw;
     color: white;
 }
 
-.proses-txt2 {
-    width: 9vw;
-    top: -1.7vw;
-    right: 1.3vw;
-}
-
-.status-order1:hover, .status-order2:hover {
+.fa-bell:hover {
     cursor: pointer;
 }
 

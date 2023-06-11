@@ -19,7 +19,7 @@
     <body>
         <div class="banner">
             @yield('home')
-            <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button"onclick="window.location.href='/{{$id}}/homepage'">
+            <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button" onclick="window.location.href='/{{$id}}/tenant/homepage'">
             
             <div class="navigation-bar">
                 <div class="sapa-tenant">

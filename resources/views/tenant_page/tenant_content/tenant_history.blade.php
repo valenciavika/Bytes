@@ -5,156 +5,41 @@
     <div class="admin-transaction">
         <p class="transaction-status"><strong>Transaction History</strong></p>
         <div class="order-content">
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Keriting/Lebar Ayam Biasa Polos</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
+            @if ($orders->count())
+                @foreach ($orders as $order)
+                    @foreach ($menus as $m)
+                        @php
+                            if ($m->id == $order->menu_id) {
+                                $menu = $m;
+                                break;
+                            }
+                        @endphp
+                    @endforeach
+                <div class="processing-content">
+                    <div class="Partorder">
+                        <div class="namatenant">
+                            <p class="text-quantity"><strong>{{ $order->quantity }}x</strong></p>
+                            <p class="text-namatenant"><strong>{{ $menu->name }}</strong></p>
                         </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
-                        </div>
-                    </div>
-
                         <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-orderan">
-                        <p class="proses-txt"><strong>Completed</strong></p>                        
-                    </div>                       
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
-                        </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
+                            <p class="item_notes">Notes:</p>
+                            <p >{{ $order->additional_description }}</p>
                         </div>
                     </div>
 
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-orderan">
-                        <p class="proses-txt"><strong>Completed</strong></p>                        
-                    </div>                        
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
+                    <div id="finishedcontent2" class="finishedcontent2">
+                        <div class="statuscomplete">
+                            <p class="finishtxt"><strong>Completed</strong></p>
                         </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
+                        <div class="time">
+                            <p>3 Mar 9:00</p>
                         </div>
                     </div>
-
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
                 </div>
-
-                <div class="statusinfo">
-                    <div class="status-orderan">
-                        <p class="proses-txt"><strong>Completed</strong></p>                       
-                    </div>                        
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
-                        </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
-                        </div>
-                    </div>
-
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-orderan">
-                        <p class="proses-txt"><strong>Completed</strong></p>                        
-                    </div>                        
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
-                        </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
-                        </div>
-                    </div>
-
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-orderan">
-                        <p class="proses-txt"><strong>Completed</strong></p>                      
-                    </div>                        
-                </div>
-            </div>
+                @endforeach
+            @else
+                <p class="no_result">No order found.</p>
+            @endif
         </div>
     </div>
 </div>
