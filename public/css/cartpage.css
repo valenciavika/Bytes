@@ -49,7 +49,7 @@ input[type=checkbox]     {
 .mycart_item_list_section {
     display: flex;
     flex-direction: column;
-    height: 26.8vw;
+    height: 33vw;
     overflow: auto;
 }
 

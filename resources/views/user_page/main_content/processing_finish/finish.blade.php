@@ -38,14 +38,14 @@
 
                 <div class="orderdetail">
                     <div class="quantity">
-                        <p>{{ $transaction->quantity }}x</p>
+                        <p>{{ $order->quantity }}x</p>
                     </div>
                     <div class="pesanan">
                         <p>{{ $menu->name }}</p>
                     </div>
                 </div>
                     <div class="harga">
-                    <p>Rp{{number_format($menu->price * $transaction->quantity + $transaction->quantity * 1500, 0 , '.' , '.' )}}</p>
+                    <p>Rp{{number_format($menu->price * $order->quantity + $order->quantity * 1500, 0 , '.' , '.' )}}</p>
                 </div>
 
             </div>

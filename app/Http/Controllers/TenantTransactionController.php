@@ -43,7 +43,7 @@ class TenantTransactionController extends Controller
             'time'=> now(),
         ]);
 
-        Order::create([
+        Order::insert([
             'menu_id' => $transaction->menu_id,
             'quantity' => $transaction->quantity,
             'additional_description' => $transaction->additional_description,

@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="block_div" class="block_div"></div>
-    <div id="block_div" class="block_div"></div>
+    <div id="block_div_edit_notes" class="block_div_edit_notes"></div>
     <div class="inner_div_relative">
         <div id="cartSection" class="mycart_section">
             <div class="mycart_head">
@@ -245,6 +245,7 @@
         document.getElementById('order_summary').style.display = "none";
         document.getElementById('cartSection').style.opacity = 1;
         document.getElementById('block_div').style.display = "none";
+        chosenEmoneyId = 0;
     }
 
     function showOrder() {
@@ -291,7 +292,6 @@
             chosenEmoneyId = 1;
         }
 
-        console.log(statusInsufficient);
     }
 
     function sendData(totalAmountData, emoneyIdData, userIdData) {
@@ -312,7 +312,6 @@
         elementChosenEmoneyId = document.getElementById('emoney_section' + emoneyId);
         elementChosenEmoneyId.style.borderStyle = "solid";
         elementChosenEmoneyId.style.backgroundColor = "rgba(217, 217, 217, 0.1)";
-
         if (statusInsufficient[emoneyId-1]) {
             document.getElementById('topUpButton').style.display = "none";
             document.getElementById('orderButton').style.display = "block";
@@ -324,26 +323,38 @@
     }
 
     function orderNow() {
-        var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
 
-        fetch(url)
-        .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Error: ' + response.status);
-        }
-        })
-        .then(data => {
-            console.log('Response:', data);
-            })
-            .catch(error => {
-            console.error('Error:', error);
+        var quantityArr = [];
+        var temp = 0;
+
+        idArr.forEach(i => {
+            element = document.getElementById("quality_value"+i);
+            temp = element.innerHTML;
+            quantityArr.push(temp);
         });
 
-        hideOrder();
+        var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&quantityArr=' + JSON.stringify(quantityArr) + '&idArr=' + JSON.stringify(idArr);
 
-        document.getElementById('popup-confirm').style.display = 'flex';
+        // var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
+
+        // fetch(url)
+        // .then(response => {
+        // if (response.ok) {
+        //     return response.json();
+        // } else {
+        //     throw new Error('Error: ' + response.status);
+        // }
+        // })
+        // .then(data => {
+        //     console.log('Response:', data);
+        //     })
+        //     .catch(error => {
+        //     console.error('Error:', error);
+        // });
+
+        // hideOrder();
+
+        // document.getElementById('popup-confirm').style.display = 'flex';
     }
 
     function toggleEditNotes(id) {
@@ -358,6 +369,9 @@
             hideEditNotes(id);
         }
         saveNotes(id);
+        document.getElementById('togle_edit_save_notes_'+id).style.zIndex = "21";
+        document.getElementById('edit_item_notes_desc_'+id).style.zIndex = "21";
+        document.getElementById('block_div_edit_notes').style.display = "block";
     }
 
     function hideEditNotes(id) {
@@ -366,6 +380,10 @@
         statusNotes = 'edit';
         document.getElementById('togle_edit_save_notes_'+id).innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i> Edit Notes';
         statusSaveNotes = false;
+
+        document.getElementById('togle_edit_save_notes_'+id).style.zIndex = "0";
+        document.getElementById('edit_item_notes_desc_'+id).style.zIndex = "0";
+        document.getElementById('block_div_edit_notes').style.display = "none";
     }
 
     function saveNotes(cart_id) {
@@ -374,10 +392,8 @@
         }
 
         var desc = document.getElementById('item_desc_'+cart_id).value;
-        console.log(desc);
 
         var url = "/" + encodeURIComponent({{ $id }}) + '/edit_notes?cart_id=' + encodeURIComponent(cart_id) + '&item_desc=' + encodeURIComponent(desc);
-        console.log(url);
 
         fetch(url)
         .then(response => {
@@ -388,7 +404,7 @@
         }
         })
         .then(data => {
-            console.log('Response:', data);
+
             })
             .catch(error => {
             console.error('Error:', error);
