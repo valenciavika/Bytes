@@ -12,7 +12,7 @@
 
                 <div class="Partorder">
                     <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
+                        <p class="text-namatenant"><strong>Bakmi Keriting/Lebar Ayam Biasa Polos</strong></p>
                     </div>
 
                     <div class="orderdetail">

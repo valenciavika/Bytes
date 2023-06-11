@@ -6,7 +6,7 @@
         {
             switch ($type) {
                 case 'ready':
-                    return url($user_id . '/cart');
+                    return url($user_id . '/order');
                 case 'ordersubmitted':
                     return url($user_id . '/order');
                 case 'unpaid':

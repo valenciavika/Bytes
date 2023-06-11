@@ -28,14 +28,14 @@
                 <i id="icondrop" class="fa-solid fa-caret-down" onclick="toggleDropDown()"></i>
             </div>
             <div class="dropdown" id="dropdown">
-                <div class="div-transaksi">
-                    <i id="icontransaction" class='fas fa-file-alt'></i>
-                    <p><strong>Transaction</strong></p>
-                </div>
-                <div class="div-history"> 
+                    <a href="/{{$id}}/tenant/transaction" class="div-transaksi" style="border-right: {{ $dropdown_status == 1 ? '0.2vw rgba(242, 97, 34, 0.4) solid': 'none'}};">
+                        <i id="icontransaction" class='fas fa-file-alt'></i>
+                        <p><strong>Transaction</strong></p>
+                    </a>
+                   <a href="/{{$id}}/tenant/history" class="div-history" style="border-right: {{ $dropdown_status == 2 ? '0.2vw rgba(242, 97, 34, 0.4) solid': 'none'}};">
                     <i id="iconhistory" class="fa-solid fa-clock-rotate-left"></i>
                     <p><strong>History</strong></p>
-                </div>
+                   </a>
                 <div class="space">
                     <hr>
                 </div>

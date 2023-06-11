@@ -61,5 +61,6 @@ Route::get('/{id}/menu_detail/add_to_cart', [MenuDetailController::class, 'store
 Route::get('/{id}/notification', [NotificationController::class, 'show'])->middleware('auth');
 Route::get('/{id}/notification/change_status', [NotificationController::class, 'changeStatus'])->middleware('auth');
 
-Route::get('/{id}/tenant/transaction', [TenantTransactionController::class, 'show'])->middleware('auth');
-Route::get('/{id}/tenant/history', [TenantHistoryController::class, 'show'])->middleware('auth');
+Route::get('/{id}/tenant/transaction', [TenantTransactionController::class, 'show']);
+Route::get('/{id}/tenant/history', [TenantHistoryController::class, 'show']);
+Route::get('/{id}/tenant/finish_order/{trans_id}', [TenantTransactionController::class, 'finishOrder']);

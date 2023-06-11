@@ -55,6 +55,7 @@ input[type=checkbox]     {
 
 .mycart_item_lists {
     margin: 0 2vw;
+    padding: 0.5vw 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

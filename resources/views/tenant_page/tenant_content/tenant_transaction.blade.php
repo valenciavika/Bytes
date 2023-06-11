@@ -1,170 +1,55 @@
 @extends('/tenant_page.tenant_template')
 
 @section('content')
+
 <div class="isisi">
     <div class="admin-transaction">
+    @php
+        $menu = '';
+        $cart_not_empty = true;
+        if ($transactions->count() == 0) {
+            $cart_not_empty = false;
+        }
+    @endphp
         <p class="transaction-status"><strong>Ongoing Transaction</strong></p>
         <div class="order-content">
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
+            @if ($cart_not_empty)
+                @foreach ($transactions as $transaction)
+                    @foreach ($menus as $m)
+                        @php
+                            if ($m->id == $transaction->menu_id) {
+                                $menu = $m;
+                                break;
+                            }
+                        @endphp
+                    @endforeach
+                <div class="processing-content">
                     <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
+                        <p class="text-namatenant"><strong>{{ $menu->name }}</strong></p>
                     </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
+                    <div class="Partorder">
+                        <div class="orderdetail">
+                            <div class="quantity">
+                                <p class="text-quantity"> {{ $transaction->quantity }}x</p>
+                            </div>
+                            <div class="notes">
+                                <p class="item_notes">Notes:</p>
+                                <p class="text-notes">{{ $transaction->additional_description }}</p>
+                            </div>
                         </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
-                        </div>
-                    </div>
-
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-order">
-                        <p id="text1" class="proses-txt"><strong>Finish Order</strong></p>
-                        <i id="iconchecklist" class="fa-regular fa-circle-check" onmouseover="showText('text1')" onmouseout="hideText('text1')"></i>
-                    </div>
-                        <i id="iconbell" class="fa-regular fa-bell"></i>
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
-                        </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
+                        <div class="statusinfo">
+                            <div class="status-order2">
+                                <p id="text2{{$transaction->id}}" class="proses-txt2"><strong>Send Notification</strong></p>
+                                <i id="iconbell" class="fa-regular fa-bell" onmouseover="showText('text2{{$transaction->id}}')" onmouseout="hideText('text2{{$transaction->id}}')" onclick="sendNotif({{$transaction->id}})"></i>
+                            </div>
                         </div>
                     </div>
 
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
                 </div>
-
-                <div class="statusinfo">
-                    <div class="status-order">
-                        <p id="text1" class="proses-txt"><strong>Finish Order</strong></p>
-                        <i id="iconchecklist" class="fa-regular fa-circle-check"></i>
-                    </div>
-                        <i id="iconbell" class="fa-regular fa-bell"></i>
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
-                        </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
-                        </div>
-                    </div>
-
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-order">
-                        <p class="proses-txt"><strong>Finish Order</strong></p>
-                        <i id="iconchecklist" class="fa-regular fa-circle-check"></i>
-                    </div>
-                        <i id="iconbell" class="fa-regular fa-bell"></i>
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
-                        </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
-                        </div>
-                    </div>
-
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-order">
-                        <p class="proses-txt"><strong>Finish Order</strong></p>
-                        <i id="iconchecklist" class="fa-regular fa-circle-check"></i>
-                    </div>
-                        <i id="iconbell" class="fa-regular fa-bell"></i>
-                </div>
-            </div>
-            <div class="processing-content">
-                <div class="foto-makanan">
-                    <img src="" alt="">
-                </div>
-
-                <div class="Partorder">
-                    <div class="namatenant">
-                        <p class="text-namatenant"><strong>Bakmi Effata</strong></p>
-                    </div>
-
-                    <div class="orderdetail">
-                        <div class="quantity">
-                            <p class="text-quantity">3x</p>
-                        </div>
-                        <div class="pesanan">
-                            <p class="text-pesanan">Bakmi Keriting/Lebar Ayam Biasa Polos</p>
-                        </div>
-                    </div>
-
-                        <div class="notes">
-                        <p class="text-notes">Notes: Tidak pakai sayur</p>
-                    </div>
-                </div>
-
-                <div class="statusinfo">
-                    <div class="status-order">
-                        <p class="proses-txt"><strong>Finish Order</strong></p>
-                        <i id="iconchecklist" class="fa-regular fa-circle-check"></i>
-                    </div>
-                        <i id="iconbell" class="fa-regular fa-bell"></i>
-                </div>
-            </div>
+                @endforeach
+            @else
+                <p class="no_result">No order found.</p>
+            @endif
         </div>
     </div>
 </div>
@@ -176,13 +61,32 @@
 
 <script>
     function showText(tag_id) {
-        document.getElementById(tag_id).style.visibility = 'visible';
+        document.getElementById(tag_id).style.display = 'block';
     }
     
     function hideText(tag_id) {
-        console.log(tag_id)
-        
-        document.getElementById(tag_id).style.visibility = 'hidden';
+        document.getElementById(tag_id).style.display = 'none';
     }
+    
+    function sendNotif(order_id) {
+        var url = '/{{$id}}/tenant/finish_order/' + encodeURIComponent(order_id);
+        console.log(url);
+        fetch(url)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+        })
+        .then(data => {
+            console.log('Response:', data);
+            })
+            .catch(error => {
+            console.error('Error:', error);
+        });
 
+        location.reload();
+    }
+    
 </script>

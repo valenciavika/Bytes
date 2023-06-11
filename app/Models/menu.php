@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Tenant;
+use App\Models\Transaction;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Menu extends Model
 {
@@ -17,4 +20,18 @@ class Menu extends Model
         return $this->belongsTo(Tenant::class);
     }
 
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+    
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+    
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

@@ -15,7 +15,7 @@
             <div class="description">
                 <p class="text-description">
                 <strong>
-                Bakmi Effata adalah restoran yang terkenal dengan hidangan bakmi ayam khas Bangka. Restoran ini dikenal dengan cita rasa yang lezat dan autentik dari hidangan bakmi ayamnya yang dibuat dengan bahan-bahan berkualitas tinggi.
+                    {{ $tenant_desc }}
                 </strong>
                 </p>
             </div>
@@ -77,7 +77,8 @@
     var totalView = 0;
 
     function sendData(totalViewData) {
-       totalView = totalViewData;
+       totalView = Math.ceil(totalViewData);
+       console.log(totalView);
        changeRightMenuView();
     }
     
@@ -89,7 +90,6 @@
             document.getElementById('menuContainer' + prevViewCount).style.display = 'none';
         }
         document.getElementById('menuContainer' + viewCount).style.display = 'flex';
-        
         updateBlockDiv();
     }
 
@@ -106,7 +106,13 @@
     }
 
     function updateBlockDiv() {
-        if (viewCount == totalView) {
+        if (viewCount == totalView && viewCount == 1) {
+            document.getElementById('rightLogo').style.opacity = 0.4;
+            document.getElementById('logoRightBlockDiv').style.display = 'block';
+            document.getElementById('leftLogo').style.opacity = 0.4;
+            document.getElementById('logoLeftBlockDiv').style.display = 'block';
+        }
+        else if (viewCount == totalView) {
             document.getElementById('rightLogo').style.opacity = 0.4;
             document.getElementById('logoRightBlockDiv').style.display = 'block';
             document.getElementById('leftLogo').style.opacity = 1;

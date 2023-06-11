@@ -13,6 +13,6 @@ class Transaction extends Model
     
     public function menu()
     {
-        return $this->hasTo(Menu::class);
+        return $this->belongsTo(Menu::class);
     }
 }

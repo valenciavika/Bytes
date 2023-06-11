@@ -66,7 +66,7 @@ class CartController extends Controller
             'title' =>'Your order has been submitted!',
             'description' => 'Thank you for ordering, please wait for the tenant to finish your order!',
             'type' => 'ordersubmitted',
-            'clicked_status' => true,
+            'clicked_status' => 1,
             'user_id' => $id,
             'time'=> now(),
         ]);

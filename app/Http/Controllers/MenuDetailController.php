@@ -48,7 +48,7 @@ class MenuDetailController extends Controller
             'title' =>'You have an unpaid order!',
             'description' => "You haven't paid your order at " . $tenant->name . ", please proceed to pay at your shopping cart.",
             'type' => 'unpaid',
-            'clicked_status' => false,
+            'clicked_status' => 1,
             'user_id' => $id,
             'time'=> now(),
         ]);
