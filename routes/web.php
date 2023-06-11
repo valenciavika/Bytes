@@ -14,6 +14,7 @@ use App\Http\Controllers\MenuDetailController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TenantTransactionController;
 use App\Http\Controllers\TenantHistoryController;
+use App\Http\Controllers\TenantHomeController;
 
 
 Route::middleware('web')->get('/', function () {
@@ -63,4 +64,5 @@ Route::get('/{id}/notification/change_status', [NotificationController::class, '
 
 Route::get('/{id}/tenant/transaction', [TenantTransactionController::class, 'show']);
 Route::get('/{id}/tenant/history', [TenantHistoryController::class, 'show']);
+Route::get('/{id}/tenant/homepage', [TenantHomeController::class, 'show'])->middleware('auth');
 Route::get('/{id}/tenant/finish_order/{trans_id}', [TenantTransactionController::class, 'finishOrder']);
