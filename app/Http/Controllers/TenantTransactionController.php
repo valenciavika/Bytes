@@ -27,7 +27,7 @@ class TenantTransactionController extends Controller
         ])->with('id', $id);
 
     }
-    
+
     public function finishOrder($id, $trans_id) {
 
         $transaction = Transaction::find($trans_id);
@@ -40,7 +40,7 @@ class TenantTransactionController extends Controller
             'type' => 'ready',
             'clicked_status' => true,
             'user_id' => $transaction->user_id,
-            'time'=> now(),
+            'time'=> now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
         ]);
 
         Order::insert([

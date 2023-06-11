@@ -57,12 +57,14 @@
             </div>
         </div>
 
-        <div id="finishedcontent2" class="finishedcontent2" style="display: none">
+
+        <div id="finishedcontent2_{{ $order->id }}" class="finishedcontent2" style="display: none">
+            {{-- {{$order->id}} --}}
             <div class="statuscomplete">
                 <p class="finishtxt"><strong>Completed</strong></p>
             </div>
             <div class="time">
-                <p>3 Mar 9:00</p>
+                <p>{{$order->date}} {{$order->clock}}</p>
             </div>
         </div>
     </div>

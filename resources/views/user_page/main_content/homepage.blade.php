@@ -11,7 +11,7 @@
                         <li data-bs-target="#topup-carousel" data-bs-slide-to="1"></li>
                         <li data-bs-target="#topup-carousel" data-bs-slide-to="2"></li>
                     </ol>
-        
+
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="topup">
@@ -23,10 +23,10 @@
                                     </div>
                                     <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[0]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                                 </div>
-        
+
                             </div>
                         </div>
-        
+
                         <div class="carousel-item">
                             <div class="topup">
                                 <div class="OVO_home" id="emoney">
@@ -36,10 +36,10 @@
                                     </div>
                                     <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[1]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                                 </div>
-                                
+
                             </div>
                         </div>
-        
+
                         <div class="carousel-item">
                             <div class="topup">
                                 <div class="GoPay_home" id="emoney">
@@ -49,11 +49,11 @@
                                     </div>
                                     <p style="margin-right: 1vw">Rp{{number_format($moneys[$emoneys[2]->id-1]->totalAmount, 0 , '.' , '.' )}}</p>
                                 </div>
-        
+
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <a href="/{{$id}}/topup/BiPay/History" class="topup_button">
@@ -91,7 +91,12 @@
                                 <p style="padding-left: 0.75vw">{{$menu[$orders->menu_id - 1]->name}}</p>
 
                             </div>
-                            <p class="status" style="background-color: #08A618; color: white; padding-right: 0.75vw">Completed</p>
+                            @if ($orders->confirmStatus == "confirm")
+                                <p class="status" style="background-color: #08A618; color: white; padding-right: 0.75vw">Completed</p>
+                            @else
+                                <p class="status" style="background-color: white; color: #FD6727; padding-right: 0.75vw; border: solid #FD6727">Confirm Pick Up?</p>
+                            @endif
+
                         </div>
                     </div>
 
