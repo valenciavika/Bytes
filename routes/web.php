@@ -50,6 +50,7 @@ Route::post('{user_id}/profile/edit', [ProfileController::class, 'editProfile'])
 Route::post('{id}/profile/edit_profile_image', [ProfileController::class, 'editProfileImage']);
 
 Route::get('/{id}/order', [OrderController::class, 'show'])->middleware('auth');
+Route::get('/{id}/order/confirm_pickup', [OrderController::class, 'confirmPickup'])->middleware('auth');
 Route::get('/{id}/cart', [CartController::class, 'show'])->middleware('auth');
 
 Route::get('/{id}/cart/order_now', [CartController::class, 'store'])->middleware('auth');

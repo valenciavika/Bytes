@@ -14,7 +14,7 @@
         </div>
 
         <div id="orderContent" class="ordercontent">
-
+            
         </div>
 
         <div id="orderFinish" style="display: none">
@@ -33,6 +33,7 @@
 
 <script>
     var element;
+    var temp;
 
     function toggleOrderContent(value) {
         element = document.getElementById("orderNav"+value);
@@ -51,6 +52,41 @@
         }
 
         document.getElementById("orderContent").innerHTML = element.innerHTML;
+    }
+
+    function fillContent(statusConfirm, order_id) {
+        element = document.getElementById('finishedcontent_' + order_id);
+        if (statusConfirm == 'not_confirm') {
+            temp = document.getElementById("finishedcontent1");
+        }
+        else {
+            temp = document.getElementById("finishedcontent2");
+        }
+        console.log('finishedcontent_' + order_id, temp)
+        element.innerHTML = temp.innerHTML;
+    }
+
+    function confirmPickUp(order_id) {
+        var url = "/" + encodeURIComponent({{ $id }}) + '/order/confirm_pickup?orderid=' + encodeURIComponent(order_id);
+
+        console.log(url);
+        fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error: ' + response.status);
+            }
+        })
+        .then(data => {
+            console.log('Response:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+        // location.reload();
     }
 </script>
 

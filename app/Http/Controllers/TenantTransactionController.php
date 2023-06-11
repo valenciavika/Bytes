@@ -49,6 +49,7 @@ class TenantTransactionController extends Controller
             'additional_description' => $transaction->additional_description,
             'jenis' => $transaction->jenis,
             'user_id' => $transaction->user_id,
+            'confirmStatus' => 'not_confirm',
             'time' => $time,
         ]);
 

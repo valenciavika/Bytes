@@ -49,7 +49,37 @@
                 </div>
 
             </div>
+
+            <div class="finishedcontent" id="finishedcontent_{{ $order->id }}">
+                
+            </div>
+
+            <div id="finishedcontent1" class="finishedcontent1" style="display: none">
+                <div class="statuspickup">
+                    <p class="pickuptxt"><strong>Ready to Pick up</strong></p>
+                </div>
+                <div class="buttonpickup">
+                    <div class="confirmbutton" onclick="confirmPickUp({{ $order->id }})">
+                        <p id="Pickup">
+                            <strong>Confirm Pick Up</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="finishedcontent2" class="finishedcontent2" style="display: none">
+                <div class="statuscomplete">
+                    <p class="finishtxt"><strong>Completed</strong></p>
+                </div>
+                <div class="time">
+                    <p>3 Mar 9:00</p>
+                </div>
+            </div>
         </div>
+
+        <script>
+            fillContent('{{ $order->confirmStatus }}', {{ $order->id }});
+        </script>
+
 
         @endforeach
     @else
@@ -57,20 +87,3 @@
     @endif
 </div>
 
-{{-- <div class="finishedcontent">
-    <div class="statuspickup">
-        <p class="pickuptxt"><strong>Ready to Pick up</strong></p>
-    </div>
-    <div class="buttonpickup">
-        <a class="confirmbutton" href="#">
-            <p id="Pickup">
-                <strong>PICK UP</strong>
-            </p>
-        </a>
-    </div>
-
-    <div class="statuscomplete">
-        <p class="finishtxt"><strong>Completed</strong></p>
-    </div>
-
-</div> --}}

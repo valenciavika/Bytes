@@ -335,26 +335,26 @@
 
         var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&quantityArr=' + JSON.stringify(quantityArr) + '&idArr=' + JSON.stringify(idArr);
 
-        // var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
+        var url = '/' + {{$id}} + '/cart/order_now?totalPrice=' + (totalPrice + 1500 * idArr.length) + '&emoneyId=' + chosenEmoneyId + '&idArr=' + JSON.stringify(idArr);
 
-        // fetch(url)
-        // .then(response => {
-        // if (response.ok) {
-        //     return response.json();
-        // } else {
-        //     throw new Error('Error: ' + response.status);
-        // }
-        // })
-        // .then(data => {
-        //     console.log('Response:', data);
-        //     })
-        //     .catch(error => {
-        //     console.error('Error:', error);
-        // });
+        fetch(url)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error: ' + response.status);
+        }
+        })
+        .then(data => {
+            console.log('Response:', data);
+            })
+            .catch(error => {
+            console.error('Error:', error);
+        });
 
-        // hideOrder();
+        hideOrder();
 
-        // document.getElementById('popup-confirm').style.display = 'flex';
+        document.getElementById('popup-confirm').style.display = 'flex';
     }
 
     function toggleEditNotes(id) {

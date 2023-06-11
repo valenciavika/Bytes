@@ -85,6 +85,7 @@
             .catch(error => {
             console.error('Error:', error);
         });
+        console.log('tes');
 
         location.reload();
     }

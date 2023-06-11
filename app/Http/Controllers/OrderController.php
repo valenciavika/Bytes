@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 use App\Models\Order;
 use App\Models\Transaction;
@@ -28,5 +29,17 @@ class OrderController extends Controller
             'menus' => Menu::all(),
             'tenants' => Tenant::all()
         ])->with('id', $id);
+    }
+
+    
+    public function confirmPickup(Request $request, $id) {
+        $order_id = $request->input('orderid');
+        $this->changeConfirmStatus($order_id, 'confirm');
+    }
+
+    private function changeConfirmStatus($order_id, $status) {
+        $order = Order::find($order_id);
+        $order->confirmStatus = $status;
+        $order->save();
     }
 }
