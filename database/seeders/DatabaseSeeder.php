@@ -24,21 +24,21 @@ class DatabaseSeeder extends Seeder
             'image_link' => 'storage/user_profile_images/default_profile_image.png'
         ]);
 
-        Cart::create([
-            'menu_id' => 1,
-            'quantity' => 1,
-            'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt.',
-            'jenis' => 'Lorem ipsum d',
-            'user_id' => 1,
-        ]);
+        // Cart::create([
+        //     'menu_id' => 1,
+        //     'quantity' => 1,
+        //     'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt.',
+        //     'jenis' => 'Lorem ipsum d',
+        //     'user_id' => 1,
+        // ]);
 
-        Cart::create([
-            'menu_id' => 2,
-            'quantity' => 8,
-            'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt, voluptatem omnis dolorem',
-            'jenis' => 'Lorem ipsum d',
-            'user_id' => 1,
-        ]);
+        // Cart::create([
+        //     'menu_id' => 2,
+        //     'quantity' => 8,
+        //     'additional_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum magnam molestias nesciunt, quod sunt, voluptatem omnis dolorem',
+        //     'jenis' => 'Lorem ipsum d',
+        //     'user_id' => 1,
+        // ]);
 
         // Transaction::create([
         //     'menu_id' => 15,

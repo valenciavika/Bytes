@@ -54,12 +54,22 @@ input[type=checkbox]     {
 }
 
 .mycart_item_lists {
+    position: relative;
     margin: 0 2vw;
-    padding: 0.5vw 0;
+    padding: 1vw 0;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     border-bottom: 0.2vw rgba(253, 103, 39, 0.3) solid;
+}
+
+.mycart_item_lists_block {
+    width: 100%;
+    height: 88%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 5;
+
 }
 
 .quantity_input {
@@ -138,7 +148,19 @@ input[type=checkbox]     {
 
 .item_quantity_section  {
     width: 17%;
-    margin: 1.5vw;
+}
+
+.stock_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+    margin-bottom: 1vw;
+}
+
+.out_of_stock_section {
+    color: rgb(241, 95, 95);
+    z-index: 6;
 }
 
 .item_quantity {
@@ -380,6 +402,7 @@ input[type=checkbox]     {
     justify-content: center;
     align-items: center;
     display: none;
+    z-index: 7;
 }
 .isi{
     display: flex;

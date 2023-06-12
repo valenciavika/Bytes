@@ -17,7 +17,6 @@ bg: FCEDCA
 .emoney_section {
     width: 40%;
     background-color: #F9C140;
-    margin-top: 1.5vw;
     margin-left: 3vw;
     border-radius: 0.7vw;
     display: flex;
@@ -102,7 +101,6 @@ ol.carousel-indicators {
     border-radius: 0.7vw;
     width: 45%;
     background-color: white;
-    margin-top: 1.5vw;
     margin-right: 3vw;
 }
 

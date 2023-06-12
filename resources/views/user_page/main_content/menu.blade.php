@@ -28,7 +28,7 @@
                         @if ($j == $menus->count())
                            @break
                         @endif
-                        <div class="nama-menu">
+                        <div class="nama-menu" style="opacity: {{$menus[$j]->stock <= 0 ? '0.6' : '1'}};">
                             <div class="isi-menu">
                                 <div class="menu1">
                                     <p class="text-nama-menu">{{$menus[$j]->name}}</p>
@@ -45,7 +45,11 @@
                                     <p style="color:#F26122" class="text-stock"><b>{{$menus[$j]->stock}} in stock</b></p>
                                 </div>
                             </div>
+                            <div class="nama-menu_block" style="display: {{$menus[$j]->stock <= 0 ? 'block' : 'none'}};">
+
+                            </div>
                         </div>
+                        
                     @endfor
                     </div>
                 @endfor

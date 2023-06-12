@@ -73,6 +73,7 @@
 
 
 .nama-menu{
+    position: relative;
     display: flex;
     background-color: white;
     height: 20vh;
@@ -80,6 +81,12 @@
     border-radius: 25px;
     justify-content: center;
     align-items: center;
+}
+
+.nama-menu_block {
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 .logo_panah_kanan, .logo_panah_kiri{
@@ -141,19 +148,19 @@
 }
 
 .text-nama-menu{
-    font-size: 19px;
+    font-size: 1.15vw;
 }
 
 .text-harga{
-    font-size:20px;
+    font-size:1.2vw;
 }
 
 .text-stock{
-    font-size:18px;
+    font-size:1.1vw;
 }
 
 .text-order{
-    font-size:20px;
+    font-size:1.2vw;
     font-weight: bold;
     background-color: #FD6727;
     padding-top: 0.5vw;
@@ -161,5 +168,5 @@
     padding-left: 1vw;
     padding-right: 1vw;
     color: white;
-    border-radius: 20px;
+    border-radius: 2vw;
 }

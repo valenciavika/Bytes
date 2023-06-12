@@ -76,10 +76,10 @@ class tenantSeeder extends Seeder
                 'description' => 'Marlene Kitchen adalah gerai yang memberikan hidangan khas dengan sentuhan internasional dan menggabungkan cita rasa autentik dengan kreasi kreatif.',
             ],
             [
-                'name' => 'S&S Kitchen',
+                'name' => 'SnS Kitchen',
                 'tenant_category_id'=> 1,
-                'image_link' => 's&s_kitchen.jpg',
-                'description' => 'S&S Kitchen adalah Gerai S&S Kitchen adalah tempat makan yang menghadirkan hidangan lezat dengan cita rasa khas Jepang, seperti ramen dan curry',
+                'image_link' => 'sns_kitchen.jpg',
+                'description' => 'SnS Kitchen adalah Gerai S&S Kitchen adalah tempat makan yang menghadirkan hidangan lezat dengan cita rasa khas Jepang, seperti ramen dan curry',
             ],
             [
                 'name' => 'Tea Well',
@@ -103,7 +103,7 @@ class tenantSeeder extends Seeder
             [
                 'name' => "Omon's Corner",
                 'tenant_category_id'=> 3,
-                'image_link' => 'my_crepes.jpg',
+                'image_link' => 'omon_corner.png',
                 'description' => "Omon's Corner adalah toko jus yang menyajikan berbagai jenis jus berkualitas tinggi dengan menggunakan bahan -  bahan segar dan alami.",
             ]
         ]);

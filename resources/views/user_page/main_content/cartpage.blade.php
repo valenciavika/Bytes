@@ -18,13 +18,15 @@
                 <div class="mycart_item_list_section">
                     @php
                         $price = [];
+                        $count = 0;
                     @endphp
                     @foreach ($carts as $cart)
-                        <div class="mycart_item_lists">
+                        <div id="mycart_item_lists_{{$count}}" class="mycart_item_lists">
                             @php
                                 $menu = $menus[$cart->menu_id-1];
                                 $tenant = $tenants[$menu->tenant_id-1];
                                 $price[$cart->id] = $menu->price;
+                                $stock = $menu->stock;
                             @endphp
                             <input id="check{{$cart->id}}" class="quantity_input" type="checkbox" onclick="updateTotalandIdArr(this, {{ $price[$cart->id] }}, {{ $cart->id }})">
                             <div class="item_section">
@@ -46,18 +48,45 @@
                                 </div>
                             </div>
                             <div class="item_quantity_section">
+                                <div id="left_stock_section_{{$count}}" class="stock_section left_stock_section">
+                                    {{ $stock }} Stock Left
+                                </div>
+                                <div id="out_of_stock_section_{{$count}}" class="stock_section out_of_stock_section" style="display: none;">
+                                    Out Of Stock
+                                </div>
                                 <div class="item_quantity">
                                     <div class="item_quantity_value_section">
                                         <div id="hover_toggle{{$cart->id}}" class="item_quantity_minus_sign" onclick="myFunction_minus({{$cart->id}}, {{ $price[$cart->id] }})" style="{{ $cart->quantity == 1 ? 'visibility: hidden;' : 'visibility: visible' }};">
                                             <i id="min_sign{{$cart->id}}" class="fa fa-minus" aria-hidden="true"></i>
                                         </div>
-                                        <div id="quality_value{{$cart->id}}" class="item_quantity_value">{{ $cart->quantity }}</div>
-                                        <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus({{$cart->id}}, {{ $price[$cart->id] }}, {{ $menu->stock }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
+                                        <div id="quality_value{{$cart->id}}" class="item_quantity_value item_quantity_{{$count}}">{{ $cart->quantity }}</div>
+                                        <div id="plus_sign{{$cart->id}}" class="item_quantity_plus_sign" onclick="myFunction_plus({{$cart->id}}, {{$count}}, {{ $price[$cart->id] }})" style="{{ $cart->quantity == $stock ? 'visibility: hidden;' : 'visibility: visible' }};">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                     <div class="item_quantity_edit" id="togle_edit_save_notes_{{ $cart->id }}" onclick="toggleEditNotes({{ $cart->id }})"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Notes</div>
                                 </div>
                             </div>
+
+                            <div id="mycart_item_lists_block_{{$count}}" class="mycart_item_lists_block" style="display: none;">
+
+                            </div>
+
+                            <script>
+                                sendItemData({{$stock}});
+                                checkStockAvailable({{$count}});
+                            </script>
+
+                            @if ($stock == 0)
+                               <script>
+                                    stop_hover('hover_toggle'+{{$cart->id}});
+                                    stop_hover('plus_sign'+{{$cart->id}});
+                               </script>
+                            @endif
                         </div>
+                        @php
+                            $count += 1;
+                        @endphp
                     @endforeach
                 </div>
             @else
@@ -102,7 +131,7 @@
                                         Rp{{number_format($money->totalAmount, 0, '.' , '.' )}}
                                     </div>
                                     <script>
-                                        window.addEventListener('DOMContentLoaded', sendData({{ $money->totalAmount }}, {{ $emoney->id }}, {{ $id }}));
+                                        window.addEventListener('DOMContentLoaded', sendEmoneyData({{ $money->totalAmount }}, {{ $emoney->id }}, {{ $id }}));
                                     </script>
                                 @endif
                             @endforeach
@@ -152,6 +181,7 @@
     var formattedPrice;
     var idArr = [];
     var totalAmount = [];
+    var itemStock = [];
     var emoneyId = [];
     var chosenEmoneyId = 0;
     var statusInsufficient = [];
@@ -187,7 +217,7 @@
         document.getElementById(id).style.visibility = "visible";
     }
 
-    function myFunction_plus(id, price, stock) {
+    function myFunction_plus(id, cart_id, price) {
         element = document.getElementById("quality_value"+id);
         quality_total = element.innerHTML;
 
@@ -201,7 +231,7 @@
         if (status) {
             totalPrice += price
         }
-        if(quality_total==stock) {
+        if(quality_total==itemStock[cart_id]) {
             stop_hover("plus_sign"+id);
         }
         element.innerHTML = quality_total;
@@ -294,10 +324,32 @@
 
     }
 
-    function sendData(totalAmountData, emoneyIdData, userIdData) {
+    function sendEmoneyData(totalAmountData, emoneyIdData, userIdData) {
         totalAmount.push(totalAmountData);
         emoneyId.push(emoneyIdData);
         userId = userIdData;
+    }
+
+    function checkStockAvailable(cart_id) {
+        element = document.querySelector('.item_quantity_'+cart_id);
+        quantity = element.innerHTML;
+
+        console.log(element, quantity, itemStock);
+
+        if (quantity <= itemStock[cart_id]) {
+            document.getElementById('out_of_stock_section_' + cart_id).style.display = 'none';
+            document.getElementById('mycart_item_lists_block_' + cart_id).style.display = 'none';
+            document.getElementById('left_stock_section_' + cart_id).style.display = 'flex';
+        }
+        else {
+            document.getElementById('left_stock_section_' + cart_id).style.display = 'none';
+            document.getElementById('out_of_stock_section_' + cart_id).style.display = 'flex';
+            document.getElementById('mycart_item_lists_block_' + cart_id).style.display = 'block';
+        }
+    }
+    
+    function sendItemData(itemStockData) {
+        itemStock.push(itemStockData);
     }
 
     function chooseEmoneytoPay(emoneyId) {
