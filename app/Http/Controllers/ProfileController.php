@@ -9,16 +9,21 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Money;
 use App\Models\TopUp;
+use App\Models\Notification;
 use App\Models\User;
 
 class ProfileController extends Controller
 {
     public function show($id) {
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('user_page.main_content.profile', [
             'page_title' => 'Profile | BinusEats',
             'active_number' => 4,
             'user' => User::find($id),
             'emoneys' => TopUp::all(),
+            'unread_notif_count' => $unread_notif_count,
             'moneys' => Money::where('user_id', $id)->get(),
         ])->with('id', $id);
     }

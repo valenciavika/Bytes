@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Tenant_category;
 use App\Models\Transaction;
 use App\Models\Order;
+use App\Models\Notification;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 
@@ -51,6 +52,9 @@ class HomeMenuController extends Controller
             $orders->tenant_name = $tenant_or->name;
         }
 
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         // dd($tr->transaction_time);
 
         return view('/user_page.main_content.homepage', [
@@ -65,6 +69,7 @@ class HomeMenuController extends Controller
             'id' => $id,
             'transactions' => $tr,
             'orders' => $orders,
+            'unread_notif_count' => $unread_notif_count,
 
         ])->with('id', $id);
     }

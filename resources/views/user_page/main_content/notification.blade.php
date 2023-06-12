@@ -21,6 +21,7 @@
     @endphp
 
     <div class="notificationSection">
+        @if ($notifications->count())
         <div class="all-notif">
             @foreach ($notifications as $notif)
                 @php
@@ -69,7 +70,12 @@
                 <p>You haven't paid your order at Bakmi Effata, please proceed to pay at your shopping cart.</p>
             </a>
         </div> --}}
+
+        @else
+            <p class="no_result">No notification found.</p>
+        @endif
     </div>
+
 @endsection
 
 @push('styles')

@@ -29,7 +29,10 @@
 
             <div class="navigation-bar">
                 <div class="Bell" id="bar" onclick="window.location.href='/{{$id}}/notification'">
-                    <i class="fa-solid fa-bell" style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} "></i>
+                    <div class="notif_content">
+                        <div id="notif_count" class="notif_count">{{ $unread_notif_count }}</div>
+                        <i class="fa-solid fa-bell" style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} "></i>
+                    </div>
                     <p style="color: #{{ $active_number == 1 ? 'FD6727': 'ffffff'}} ">Notification</p>
                 </div>
 
@@ -54,5 +57,27 @@
             @yield('content')
         </div>
 
+        <script>
+            function showNotifCount() {
+                document.getElementById('notif_count').style.display = 'flex';
+            }
+    
+            function hideNotifCount() {
+                document.getElementById('notif_count').style.display = 'none';
+            }
+    
+        </script>
+
+        @if ($unread_notif_count > 0)
+            <script>
+                showNotifCount();
+            </script>
+        @else
+            <script>
+                hideNotifCount();
+            </script>
+        @endif
+
     </body>
+
 </html>

@@ -5,12 +5,13 @@
         $jenisArr = [];
     @endphp
     <div class="kontener">
+        <a href="/{{$id}}/menu/{{$tenant->name}}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
         <div class="left">
             <div class="div-name-restoran">
                 <p class="text-name-restoran"><i><u>Bakmi Effata</u></i></p>
             </div>
             <div class="logo-binuseat">
-                <img src="{{asset('/images/Logo_Binuseats.png')}}">
+                <img src="{{asset('/storage/tenant_images/'.$tenant->image_link)}}">
             </div>
         </div>
         <div class="right">
@@ -104,8 +105,8 @@
             </div>
             <div class="item_quantity_section_menu_detail">
                 <div class="item_quantity_value_section_menu_detail">
-                    <div id="hover_toggle" class="item_quantity_minus_sign_menu_detail" style="visibility: hidden;">
-                        <i id="min_sign" onclick="myFunction_minus({{ $menu->price }})" class="fa fa-minus" aria-hidden="true"></i>
+                    <div id="hover_toggle" class="item_quantity_minus_sign_menu_detail" onclick="myFunction_minus({{ $menu->price }})" style="visibility: hidden;">
+                        <i id="min_sign" class="fa fa-minus" aria-hidden="true"></i>
                     </div>
                     <div id="quality_value" class="item_quantity_value_menu_detail">1</div>
                     <div id="plus_sign" class="item_quantity_plus_sign_menu_detail" onclick="myFunction_plus({{ $menu->price }})"><i class="fa fa-plus" aria-hidden="true"></i></div>
@@ -166,12 +167,11 @@
         quality_total = element.innerHTML;
         quality_total++;
 
-       if (quality_total==totalStock) {
-
+        if (quality_total==totalStock) {
             stop_hover("plus_sign");
         }
 
-        else {
+        if(quality_total>=1) {
             start_hover("hover_toggle");
         }
 
@@ -183,10 +183,10 @@
         element = document.getElementById("quality_value");
         quality_total = element.innerHTML;
         quality_total--;
-        if(quality_total==1) {
+        if (quality_total==1) {
             stop_hover("hover_toggle");
         }
-        else {
+        if (quality_total<=totalStock) {
             start_hover("plus_sign");
         }
 

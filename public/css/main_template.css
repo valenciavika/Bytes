@@ -68,6 +68,27 @@ a {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+.notif_content {
+    position: relative;
+}
+
+.notif_count {
+    display: none;
+    position: absolute;
+    background-color: #FD6727;
+    font-size: 0.7vw;
+    font-weight: bold;
+    padding: 0.4vw;
+    width: 1vw;
+    height: 1vw;
+    border-radius: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1.1vw;
+    left: -0.3vw;
+}
+
 #bar:hover{
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
     background-color:#ffb300;

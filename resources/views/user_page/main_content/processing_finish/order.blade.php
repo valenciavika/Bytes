@@ -62,7 +62,7 @@
         else {
             temp = document.getElementById("finishedcontent2_" + order_id);
         }
-        console.log('finishedcontent_' + order_id, temp)
+        
         element.innerHTML = temp.innerHTML;
     }
 

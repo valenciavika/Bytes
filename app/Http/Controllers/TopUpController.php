@@ -8,12 +8,18 @@ use App\Models\TopUp;
 use App\Models\TopUpPaymentMethod;
 use App\Models\TopUpTransaction;
 use App\Models\Money;
+use App\Models\Notification;
 
 class TopUpController extends Controller
 {
     public function show() {
+
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('main_content.topup', [
             'page_title' => 'Topup | BinusEats',
+            'unread_notif_count' => $unread_notif_count,
         ]);
     }
 
@@ -38,6 +44,9 @@ class TopUpController extends Controller
         // dd($transaction);
         // dd($money);
 
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('user_page.main_content.topup', [
             'page_title' => 'Topup | BinusEats',
             'active' => 1,
@@ -49,6 +58,7 @@ class TopUpController extends Controller
             'tr_emone' => $transaction_emoney,
             'active_number' => 0,
             'type' => $type,
+            'unread_notif_count' => $unread_notif_count,
         ])->with('id', $id);
     }
 
@@ -73,6 +83,9 @@ class TopUpController extends Controller
         // dd($transaction);
         // dd($money);
 
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('user_page.main_content.topup', [
             'page_title' => 'Topup | BinusEats',
             'active' => 2,
@@ -84,6 +97,7 @@ class TopUpController extends Controller
             'tr_emone' => $transaction_emoney,
             'active_number' => 0,
             'type' => $type,
+            'unread_notif_count' => $unread_notif_count,
         ])->with('id', $id);
     }
 
@@ -108,6 +122,9 @@ class TopUpController extends Controller
         // dd($transaction);
         // dd($money);
 
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('user_page.main_content.topup', [
             'page_title' => 'Topup | BinusEats',
             'active' => 3,
@@ -119,6 +136,7 @@ class TopUpController extends Controller
             'tr_emone' => $transaction_emoney,
             'active_number' => 0,
             'type' => $type,
+            'unread_notif_count' => $unread_notif_count,
         ])->with('id', $id);
     }
 

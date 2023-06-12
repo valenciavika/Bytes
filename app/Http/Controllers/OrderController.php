@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Transaction;
 use App\Models\Menu;
+use App\Models\Notification;
 use App\Models\Tenant;
 
 class OrderController extends Controller
@@ -27,6 +28,9 @@ class OrderController extends Controller
             }
         }
 
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('user_page.main_content.processing_finish.order', [
             'page_title' => 'Order | BinusEats',
             'active_number' => 3,
@@ -34,6 +38,7 @@ class OrderController extends Controller
             'transactions' => $transactions,
             'orders' => $orders,
             'menus' => Menu::all(),
+            'unread_notif_count' => $unread_notif_count,
             'tenants' => Tenant::all()
         ])->with('id', $id);
     }

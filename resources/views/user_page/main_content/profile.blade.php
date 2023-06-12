@@ -153,9 +153,9 @@
                 <div class="phonenumber">
                     <strong>Phone Number</strong><br>
                     @if ($user->phone)
-                        <input type="number" name="phonenumber" class="inputtext" id="phonenumber" placeholder="{{$user->phone}}">
+                        <input type="number" name="phonenumber" class="inputtext input_phone_number" id="phonenumber" placeholder="{{$user->phone}}">
                     @else
-                        <input type="number" name="phonenumber" class="inputtext" id="phonenumber" placeholder="-">
+                        <input type="number" name="phonenumber" class="inputtext input_phone_number" id="phonenumber" placeholder="-">
                     @endif
                     @error('phonenumber')
                         <div class="error">{{ $message }}</div>

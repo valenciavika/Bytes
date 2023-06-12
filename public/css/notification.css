@@ -40,3 +40,9 @@
 .time{
     color: rgb(105, 105, 105);
 }
+
+.no_result {
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 5vw;
+}

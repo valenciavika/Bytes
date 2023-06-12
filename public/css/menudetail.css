@@ -1,8 +1,19 @@
+.content {
+    display: flex;
+    justify-content: center;
+}
+
 .kontener{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 87vh;
+}
+
+.fa-arrow-left {
+    position: absolute;
+    font-size: 1.5vw;
+    top: 10vw;
+    left: 7vw
 }
 
 .left{
@@ -12,7 +23,7 @@
 .div-name-restoran{
     display: flex;
     justify-content: center;
-    width: 25vw;
+    width: 30vw;
 }
 
 .text-name-restoran{
@@ -22,14 +33,18 @@
     padding-bottom: 0.5vw;
     text-align: center;
     font-size: 50px;
-    width: 25vw;
+    width: 30vw;
 }
 
 .logo-binuseat{
     display: flex;
     justify-content: center;
     padding-bottom: 1.5vw;
-    width: 25vw;
+    width: 30vw;
+}
+
+.logo-binuseat img {
+    width: 30vw;
 }
 
 .right{

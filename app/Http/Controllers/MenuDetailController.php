@@ -14,12 +14,15 @@ class MenuDetailController extends Controller
         $tenant = Tenant::where("name", $tenant_name)->first();
         $Menu = Menu::where('id', $menu_id)->first();
 
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('/user_page.main_content.menudetail', [
             'page_title' => 'Menu | BinusEats',
             'active_number' => 0,
             'menu' => $Menu,
             'tenant' => $tenant,
-
+            'unread_notif_count' => $unread_notif_count,
             // 'tenant_name' => $tenant->name,
             // 'tenant_img' => $tenant->img,
             // 'tenant_desc' => $tenant->description,

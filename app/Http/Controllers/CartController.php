@@ -16,6 +16,9 @@ use Carbon\Carbon;
 class CartController extends Controller
 {
     public function show($id) {
+        $unread_status = Notification::where("user_id", $id)->where("clicked_status", 1)->get();
+        $unread_notif_count = count($unread_status);
+
         return view('user_page.main_content.cartpage', [
             'page_title' => 'Cart | BinusEats',
             'active_number' => 2,
@@ -24,6 +27,7 @@ class CartController extends Controller
             'menus' => Menu::all(),
             'emoneys' => TopUp::all(),
             'moneys' => Money::where('user_id', $id)->get(),
+            'unread_notif_count' => $unread_notif_count,
         ])->with('id', $id);;
     }
 
