@@ -50,7 +50,7 @@ class MenuDetailController extends Controller
             'type' => 'unpaid',
             'clicked_status' => 1,
             'user_id' => $id,
-            'time'=> now(),
+            'time'=> now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
         ]);
     }
 }

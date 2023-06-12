@@ -55,7 +55,7 @@ class CartController extends Controller
             ]);
 
             $cart->delete();
-            
+
             $this->updateMenuStock($cart->menu_id, $quantityData);
         }
 
@@ -74,7 +74,7 @@ class CartController extends Controller
             'type' => 'ordersubmitted',
             'clicked_status' => 1,
             'user_id' => $id,
-            'time'=> now(),
+            'time'=> now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
         ]);
 
         $this->updateEmoneyValue($id, $emoneyId, $totalPrice);

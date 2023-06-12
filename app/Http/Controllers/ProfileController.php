@@ -45,7 +45,7 @@ class ProfileController extends Controller
         $validator = Validator::make($request->all(), [
             'fullname' => 'max:255',
             'email' => 'nullable|email:dns|max:255|unique:users,email,' . $user_id,
-            'phonenumber' => 'max:13|unique:users,phone,' . $user_id,
+            'phonenumber' => 'nullable|max:13|unique:users,phone,' . $user_id,
         ]);
 
         if ($validator->fails()) {

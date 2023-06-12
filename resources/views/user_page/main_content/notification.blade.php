@@ -31,7 +31,8 @@
                     <a href="{{ getNotificationUrl($notif->type, $id) }}" onclick="changeStatusClicked({{ $notif->clicked_status }}, {{ $notif->id }})">
                         <div class="head">
                             <p class="headtxt"><strong>{{ $notif->title }}</strong></p>
-                            <p class="time">{{ \Carbon\Carbon::parse($notif->time)->diffForHumans()}}</p>
+                            {{-- {{\Carbon\Carbon::parse($notif->time)->setTimezone('Asia/Jakarta')}} --}}
+                            <p class="time">{{ \Carbon\Carbon::parse($notif->time, 'Asia/Jakarta')->timezone('Asia/Jakarta')->diffForHumans() }}</p>
                         </div>
                         <p>{{ $notif->description }}</p>
                     </a>
