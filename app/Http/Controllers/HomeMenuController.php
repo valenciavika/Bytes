@@ -21,17 +21,34 @@ class HomeMenuController extends Controller
         // dd($user_id);
         $today = Carbon::now('Asia/Jakarta')->format('Y-m-d');
         $tr = Transaction::where('user_id', $id)->whereDate('time', $today)->orderBy('time', 'desc')->first();
-        $orders = Order::where('user_id', $id)->whereDate('time', $today)->orderBy('time', 'desc')->first();
+        $orders = Order::where('user_id', $id)->where('confirmStatus', 'not_confirm')->whereDate('time', $today)->orderBy('time', 'desc')->first();
         // dd($tr);
         if($tr){
             $tr->transaction_date= date('d F Y', strtotime($tr->time));
             $tr->transaction_time = date('H:i', strtotime($tr->time));
             $tr->transaction_day = date('l', strtotime($tr->time));
+            $menu_tr = Menu::find($tr->menu_id);
+            // dd($menu_tr);
+            $tr->menu_name = $menu_tr ->name;
+            $tenant_tr = Tenant::find($menu_tr->tenant_id);
+
+            $tr->tenant_name = $tenant_tr->name;
+            // dd($tr->tenant_name);
+        }
+        if(!$orders){
+            $orders = Order::where('user_id', $id)->where('confirmStatus', 'confirm')->whereDate('time', $today)->orderBy('time', 'desc')->first();
         }
         if($orders){
             $orders->date= date('d F Y', strtotime($orders->time));
             $orders->time = date('H:i', strtotime($orders->time));
             $orders->day = date('l', strtotime($orders->time));
+
+            $menu_or = Menu::find($orders->menu_id);
+            // dd($menu_tr);
+            $orders->menu_name = $menu_or ->name;
+            $tenant_or = Tenant::find($menu_or->tenant_id);
+
+            $orders->tenant_name = $tenant_or->name;
         }
 
         // dd($tr->transaction_time);

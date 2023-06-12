@@ -67,13 +67,13 @@
                 @if ($transactions)
                     <div class="history-box-home"  onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer;">
                         <div class="tenant-time">
-                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant[$menu[$transactions->menu_id - 1]->tenant_id - 1]->name}}</p>
+                            <p style="font-weight: bold; font-size: 1.5vw;">{{$transactions->tenant_name}}</p>
                             <p style="font-size: 1.5vw;">{{$transactions->transaction_time}}</p>
                         </div>
                         <div class="hist">
                             <div class="food-order" style="display: flex;">
                                 <p>{{$transactions->quantity}}x</p>
-                                <p style="padding-left: 0.75vw">{{$menu[$transactions->menu_id - 1]->name}}</p>
+                                <p style="padding-left: 0.75vw">{{$transactions->menu_name}}</p>
 
                             </div>
                             <p class="status" style="color: #FD6727;">In-Progress</p>
@@ -82,13 +82,13 @@
                 @elseif ($orders)
                     <div class="history-box-home"onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer;">
                         <div class="tenant-time">
-                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant[$menu[$orders->menu_id - 1]->tenant_id - 1]->name}}</p>
+                            <p style="font-weight: bold; font-size: 1.5vw;">{{$orders->tenant_name}}</p>
                             <p style="font-size: 1.5vw;">{{$orders->orders_time}}</p>
                         </div>
                         <div class="hist">
                             <div class="food-order" style="display: flex;">
                                 <p>{{$orders->quantity}}x</p>
-                                <p style="padding-left: 0.75vw">{{$menu[$orders->menu_id - 1]->name}}</p>
+                                <p style="padding-left: 0.75vw">{{$orders->menu_name}}</p>
 
                             </div>
                             @if ($orders->confirmStatus == "confirm")

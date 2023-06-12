@@ -19,7 +19,7 @@ class CartController extends Controller
         return view('user_page.main_content.cartpage', [
             'page_title' => 'Cart | BinusEats',
             'active_number' => 2,
-            'carts' => Cart::where('user_id', $id)->get(),
+            'carts' => Cart::where('user_id', $id)->get()->sortByDesc('created_at'),
             'tenants' => Tenant::all(),
             'menus' => Menu::all(),
             'emoneys' => TopUp::all(),

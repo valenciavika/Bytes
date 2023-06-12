@@ -42,6 +42,7 @@ class MenuDetailController extends Controller
             'additional_description' => $additionalDescription,
             'jenis' => $jenis,
             'user_id' => $id,
+            'created_at' => now()->timezone('Asia/Jakarta')->format('Y-m-d H:i:s'),
         ]);
 
         Notification::insert([
