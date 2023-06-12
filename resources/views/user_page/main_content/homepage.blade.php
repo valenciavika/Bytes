@@ -61,14 +61,13 @@
                 <p>TOP UP</p>
             </a>
         </div>
-        {{-- @dd($tenant, $transactions, $menu, ) --}}
 
         <div class="history">
             <div class="history-container">
                 @if ($transactions)
                     <div class="history-box-home"  onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer;">
                         <div class="tenant-time">
-                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant_all[$menu[$transactions->menu_id - 1]->tenant_id - 1]->name}}</p>
+                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant[$menu[$transactions->menu_id - 1]->tenant_id - 1]->name}}</p>
                             <p style="font-size: 1.5vw;">{{$transactions->transaction_time}}</p>
                         </div>
                         <div class="hist">
@@ -83,7 +82,7 @@
                 @elseif ($orders)
                     <div class="history-box-home"onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer;">
                         <div class="tenant-time">
-                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant_all[$menu[$orders->menu_id - 1]->tenant_id - 1]->name}}</p>
+                            <p style="font-weight: bold; font-size: 1.5vw;">{{$tenant[$menu[$orders->menu_id - 1]->tenant_id - 1]->name}}</p>
                             <p style="font-size: 1.5vw;">{{$orders->orders_time}}</p>
                         </div>
                         <div class="hist">
@@ -100,10 +99,9 @@
 
                         </div>
                     </div>
-                    
+
                 @else
-                    {{-- onclick="window.location.href='/{{$id}}/order'" cursor: pointer; --}}
-                    <div class="history-box-home" style="display: flex; justify-content: center; align-items: center;">
+                    <div class="history-box-home" onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer; display: flex; justify-content: center; align-items: center;">
                         <p style="font-size: 2vw; text-align:center;">No Transaction For Today</p>
                     </div>
                 @endif

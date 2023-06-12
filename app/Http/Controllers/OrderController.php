@@ -11,7 +11,7 @@ use App\Models\Tenant;
 class OrderController extends Controller
 {
     public function show($id) {
-        $transactions = Transaction::where('user_id', $id)->get();
+        $transactions = Transaction::where('user_id', $id)->get()->sortByDesc('time');        ;
         $orders = Order::where('user_id', $id)->get()->sortByDesc('time');
 
         if($transactions){

@@ -17,13 +17,17 @@
 
     </head>
     <body>
+        @php
+            use App\Models\Tenant;
+            $tenant = Tenant::find($id);
+        @endphp
         <div class="banner">
             @yield('home')
             <img class="home-button" src="{{asset('/images/Logo_Binuseats.png')}}" alt="home-button" onclick="window.location.href='/{{$id}}/tenant/homepage'">
-            
+
             <div class="navigation-bar">
                 <div class="sapa-tenant">
-                    <p class="text-sapa-tenant"><strong>Hello, Bakmi Effata!</strong></p>
+                    <p class="text-sapa-tenant"><strong>Hello, {{$tenant->name}}</strong></p>
                 </div>
                 <i id="icondrop" class="fa-solid fa-caret-down" onclick="toggleDropDown()"></i>
             </div>
@@ -45,7 +49,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <div class="content">
             @yield('content')
