@@ -29,15 +29,6 @@ Installation
     
     - Jika pada saat menjalankan syntax ini terdapat error tidak dapat menemukan file .env, maka rename dahulu file .env.example menjadi .env kemudian jalankan kembali syntax tersebut
     
-    - Jika terdapat error "vite manifest not found" pada web, lakukan:
-      1. ```
-         npm install --save-dev vite laravel-vite-plugin
-         ```
-      2. Lalu update package.json file "scripts": { "dev": "vite", "build": "vite build" }
-      3. ```
-         npm run build
-         ```
-    
     - Menjalankan laravel di terminal project
       1. Buat database BinusEats 
          ```   
