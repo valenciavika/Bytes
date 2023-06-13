@@ -27,7 +27,7 @@
 
                     @endforeach
                 </div>
-                <input class="amount" type="text" name="amount" placeholder="INSERT AMOUNT.." required>
+                <input class="amount" type="number" name="amount" placeholder="INSERT AMOUNT.." required>
 
                 <div class="method-payment">
                     <p class="method-text">Payment Methods</p>
@@ -71,7 +71,7 @@
                     @if ($type == "History")
                         <p class="judul">History</p>
                         <div class="topup-hist">
-                            @if ($transaction)
+                            @if ($transaction->count())
                                 @foreach ($transaction as $t)
                                     <div class="date">
                                         <p>{{$t['transaction_day']}}, {{$t['transaction_date']}}</p>
