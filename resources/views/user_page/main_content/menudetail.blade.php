@@ -5,13 +5,12 @@
         $jenisArr = [];
     @endphp
     <div class="kontener">
-        <a href="/{{$id}}/menu/{{$tenant->name}}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
         <div class="left">
             <div class="div-name-restoran">
                 <p class="text-name-restoran"><i><u>Bakmi Effata</u></i></p>
             </div>
             <div class="logo-binuseat">
-                <img src="{{asset('/storage/tenant_images/'.$tenant->image_link)}}">
+                <img src="{{asset('/storage/tenant_images/')}}">
             </div>
         </div>
         <div class="right">

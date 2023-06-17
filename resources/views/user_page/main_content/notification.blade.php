@@ -72,7 +72,7 @@
         </div> --}}
 
         @else
-            <p class="no_result">No notification found.</p>
+            <p class="no_result">No Notifi found.</p>
         @endif
     </div>
 
