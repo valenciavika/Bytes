@@ -6,11 +6,11 @@
             @csrf
             <div class="isiform">
                 <div class="email_input">
-                    <input type="email" id="emailphone" name="email" class="textbox" placeholder="Email/Phone number" required autofocus value="{{ old('email')}}"">
+                    <input type="email" id="emailphone" name="email" class="textbox" placeholder="Email/Phone number" required autofocus value="{{ old('email')}}">
                     @error('email')
-                    {{ $message}}
+                    {{ $message }}
                     <div class="invalid">
-                        </div>
+                    </div>
                     @enderror
                 </div>
                 <div class="part_button">

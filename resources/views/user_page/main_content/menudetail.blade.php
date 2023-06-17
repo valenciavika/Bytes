@@ -7,7 +7,7 @@
     <div class="kontener">
         <div class="left">
             <div class="div-name-restoran">
-                <p class="text-name-restoran"><i><u>Bakmi Effata</u></i></p>
+                <p class="text-name-restoran"><i><u>{{ $tenant->name }}</u></i></p>
             </div>
             <div class="logo-binuseat">
                 <img src="{{asset('/storage/tenant_images/')}}">
@@ -132,6 +132,13 @@
         <script>
             window.addEventListener('DOMContentLoaded', sendData({{ $menu->price}}, {{ $menu->stock }}, {{ $menu->id }}));
         </script>
+
+        @if ($menu->stock == 1)
+            <script>
+                stop_hover("plus_sign");
+            </script>
+
+        @endif
 @endsection
 
 @push('styles')
