@@ -15,6 +15,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TenantTransactionController;
 use App\Http\Controllers\TenantHistoryController;
 use App\Http\Controllers\TenantHomeController;
+use App\Http\Controllers\ForgotpassController;
 
 
 Route::middleware('web')->get('/', function () {
@@ -28,16 +29,17 @@ Route::post('/signout', [LoginController::class, 'signout']);
 Route::get('/signup', [SignUpController::class, 'index'])->middleware('guest');;
 Route::post('/signup', [SignUpController::class, 'store']);
 
-Route::get('/forgotpass', function () {return view('forgotpass_verif.forgot');})->middleware('guest');;
-Route::post('/forgotpass', function () {return redirect('/verification');});
+Route::get('/forgotpass', [ForgotpassController::class, 'showForgotPass'])->middleware('guest');
+Route::post('/forgotpass', [ForgotpassController::class, 'getEmail']);
 
 Route::get('/{id}/homepage', [HomeMenuController::class, 'home'])->name('home.index')->middleware('auth');
 
 
-Route::get('/verification', function () {return view('forgotpass_verif.verification');});
-Route::post('/verification', function () {return redirect('/inputnp');});
+Route::get('/verification', [ForgotpassController::class, 'showVerif'])->middleware('guest');
+Route::post('/verification', [ForgotpassController::class, 'sendEmail']);
 
-Route::get('/inputnp', function () {return view('forgotpass_verif.inputnp');});
+Route::get('/inputnp', [ForgotpassController::class, 'showChangePassword'])->middleware('guest');
+Route::get('/inputnp', [ForgotpassController::class, 'changePassword']);
 
 // Route::get('/topup', [TopUpController::class, 'show']);
 Route::get('/{id}/topup/BiPay/{type}', [TopUpController::class, 'activeBiPay'])->middleware('auth');
