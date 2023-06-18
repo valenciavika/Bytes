@@ -57,3 +57,7 @@
         </form>
     </div>
 @endsection
+
+@push('styles')
+    <link href="{{asset('css/signup.css')}}" rel="stylesheet" />
+@endpush

@@ -133,9 +133,10 @@ button:hover {
     height: 40px;
     border-width: 1px;
     background-color: #F26122;
+    cursor: pointer;
 }
 
-button:hover p{
+button:hover #verification{
     margin: 0;
     font-weight: bold;
     font-family: 'Inter';
@@ -148,13 +149,5 @@ button:hover p{
     font-weight: bold;
     font-family: 'Inter';
     color: #F26122;
-    font-size: 20px;
-}
-
-#verification:hover{
-    margin: 0;
-    font-weight: bold;
-    font-family: 'Inter';
-    color: white;
     font-size: 20px;
 }

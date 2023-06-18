@@ -84,12 +84,12 @@ input {
     border:none;
     border-radius: 10px;
     padding: 18px;
-    padding-right: 150px;
 }
 
 .upper_part {
     display: flex;
     flex-direction: column;
+    width: 20vw;
 }
 
 .agreement {
@@ -103,6 +103,25 @@ input {
     align-items: center;
     justify-content: center;
 }
+
+#button-signup{
+    width: 13rem;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 40px;
+    border-width: 1px;
+    background-color: white;
+    font-weight: bold;
+    /* font-family: 'Inter'; */
+    color: #F26122;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#button-signup p{
+    margin: 0;
+}
+
 
 button {
     width: 13rem;
@@ -132,4 +151,17 @@ button {
 
 #login{
     text-decoration: none;
+}
+
+#button-signup:hover {
+    width: 13rem;
+    border-color: #F26122;
+    border-radius: 20px;
+    height: 40px;
+    border-width: 1px;
+    background-color: #F26122;
+    font-weight: bold;
+    /* font-family: 'Inter'; */
+    color: white;
+    font-size: 20px;
 }

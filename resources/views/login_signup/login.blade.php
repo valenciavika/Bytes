@@ -47,3 +47,7 @@
         </form>
     </div>
 @endsection
+
+@push('styles')
+    <link href="{{asset('css/login.css')}}" rel="stylesheet" />
+@endpush

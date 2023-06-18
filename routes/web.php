@@ -36,10 +36,10 @@ Route::get('/{id}/homepage', [HomeMenuController::class, 'home'])->name('home.in
 
 
 Route::get('/verification', [ForgotpassController::class, 'showVerif'])->middleware('guest');
-Route::post('/verification', [ForgotpassController::class, 'sendEmail']);
+Route::post('/verification', [ForgotpassController::class, 'resendEmail']);
 
-Route::get('/inputnp', [ForgotpassController::class, 'showChangePassword'])->middleware('guest');
-Route::get('/inputnp', [ForgotpassController::class, 'changePassword']);
+Route::get('/inputnp', [ForgotpassController::class, 'showChangePassword'])->name('change.password')->middleware('guest');
+Route::post('/inputnp', [ForgotpassController::class, 'changePassword']);
 
 // Route::get('/topup', [TopUpController::class, 'show']);
 Route::get('/{id}/topup/BiPay/{type}', [TopUpController::class, 'activeBiPay'])->middleware('auth');

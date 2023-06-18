@@ -2,10 +2,14 @@
 
 @section('content')
     <div class="formsection">
-        <form action="/verification" id="form" method="post">
+        <form action="/inputnp" id="form" method="post">
             @csrf
             <div class="isiform">
                 <div class="pass_input">
+                    <input type="hidden" value="{{ $user_id }}" name="user_id">
+                    <input type="hidden" value="{{ $token }}" name="token">
+                    <input type="hidden" value="{{ $email }}" name="email">
+
                     <input type="password" id="password" class="passbox" placeholder="Password" name="password" required>
                     @error('password')
                         <div class="invalid-feedback">
