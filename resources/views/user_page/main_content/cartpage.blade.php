@@ -162,7 +162,7 @@
         <div class="popup-confirm" id="popup-confirm">
             <div class="isi">
                 <div class="text-sukses">
-                    <p class="teks-sukses"><strong>Added to cart successfully!</strong></p>
+                    <p class="teks-sukses"><strong>Order Has Been Submitted!</strong></p>
                 </div>
                 <div class="text-ok" onclick="location.reload()">
                     <p class="teks-ok"><strong>OK</strong></p>
@@ -347,7 +347,7 @@
             document.getElementById('mycart_item_lists_block_' + cart_id).style.display = 'block';
         }
     }
-    
+
     function sendItemData(itemStockData) {
         itemStock.push(itemStockData);
     }

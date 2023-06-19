@@ -45,7 +45,7 @@
                     </div>
 
                         <div class="harga">
-                        <p>Rp{{number_format($menu->price * $transaction->quantity + $transaction->quantity * 1500, 0 , '.' , '.' )}}</p>
+                        <p>Rp{{number_format($menu->price * $transaction->quantity + 1500, 0 , '.' , '.' )}}</p>
                     </div>
 
                 </div>
