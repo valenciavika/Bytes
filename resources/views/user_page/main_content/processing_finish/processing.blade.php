@@ -61,7 +61,7 @@
             </div>
         @endforeach
     @else
-        <p class="no_result">No order found.</p>
+        <p class="no_result">No Order Found</p>
     @endif
 </div>
 
