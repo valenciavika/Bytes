@@ -90,7 +90,7 @@
                     @endforeach
                 </div>
             @else
-                <p class="no_result">You cart is empty.</p>
+                <p class="no_result">You Cart Is Empty</p>
             @endif
 
             <div class="totalvalue_and_checkout_section">

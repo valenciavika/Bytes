@@ -101,7 +101,7 @@
                     </div>
 
                 @else
-                    <div class="history-box-home" onclick="window.location.href='/{{$id}}/order'" style="cursor: pointer; display: flex; justify-content: center; align-items: center;">
+                    <div class="history-box-home" style="display: flex; justify-content: center; align-items: center;">
                         <p style="font-size: 2vw; text-align:center;">No Transaction For Today</p>
                     </div>
                 @endif
@@ -123,7 +123,7 @@
                     @endforeach
                 @endif
             @else
-                <p class="no_result">No result found.</p>
+                <p class="no_result">No Result Found</p>
             @endif
 
             <div class="tenant-1">
