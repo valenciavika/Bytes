@@ -61,7 +61,12 @@ class ForgotpassController extends Controller
         ]);
     }
     
-    public function sendEmail() {
+    public function resendEmail(Request $request) {
+
+        Mail::send('forgotpass_verif.email_forgot',['action_link' => $request->action_link, 'body'=> $request->body], function($message) use ($request) {
+            $message->from('binuseats@gmail.com', 'BinusEats');
+            $message->to($request->email)->subject('Reset Password');
+        });
 
         return view('forgotpass_verif.verification', [
             'action_link' => $request->action_link,
@@ -73,7 +78,40 @@ class ForgotpassController extends Controller
         ]);
     }
     
-    public function changePassword() {
+    public function changePassword(Request $request) {
+        $validation = $request->validate([
+            'password' => 'required|min:5|max:255',
+            'confirm_password' => 'required|same:password',
+        ]);
 
+        $user_id = $request->user_id;
+        $email = $request->email;
+        $token = $request->token;
+
+        $token_check = DB::table('password_reset')->where([
+            'email' => $request->email,
+            'token' => $request->token
+
+        ])->first();
+
+        if(!$token_check) {
+            return back();
+        }
+        else {
+            $this->updatePassword($user_id, $validation['password']);
+
+            DB::table('password_reset')->where('email', $request->email)->delete();
+    
+            return redirect('/login')->with('reset_pass_success', 'You have reset your password successfully');
+        }
+    }
+
+    private function updatePassword($user_id, $password) {
+        $password = Hash::make($password);
+
+        $user = User::find($user_id);
+
+        $user->password = $password;
+        $user->save();
     }
 }

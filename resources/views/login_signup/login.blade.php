@@ -12,6 +12,10 @@
             <div class="alert_login_failed" role="alert">
             {{ session('LoginError') }}
             </div>
+        @elseif(session()->has('reset_pass_success'))
+            <div class="alert_login_failed" role="alert">
+                {{ session('reset_pass_success') }}
+            </div>
         @endif
 
         <form action="/login" id="suform" method="post">
