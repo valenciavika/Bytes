@@ -38,7 +38,7 @@ Route::get('/{id}/homepage', [HomeMenuController::class, 'home'])->name('home.in
 Route::get('/verification', [ForgotpassController::class, 'showVerif'])->middleware('guest');
 Route::post('/verification', [ForgotpassController::class, 'sendEmail']);
 
-Route::get('/inputnp', [ForgotpassController::class, 'showChangePassword'])->middleware('guest');
+Route::get('/inputnp', [ForgotpassController::class, 'showChangePassword'])->middleware('guest')->name('inputnp');
 Route::get('/inputnp', [ForgotpassController::class, 'changePassword']);
 
 // Route::get('/topup', [TopUpController::class, 'show']);

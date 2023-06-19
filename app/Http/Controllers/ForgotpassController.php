@@ -24,7 +24,7 @@ class ForgotpassController extends Controller
 
     public function getEmail(Request $request) {
         $request->validate([
-            'email' => 'required|email|exist:users,email',
+            'email' => 'required|email|exists:users,email',
         ]);
 
         $token = Str::random(64);
@@ -44,11 +44,11 @@ class ForgotpassController extends Controller
 
         return back()->with('success', 'Email sent successfully');
     }
-    
+
     public function sendEmail() {
 
     }
-    
+
     public function changePassword() {
 
     }
