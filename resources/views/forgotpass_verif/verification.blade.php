@@ -10,7 +10,7 @@
             <input type="hidden" name="email" value="{{ $email }}">
 
             <div class="isiform">
-                <p id="verificationtext">
+                <p id="verificationtext" style="font-family: Arial, Helvetica, sans-serif">
                     Please check your email inbox or email junk to reset your password. If the email doesn't show up, you can click the resend verification email button.
                 </p>
                 <div class="part_button">
