@@ -17,7 +17,8 @@ class TopUpSeeder extends Seeder
         DB::table('top_ups')->insert([
             [
                 'name' => 'BiPay',
-                'img' => 'https://github.com/valenciavika/Bytes/blob/main/public/images/Logo_Binuseats.png',
+                'img' => 'https://github.com/valenciavika/Bytes/blob/main/public/images/Logo_Binuseats.png?raw=true',
+
             ],
             [
                 'name' => 'OVO',
@@ -25,7 +26,7 @@ class TopUpSeeder extends Seeder
             ],
             [
                 'name' => 'GoPay',
-                'img' => 'https://gopay.co.id/icon.png',
+                'img' => 'https://info.dipendajatim.go.id/landing/img/GoPay.png',
             ],
         ]);
     }

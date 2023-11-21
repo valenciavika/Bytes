@@ -13,12 +13,12 @@
 <body>
     <div id="divbackground">
         <div id="divwelcome">
-            <p id="welcometxt"><strong>Welcome to BinusEats!</strong></p>
+            <p id="welcometxt"><strong>Welcome to Bytes!</strong></p>
         </div>
 
         <div id="divcontentbackground">
             <div id="divlogo">
-                <img id="logo" src="{{asset('/images/Logo_Binuseats.png')}}" alt="Logo BinusEats">
+                <img id="logo" src="{{asset('/images/Logo_Binuseats.png')}}" alt="Logo Bytes">
             </div>
             <div class="resetpass">
                 <p id="resetpasstxt"><strong>Reset Password</strong></p>

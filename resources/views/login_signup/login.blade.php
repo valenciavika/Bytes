@@ -4,7 +4,7 @@
     <div id="divsignupform">
         <div id="divsignuptxt">
             <p id="signuptxt">
-                <strong>Log In BinusEats</strong>
+                <strong>Log In Bytes</strong>
             </p>
             <br>
         </div>
