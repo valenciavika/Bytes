@@ -17,7 +17,7 @@ class TopUpSeeder extends Seeder
         DB::table('top_ups')->insert([
             [
                 'name' => 'BiPay',
-                'img' => 'https://github.com/jeje116/BinusEats/blob/main/public/images/Logo_Binuseats.png?raw=true',
+                'img' => 'https://github.com/valenciavika/Bytes/blob/main/public/images/Logo_Binuseats.png',
             ],
             [
                 'name' => 'OVO',
