@@ -18,7 +18,7 @@ class TopUpController extends Controller
         $unread_notif_count = count($unread_status);
 
         return view('main_content.topup', [
-            'page_title' => 'Topup | BinusEats',
+            'page_title' => 'Topup | Bytes',
             'unread_notif_count' => $unread_notif_count,
         ]);
     }

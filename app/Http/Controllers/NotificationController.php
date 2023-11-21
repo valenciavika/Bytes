@@ -14,7 +14,7 @@ class NotificationController extends Controller
         $count_notif = count($notif);
 
         return view('user_page.main_content.notification', [
-            'page_title' => 'Notification | BinusEats',
+            'page_title' => 'Notification | Bytes',
             'active_number' => 1,
             'notifications' => $notif,
             'unread_notif_count' => $unread_notif_count,
@@ -26,7 +26,7 @@ class NotificationController extends Controller
     {
         $notif_id = $request->input('notif_id');
         $this->updateStatus($notif_id);
-        
+
     }
 
     private function updateStatus($notif_id)

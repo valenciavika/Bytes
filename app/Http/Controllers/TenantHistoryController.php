@@ -16,7 +16,7 @@ class TenantHistoryController extends Controller
         })->get();
 
         return view('tenant_page.tenant_content.tenant_history', [
-            'page_title' => 'History | BinusEats',
+            'page_title' => 'History | Bytes',
             'active_number' => 1,
             'dropdown_status' => 2,
             'orders' => $order,

@@ -19,7 +19,7 @@ class TenantTransactionController extends Controller
         })->get();
 
         return view('tenant_page.tenant_content.tenant_transaction', [
-            'page_title' => 'Admin | BinusEats',
+            'page_title' => 'Admin | Bytes',
             'active_number' => 1,
             'transactions' => $transactions,
             'dropdown_status' => 1,

@@ -58,7 +58,7 @@ class HomeMenuController extends Controller
         // dd($tr->transaction_time);
 
         return view('/user_page.main_content.homepage', [
-            'page_title' => 'BinusEats',
+            'page_title' => 'Bytes',
             'active_number' => 0,
             'tenant_category' => Tenant_category::all(),
             'tenant_all' => Tenant::all(),

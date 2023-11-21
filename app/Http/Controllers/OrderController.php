@@ -32,7 +32,7 @@ class OrderController extends Controller
         $unread_notif_count = count($unread_status);
 
         return view('user_page.main_content.processing_finish.order', [
-            'page_title' => 'Order | BinusEats',
+            'page_title' => 'Order | Bytes',
             'active_number' => 3,
             'temp_variable' => 1,
             'transactions' => $transactions,

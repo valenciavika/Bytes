@@ -13,7 +13,7 @@ use App\Models\User;
 class ForgotpassController extends Controller
 {
     public function showForgotPass() {
-        return view('forgotpass_verif.forgot', ['page_title' => 'Reset Password | BinusEats']);
+        return view('forgotpass_verif.forgot', ['page_title' => 'Reset Password | Bytes']);
     }
 
     public function showChangePassword(Request $request) {
@@ -25,7 +25,7 @@ class ForgotpassController extends Controller
             'user_id' => $user_id,
             'token' => $token,
             'email' => $email,
-            'page_title' => 'Change Password | BinusEats'
+            'page_title' => 'Change Password | Bytes'
         ]);
     }
 
@@ -56,11 +56,11 @@ class ForgotpassController extends Controller
             'body' => $body,
             'user_id' => $user[0]->id,
             'email' => $request->email,
-            'page_title' => 'Reset Password | BinusEats',
+            'page_title' => 'Reset Password | Bytes',
             'success' => null
         ]);
     }
-    
+
     public function resendEmail(Request $request) {
 
         Mail::send('forgotpass_verif.email_forgot',['action_link' => $request->action_link, 'body'=> $request->body], function($message) use ($request) {
@@ -73,11 +73,11 @@ class ForgotpassController extends Controller
             'body' => $request->body,
             'user_id' => $request->user_id,
             'email' => $request->email,
-            'page_title' => 'Reset Password | BinusEats',
+            'page_title' => 'Reset Password | Bytes',
             'success' => 'Email has been send'
         ]);
     }
-    
+
     public function changePassword(Request $request) {
         $validation = $request->validate([
             'password' => 'required|min:5|max:255',
@@ -101,7 +101,7 @@ class ForgotpassController extends Controller
             $this->updatePassword($user_id, $validation['password']);
 
             DB::table('password_reset')->where('email', $request->email)->delete();
-    
+
             return redirect('/login')->with('reset_pass_success', 'You have reset your password successfully');
         }
     }

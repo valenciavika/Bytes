@@ -11,7 +11,7 @@ class TenantHomeController extends Controller
     public function show($id) {
 
         return view('tenant_page.tenant_content.tenant_homepage', [
-            'page_title' => 'Admin Home | BinusEats',
+            'page_title' => 'Admin Home | Bytes',
             'active_number' => 1,
             'dropdown_status' => 0,
             'menus' => Menu::where('tenant_id', $id)->get()

@@ -20,7 +20,7 @@ class CartController extends Controller
         $unread_notif_count = count($unread_status);
 
         return view('user_page.main_content.cartpage', [
-            'page_title' => 'Cart | BinusEats',
+            'page_title' => 'Cart | Bytes',
             'active_number' => 2,
             'carts' => Cart::where('user_id', $id)->get()->sortByDesc('created_at'),
             'tenants' => Tenant::all(),

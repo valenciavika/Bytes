@@ -11,7 +11,7 @@ class SignUpController extends Controller
 {
     public function index() {
         return view('login_signup.signup',[
-            'page_title' => 'Signup | BinusEats',
+            'page_title' => 'Signup | Bytes',
         ]);
     }
 

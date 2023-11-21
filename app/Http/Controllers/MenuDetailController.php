@@ -18,7 +18,7 @@ class MenuDetailController extends Controller
         $unread_notif_count = count($unread_status);
 
         return view('/user_page.main_content.menudetail', [
-            'page_title' => 'Menu | BinusEats',
+            'page_title' => 'Menu | Bytes',
             'active_number' => 0,
             'menu' => $Menu,
             'tenant' => $tenant,

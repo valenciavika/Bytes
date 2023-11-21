@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index() {
         return view('login_signup.login',[
-            'page_title' => 'Login | BinusEats',
+            'page_title' => 'Login | Bytes',
         ]);
     }
 
@@ -32,11 +32,11 @@ class LoginController extends Controller
 
     public function signout(Request $request) {
         Auth::logout();
- 
+
         $request->session()->invalidate();
-    
+
         $request->session()->regenerateToken();
-    
+
         return redirect('/login');
     }
 }

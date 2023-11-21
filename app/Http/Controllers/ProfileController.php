@@ -19,7 +19,7 @@ class ProfileController extends Controller
         $unread_notif_count = count($unread_status);
 
         return view('user_page.main_content.profile', [
-            'page_title' => 'Profile | BinusEats',
+            'page_title' => 'Profile | Bytes',
             'active_number' => 4,
             'user' => User::find($id),
             'emoneys' => TopUp::all(),
